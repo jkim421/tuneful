@@ -27,7 +27,10 @@ class User < ApplicationRecord
   #   through: :user_follows,
   #   source: :artist
 
-  # has_many :user_downloads
+  # has_many :user_collection_albums
+  # has_many :collected_albums,
+  #   through: :user_collection_albums,
+  #   source: :album
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     return nil unless session[:session_token]
-    @current_user ||= User.find_by_credentials(session_token: session[:session_token]
+    @current_user ||= User.find_by(session_token: session[:session_token])
   end
 
   def ensure_logged_in
@@ -14,8 +14,11 @@ class ApplicationController < ActionController::Base
   end
 
   def login(user)
-    user.rest_session_token!
+    debugger
+    user.reset_session_token!
+    debugger
     session[:session_token] = user.session_token
+    debugger
     @current_user = user
   end
 

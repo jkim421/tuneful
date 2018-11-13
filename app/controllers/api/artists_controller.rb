@@ -1,4 +1,4 @@
-class Api::UsersController < ApplicationController
+class Api::ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
@@ -6,8 +6,13 @@ class Api::UsersController < ApplicationController
     if @artist.save
       render 'api/artists/show'
     else
-      render json: @users.errors.full_messages, status: 422
+      render json: @artist.errors.full_messages, status: 422
     end
+  end
+
+  def show
+    @artist = Artist.find(params[:id])
+    render 'api/artists/show'
   end
 
   private

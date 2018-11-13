@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
     )
 
     if @user
-      login user
+      login @user
       render json: ['Ya u logged in boi']
       # render 'api/users/show'
     else
