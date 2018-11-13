@@ -8,5 +8,4 @@ Rails.application.routes.draw do
     resources :artists, only: [:create, :update, :show]
   end
 
-
 end
