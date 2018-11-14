@@ -30,4 +30,5 @@ export const createArtist = artist => dispatch => {
   return ArtistApiUtil.createArtist(artist).then(returnedArtist =>
     dispatch(addArtist(returnedArtist)),
     errors => dispatch(receiveArtistErrors(errors.responseJSON))
+  );
 };
