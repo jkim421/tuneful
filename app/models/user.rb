@@ -9,7 +9,7 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#
+
 
 class User < ApplicationRecord
   attr_reader :password
@@ -19,6 +19,8 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_nil: true
 
   after_initialize :ensure_session_token
+
+  has_one :artist
 
   # has_many :album_comments
   #
