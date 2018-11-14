@@ -5,3 +5,10 @@ export const createArtist = (artist) => {
     data: { artist },
   });
 };
+
+export const retrieveArtist = (artistId) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/artists/${artistId}`,
+  });
+};

@@ -86,6 +86,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/artist_actions.js":
+/*!********************************************!*\
+  !*** ./frontend/actions/artist_actions.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/frontend/actions/artist_actions.js: Unexpected token, expected \",\" (33:0)\n\n\u001b[0m \u001b[90m 31 | \u001b[39m    dispatch(addArtist(returnedArtist))\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 32 | \u001b[39m    errors \u001b[33m=>\u001b[39m dispatch(receiveArtistErrors(errors\u001b[33m.\u001b[39mresponseJSON))\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 33 | \u001b[39m}\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 34 | \u001b[39m\u001b[0m\n    at _class.raise (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:4021:15)\n    at _class.unexpected (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:5330:16)\n    at _class.expect (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:5318:28)\n    at _class.parseCallExpressionArguments (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:6206:14)\n    at _class.parseSubscript (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:6116:32)\n    at _class.parseSubscripts (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:6026:19)\n    at _class.parseExprSubscripts (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:6016:17)\n    at _class.parseMaybeUnary (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:5985:21)\n    at _class.parseExprOps (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:5894:21)\n    at _class.parseMaybeConditional (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:5866:21)\n    at _class.parseMaybeAssign (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:5813:21)\n    at _class.parseExpression (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:5766:21)\n    at _class.parseReturnStatement (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:7607:28)\n    at _class.parseStatementContent (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:7287:21)\n    at _class.parseStatement (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:7253:17)\n    at _class.parseBlockOrModuleBlockBody (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:7805:23)\n    at _class.parseBlockBody (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:7792:10)\n    at _class.parseBlock (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:7781:10)\n    at _class.parseFunctionBody (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:7026:24)\n    at _class.parseArrowExpression (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:6979:10)\n    at _class.parseExprAtom (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:6321:18)\n    at _class.parseExprAtom (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:3717:52)\n    at _class.parseExprSubscripts (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:6006:21)\n    at _class.parseMaybeUnary (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:5985:21)\n    at _class.parseExprOps (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:5894:21)\n    at _class.parseMaybeConditional (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:5866:21)\n    at _class.parseMaybeAssign (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:5813:21)\n    at _class.parseFunctionBody (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:7018:24)\n    at _class.parseArrowExpression (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:6979:10)\n    at _class.parseExprAtom (/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/node_modules/@babel/parser/lib/index.js:6321:18)");
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -769,6 +780,73 @@ var mapDispatchProps = function mapDispatchProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/reducers/artist_errors_reducer.js":
+/*!****************************************************!*\
+  !*** ./frontend/reducers/artist_errors_reducer.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_artist_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/artist_actions */ "./frontend/actions/artist_actions.js");
+/* harmony import */ var _actions_artist_actions__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_actions_artist_actions__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var artistErrorsReducer = function artistErrorsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_artist_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ARTIST_ERRORS"]:
+      return action.errors;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (artistErrorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/artists_reducer.js":
+/*!**********************************************!*\
+  !*** ./frontend/reducers/artists_reducer.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_artist_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/artist_actions */ "./frontend/actions/artist_actions.js");
+/* harmony import */ var _actions_artist_actions__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_actions_artist_actions__WEBPACK_IMPORTED_MODULE_1__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var artistsReducer = function artistsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_artist_actions__WEBPACK_IMPORTED_MODULE_1__["ADD_ARTIST"]:
+    case _actions_artist_actions__WEBPACK_IMPORTED_MODULE_1__["RETRIEVE_ARTIST"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.artist.id, action.artist));
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (artistsReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/entities_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/entities_reducer.js ***!
@@ -780,10 +858,13 @@ var mapDispatchProps = function mapDispatchProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _artists_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./artists_reducer */ "./frontend/reducers/artists_reducer.js");
+
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  artists: _artists_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -800,10 +881,13 @@ var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
+/* harmony import */ var _artist_errors_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./artist_errors_reducer */ "./frontend/reducers/artist_errors_reducer.js");
+
 
 
 var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  artist: _artist_errors_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
 
