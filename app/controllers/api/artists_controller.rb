@@ -1,15 +1,15 @@
 class Api::ArtistsController < ApplicationController
 
   def create
-    @user = User.new(...)
+    @user = User.new(user_params)
     if @user.save
       @artist = Artist.new(artist_params)
-
+      @artist.user_id = @user.id
       if @artist.save
-        render 'api/artists/show'
+        render 'api/artists/register'
       else
         to_delete = User.last
-        User.delete!
+        to_delete.destroy
         render json: @artist.errors.full_messages, status: 422
       end
 
@@ -30,6 +30,10 @@ class Api::ArtistsController < ApplicationController
 
   def artist_params
     params.require(:artist).permit(:user_id, :name, :bio, :location, :picture_url)
+  end
+
+  def user_params
+    params.require(:artist).permit(:username, :password, :email)
   end
 
 end

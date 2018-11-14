@@ -7,14 +7,14 @@ export const RECEIVE_ARTIST_ERRORS = 'RECEIVE_ARTIST_ERRORS';
 
 export const addArtist = (artist) => {
   return {
-    method: ADD_ARTIST,
+    type: ADD_ARTIST,
     artist,
   };
 };
 
 export const retrieveArtist = (artist) => {
   return {
-    method: RETRIEVE_ARTIST,
+    type: RETRIEVE_ARTIST,
     artist,
   };
 };

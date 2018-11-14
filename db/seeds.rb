@@ -10,3 +10,5 @@ User.destroy_all
 
 john = User.create!(username: 'john', password: 'password', email: 'jkim21@pm.me')
 demo = User.create!(username: 'demo', password: 'password', email: 'demo@demo.com')
+
+bleatingedge = Artist.create(user_id: john.id, name: 'bleatingedge', location: 'New York', bio: 'We Bleat For Music')

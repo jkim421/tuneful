@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 
 class RegistrationSelect extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.demoUser = this.demoUser.bind(this);
+  }
+
   demoUser(e) {
     e.preventDefault();
     this.props.demoUserLogin({
@@ -19,7 +24,7 @@ class RegistrationSelect extends React.Component {
           <Link to="/" className="close-form">&times;</Link>
           <div className="registration-select-form">
             <div className="signup-row">
-              <i class="fas fa-headphones-alt"></i>
+              <i className="fas fa-headphones-alt"></i>
               <div className="registration-option">
                 <Link className="registration-link user-registration" to="/signup/user">Sign up as a fan</Link>
                 <p>
@@ -28,7 +33,7 @@ class RegistrationSelect extends React.Component {
               </div>
             </div>
             <div className="signup-row">
-              <i class="fas fa-music"></i>
+              <i className="fas fa-music"></i>
               <div className="registration-option">
                 <Link className="registration-link artist-registration" to="/signup/artist">Sign up as an artist</Link>
                 <p>
