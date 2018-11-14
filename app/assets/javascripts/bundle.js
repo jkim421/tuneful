@@ -106,7 +106,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util");
+/* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js");
 
 
 var RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
@@ -302,41 +302,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
-/***/ "./frontend/util/session_api_util":
-/*!****************************************!*\
-  !*** ./frontend/util/session_api_util ***!
-  \****************************************/
+/***/ "./frontend/util/session_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/session_api_util.js ***!
+  \*******************************************/
 /*! exports provided: signup, login, logout */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signup", function() { return signup; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
-const signup = (user) => {
-  return $.ajax({
-    method: 'POST',
-    url: '/api/users',
-    data: { user },
-  })
-}
-
-const login = (user) => {
-  return $.ajax({
-    method: 'POST',
-    url: '/api/session',
-    data: { user },
-  })
-}
-
-const logout = () => {
-  return $.ajax({
-    method: 'DELETE',
-    url: '/api/session'
-  })
-}
-
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/john.kim/Documents/AppA/Curriculum/Full_Stack/tunesmith/frontend/util/session_api_util.js'");
 
 /***/ }),
 
