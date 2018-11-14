@@ -6,15 +6,17 @@
 #  user_id     :integer          not null
 #  name        :string           not null
 #  bio         :string
-#  location    :string           not null
 #  picture_url :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#
+#  location    :string
+
 
 class Artist < ApplicationRecord
 
   belongs_to :user
+
+  validates :name, presence: true
 
   # has_many :albums
   # has_many :songs

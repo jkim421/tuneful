@@ -23,6 +23,8 @@
 
 .signup-form {
   height: 450px;
+  box-sizing: border-box;
+  padding: 20px 40px;
 }
 
 .login-form {
@@ -122,4 +124,72 @@
 .session-errors {
   color: red;
   margin: 0;
+}
+
+.signup-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 50%;
+  box-sizing: border-box;
+  color: #818285;
+}
+
+.signup-row:first-of-type {
+  border-bottom: 1px solid #d7d8d7;
+}
+
+.signup-row .fas {
+  font-size: 100px;
+  text-align: center;
+}
+
+.fa-headphones-alt {
+  color: #02abcd;
+}
+
+.fa-music {
+  color: #799f43;
+}
+
+.registration-option {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+}
+
+.registration-select-form {
+  height: 400px;
+  box-sizing: border-box;
+  padding: 0 40px;
+}
+
+.registration-link {
+  background-color: white;
+  border-radius: 4px;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  margin-top: 30px;
+  font-weight: 400;
+  text-decoration: none;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-registration {
+  color: #02abcd;
+  border: 1px solid #02abcd;
+}
+
+.artist-registration {
+  color: #799f43;
+  border: 1px solid #799f43;
+}
+
+.registration-link:hover {
+  text-decoration: underline;
 }

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 
-class SessionForm extends React.Component {
+class ArtistSignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      username: "",
-      password: "",
-      name: "",
+      email: '',
+      username: '',
+      password: '',
+      name: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoUser = this.demoUser.bind(this);
@@ -33,53 +33,11 @@ class SessionForm extends React.Component {
     );
   }
 
-  formHeader() {
-    if (this.props.formType === "Sign up") {
-      return <h1>Sign up as a fan</h1>
-    } else if (this.props.formType === 'Log in') {
-      return <h1>Log in</h1>
-    } else {
-      return <h1>Sign up as an artist</h1>
-    }
-  }
-
-  emailField() {
-    if (this.props.formType === "Log in") {
-      return <div/>
-    } else {
-      return (
-        <>
-          <label htmlFor="session-email">Email</label>
-          <input
-            type="text"
-            className="input-field"
-            onChange={this.update('email')} />
-        </>
-      )
-    }
-  }
-
-  nameField() {
-    if (this.props.formType === "Sign up as an artist") {
-      return (
-        <>
-        <label htmlFor="session-band-name">Band Name</label>
-        <input
-          type="text"
-          className="input-field"
-          onChange={this.update('name')} />
-        </>
-    )
-    } else {
-      return <div/>
-    }
-  }
-
   redirectLink() {
-    if (this.props.formType === "Log in") {
-      return <p className="session-footer">Don't have an account? {this.props.linkToForm}.</p>
-      } else {
+    if (this.props.formType === "Sign up") {
       return <p className="session-footer">Already have an account? {this.props.linkToForm}.</p>
+      } else {
+      return <p className="session-footer">Don't have an account? {this.props.linkToForm}.</p>
       }
     }
 
@@ -87,33 +45,33 @@ class SessionForm extends React.Component {
     return (
       <div>
         <div className="session-form">
-          {this.formHeader()}
+          <h1>Sign up as an artist</h1>
           <Link to="/" className="close-form">&times;</Link>
           <form
             className={this.props.formClass} onSubmit={this.handleSubmit}>
             <div className="session-form-inputs">
-              {this.nameField()}
-              <p className="session-errors">
-                {this.props.nameError}
-              </p>
-              {this.emailField()}
+              <label htmlFor="session-email">Email</label>
+              <input
+                type="text"
+                className="input-field"
+                onChange={this.update('email')} />
               <p className="session-errors">
                 {this.props.emailError}
               </p>
 
               <label htmlFor="session-username">Username</label>
               <input
-              type="text"
-              id="session-username"
-              onChange={this.update('username')} />
+                type="text"
+                id="session-username"
+                onChange={this.update('username')} />
               <p className="session-errors">
                 {this.props.usernameError}
               </p>
 
               <label htmlFor="session-password">Password</label>
               <input
-              type="password"
-              onChange={this.update('password')} />
+                type="password"
+                onChange={this.update('password')} />
               <p className="session-errors">
                 {this.props.passwordError}
               </p>
@@ -142,4 +100,4 @@ class SessionForm extends React.Component {
 
 }
 
-export default SessionForm;
+export default ArtistSignupForm;
