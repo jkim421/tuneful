@@ -27,7 +27,7 @@ const mapStateToProps = (state) => {
     nameError: nameError || '',
     linkToForm: <Link className="session-footer-button" to='/login'>Log in</Link>,
     formType: 'Sign up as an artist',
-    formClass: "artist-signup-form",
+    formClass: "signup-form",
   };
 };
 
