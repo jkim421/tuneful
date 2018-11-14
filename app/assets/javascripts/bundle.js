@@ -248,13 +248,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
@@ -265,25 +265,47 @@ function (_React$Component) {
   _inherits(MainHeader, _React$Component);
 
   function MainHeader(props) {
+    var _this;
+
     _classCallCheck(this, MainHeader);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(MainHeader).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MainHeader).call(this, props));
+    _this.logout = _this.logout.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    return _this;
   }
 
   _createClass(MainHeader, [{
+    key: "logout",
+    value: function logout(e) {
+      e.preventDefault();
+      this.props.logout();
+    }
+  }, {
+    key: "greeting",
+    value: function greeting() {
+      if (this.props.loggedIn) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Hi ", this.props.currentUser.username);
+      } else {
+        return null;
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "main-header-row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "main-header-content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Placeholder Logo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Discover amazing new music and directly support the artists who make it."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Placeholder For Logo"), this.greeting(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Discover amazing new music and directly support the artists who make it."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/login",
-        className: "header-link"
-      }, "Log In"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "header-session"
+      }, "log in"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/signup",
-        className: "header-link"
-      }, "Sign Up")));
+        className: "header-session"
+      }, "sign up"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "header-session",
+        onClick: this.logout
+      }, "logout")));
     }
   }]);
 
@@ -306,20 +328,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _main_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main_header */ "./frontend/components/header/main_header.jsx");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _main_header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./main_header */ "./frontend/components/header/main_header.jsx");
+
 
 
 
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
+    currentUser: state.entities.users[state.session.id],
     loggedIn: Boolean(state.session.id)
   };
 };
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {};
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    logout: function logout() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"])());
+    }
+  };
+};
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(_main_header__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(_main_header__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
