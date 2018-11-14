@@ -881,13 +881,13 @@ var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
-/* harmony import */ var _artist_errors_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./artist_errors_reducer */ "./frontend/reducers/artist_errors_reducer.js");
+/* harmony import */ var _artist_errors_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./artist_errors_reducer */ "./frontend/reducers/artist_errors_reducer.js");
 
 
 
 var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  artist: _artist_errors_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
+  artist: _artist_errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
 
