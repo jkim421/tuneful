@@ -1,0 +1,125 @@
+.session-screen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgba(0,0,0,0.55)
+}
+
+.session-form {
+  width: 500px;
+  background-color: white;
+  z-index: 2;
+  box-sizing: border-box;
+  padding: 0;
+  position: absolute;
+  top: 45px;
+  left: 351px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.signup-form {
+  height: 450px;
+}
+
+.login-form {
+  height: 350px;
+}
+
+.session-form h1 {
+  font-size: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+  display: block;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ededed;
+  margin-top: 0;
+  padding: 15px 20px 12px;
+  font-weight: 300;
+  border-radius: 6px 6px 0 0;
+}
+
+.session-form-inputs {
+  box-sizing: border-box;
+  padding: 17px 80px 0 80px;
+}
+.session-form label {
+  display: block;
+  text-align: left;
+  font-weight: 400;
+  margin-top: 20px;
+  font-size: 14px;
+}
+.session-form label:first-of-type {
+  margin-top: 0;
+}
+
+.session-form input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 25px;
+  font-weight: 400;
+  border: 1px solid #ccc;
+  padding: 4px 10px 4px 10px;
+  height: 35px;
+  font-size: 14px;
+}
+
+.session-form input[type="submit"] {
+  background-color: rgb(0,161,198);
+  text-align: center;
+  border-radius: 4px;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  color: white;
+  margin-top: 30px;
+}
+
+.session-form input[type="submit"]:hover {
+  text-decoration: underline;
+}
+.close-form {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: #aaa;
+  text-decoration: none;
+}
+
+.session-footer {
+  color: #818285;
+  margin-top: 30px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.session-footer:last-of-type {
+  margin-top: 20px;
+}
+
+.session-footer-button {
+  border: none;
+  background: none;
+  font-size: inherit;
+  text-decoration: underline;
+  color: rgb(0,161,198);
+  padding: 0;
+}
+
+.session-footer-button:hover {
+  cursor: pointer;
+}
+
+.session-errors {
+  color: red;
+  margin: 0;
+}

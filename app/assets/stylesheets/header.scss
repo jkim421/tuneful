@@ -1,0 +1,27 @@
+.main-header-row {
+  height: 105px;
+  background-color: rgba(255,255,255,0.98);
+  outline: 1px solid black;
+  box-sizing: border-box;
+  padding-top: 12px;
+}
+
+.main-header-content {
+  width: 63%;
+  margin: 0 auto;
+  outline: 1px solid black;
+}
+
+.header-session {
+  border: none;
+  outline: none;
+  background: none;
+  text-decoration: none;
+  font-size: 14px;
+  color: black;
+}
+
+.header-session:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
