@@ -5,8 +5,13 @@ import { login } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
+  const errors = state.errors.session
+  let loginError;
+  if (errors[0] && errors[0].includes("Invalid")) {
+    loginError = errors[0];
+  }
   return {
-    errors: state.errors.session,
+    loginError: loginError || '',
     linkToForm: <Link className="session-footer-button" to='/signup'>Sign up</Link>,
     formType: 'Log in',
     formClass: "login-form",

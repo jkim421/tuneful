@@ -22,7 +22,7 @@
 }
 
 .signup-form {
-  height: 400px;
+  height: 450px;
 }
 
 .login-form {
@@ -51,6 +51,10 @@
   display: block;
   text-align: left;
   font-weight: 400;
+  margin-top: 20px;
+}
+.session-form label:first-of-type {
+  margin-top: 0;
 }
 
 .session-form input {
@@ -61,7 +65,6 @@
   font-weight: 400;
   border: 1px solid #ccc;
   padding: 4px 10px 4px 10px;
-  margin-bottom: 20px;
   height: 35px;
 }
 
@@ -112,4 +115,9 @@
 
 .session-footer-button:hover {
   cursor: pointer;
+}
+
+.session-errors {
+  color: red;
+  margin: 0;
 }

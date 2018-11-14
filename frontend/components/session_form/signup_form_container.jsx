@@ -5,8 +5,23 @@ import { signup, login } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
+  const errors = state.errors.session;
+  let emailError, usernameError, passwordError;
+
+  errors.forEach( (error) => {
+    if (error.includes("Username")) {
+      usernameError = error;
+    } else if (error.includes("Email")) {
+      emailError = error;
+    } else if (error.includes("Password")) {
+      passwordError = error;
+    };
+  });
+
   return {
-    errors: state.errors.session,
+    emailError: emailError || '',
+    usernameError: usernameError || '',
+    passwordError: passwordError || '',
     linkToForm: <Link className="session-footer-button" to='/login'>Log in</Link>,
     formType: 'Sign up',
     formClass: "signup-form",

@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 import { Redirect, Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
@@ -75,17 +74,30 @@ class SessionForm extends React.Component {
             className={this.props.formClass} onSubmit={this.handleSubmit}>
             <div className="session-form-inputs">
               {this.emailField()}
+              <p className="session-errors">
+                {this.props.emailError}
+              </p>
 
               <label htmlFor="session-username">Username</label>
               <input
               type="text"
               id="session-username"
               onChange={this.update('username')} />
+              <p className="session-errors">
+                {this.props.usernameError}
+              </p>
 
               <label htmlFor="session-password">Password</label>
               <input
               type="password"
               onChange={this.update('password')} />
+              <p className="session-errors">
+                {this.props.passwordError}
+              </p>
+
+              <p className="session-errors">
+                {this.props.loginError}
+              </p>
 
               <input
               type="submit"

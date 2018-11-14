@@ -20,9 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
 } else {
   store = configureStore();
 }
+
+  // FOR TESTING DELETE
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.login = login;
   window.logout = logout;
+
   ReactDOM.render(<Root store={ store }/>, rootEl);
 })
