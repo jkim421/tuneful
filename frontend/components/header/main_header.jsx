@@ -32,7 +32,6 @@ class MainHeader extends React.Component {
       )
     }
   }
-
   greeting() {
     if (this.props.loggedIn) {
       return (
