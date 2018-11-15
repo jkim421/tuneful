@@ -23,4 +23,8 @@ class Album < ApplicationRecord
   belongs_to :artist
   has_many :songs
 
+  def self.of_genre(genre)
+    return self.where(genre: genre)
+  end
+
 end
