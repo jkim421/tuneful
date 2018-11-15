@@ -11,6 +11,7 @@ function Modal({modal, closeModal}) {
     return null;
   }
   let component;
+
   switch (modal) {
     case 'login':
       component = <LoginFormContainer />;
