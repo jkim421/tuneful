@@ -7,4 +7,4 @@ const albumsReducer = (state = {}, action) => {
   }
 };
 
-export default artistsReducer;
+export default albumsReducer;

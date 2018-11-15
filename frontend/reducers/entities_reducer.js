@@ -6,7 +6,7 @@ import albumsReducer from './albums_reducer';
 const entitiesReducer = combineReducers({
   users: usersReducer,
   artists: artistsReducer,
-  albums: albums,
+  albums: albumsReducer,
 });
 
 export default entitiesReducer;
