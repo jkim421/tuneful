@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_151454) do
+ActiveRecord::Schema.define(version: 2018_11_15_203159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,9 @@ ActiveRecord::Schema.define(version: 2018_11_15_151454) do
     t.boolean "downloadable", default: true
     t.datetime "release_date"
     t.integer "genre_id", null: false
+    t.boolean "featured", default: false
     t.index ["artist_id"], name: "index_albums_on_artist_id"
+    t.index ["featured"], name: "index_albums_on_featured"
     t.index ["genre_id"], name: "index_albums_on_genre_id"
     t.index ["title"], name: "index_albums_on_title"
   end
