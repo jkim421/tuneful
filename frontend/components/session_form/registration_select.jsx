@@ -27,7 +27,7 @@ class RegistrationSelect extends React.Component {
               <i className="fas fa-headphones-alt"></i>
               <div className="registration-option">
                 <Link className="registration-link user-registration" to="/signup/user">Sign up as a fan</Link>
-                <p>
+                <p className="signup-text">
                   Follow your favorite artists, keep a wishlist, get instant streaming of your purchases, showcase your collection, and explore the music of like-minded fans.
                 </p>
               </div>
@@ -36,7 +36,7 @@ class RegistrationSelect extends React.Component {
               <i className="fas fa-music"></i>
               <div className="registration-option">
                 <Link className="registration-link artist-registration" to="/signup/artist">Sign up as an artist</Link>
-                <p>
+                <p className="signup-text">
                   Sell directly to your fans with total control over your music and pricing. Easy access to your customers’ data, real-time stats, music chart reporting, and more.
                 </p>
               </div>

@@ -16,7 +16,7 @@
   padding: 0;
   position: absolute;
   top: 45px;
-  left: 351px;
+  left: 35%;
   font-size: 16px;
   border-radius: 6px;
 }
@@ -94,13 +94,14 @@
 
 .session-footer {
   color: #818285;
-  margin-top: 30px;
+  margin-top: 20px;
   font-size: 12px;
   text-align: center;
+  padding: 0;
 }
 
 .session-footer:last-of-type {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .session-footer-button {
@@ -187,4 +188,8 @@
 
 .registration-link:hover {
   text-decoration: underline;
+}
+
+.signup-text {
+  padding-top: 18px;
 }
