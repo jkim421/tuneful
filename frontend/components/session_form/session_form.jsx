@@ -24,7 +24,7 @@ class SessionForm extends React.Component {
     this.props.demoUserLogin({
       username: "demo",
       password: "password"
-    });
+    })
   }
 
   update(field) {
@@ -77,9 +77,9 @@ class SessionForm extends React.Component {
 
   redirectLink() {
     if (this.props.formType === "Log in") {
-      return <p className="session-footer">Don't have an account? {this.props.linkToForm}.</p>
+      return <p className="session-footer">Don't have an account? {this.props.otherForm}.</p>
       } else {
-      return <p className="session-footer">Already have an account? {this.props.linkToForm}.</p>
+      return <p className="session-footer">Already have an account? {this.props.otherForm}.</p>
       }
     }
 
@@ -88,7 +88,7 @@ class SessionForm extends React.Component {
       <div>
         <div className="session-form">
           {this.formHeader()}
-          <Link to="/" className="close-form">&times;</Link>
+          <p className="close-form" onClick={this.props.closeModal}>&times;</p>
           <form
             className={this.props.formClass} onSubmit={this.handleSubmit}>
             <div className="session-form-inputs">
@@ -135,7 +135,6 @@ class SessionForm extends React.Component {
             </p>
           </form>
         </div>
-        <div className="session-screen"/>
       </div>
     );
   }

@@ -20,6 +20,8 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_one_attached :photo
+
   has_one :artist
 
   # has_many :album_comments

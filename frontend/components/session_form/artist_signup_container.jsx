@@ -4,6 +4,7 @@ import SessionForm from './session_form';
 import { signup, login } from '../../actions/session_actions';
 import { createArtist } from '../../actions/artist_actions';
 import { Link } from 'react-router-dom';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
   const errors = state.errors.artist;
@@ -25,7 +26,6 @@ const mapStateToProps = (state) => {
     usernameError: usernameError || '',
     passwordError: passwordError || '',
     nameError: nameError || '',
-    linkToForm: <Link className="session-footer-button" to='/login'>Log in</Link>,
     formType: 'Sign up as an artist',
     formClass: "signup-form",
   };
@@ -34,7 +34,13 @@ const mapStateToProps = (state) => {
 const mapDispatchProps = (dispatch) => {
   return {
     processForm: (artist) => dispatch(createArtist(artist)),
-    demoUserLogin: (demoUser) => dispatch(login(demoUser)),
+    demoUserLogin: (demoUser) => dispatch(login(demoUser)).then(dispatch(closeModal())),
+    otherForm: (
+      <button className="session-footer-button" onClick={() => dispatch(openModal('login'))}>
+        Log in
+      </button>
+    ),
+    closeModal: () => dispatch(closeModal()),
   };
 };
 

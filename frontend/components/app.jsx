@@ -6,20 +6,18 @@ import ArtistSignupContainer from './session_form/artist_signup_container';
 import LoginFormContainer from './session_form/login_form_container';
 import RegistrationSelectContainer from './session_form/registration_select_container';
 import HeaderSelect from './header/header_select';
+import ArtistPageContainer from './artist_page/artist_page_container';
+import Modal from './modal';
 
 const App = () => {
   return (
     <div>
+      <Modal />
       <header>
         <Route path = "/" component={HeaderSelect} />
       </header>
       <section>
-        <Switch>
-          <AuthRoute exact path="/login" component={LoginFormContainer} />
-          <AuthRoute exact path="/signup/user" component={SignupFormContainer} />
-          <AuthRoute exact path="/signup/artist" component={ArtistSignupContainer} />
-          <AuthRoute exact path="/signup" component={RegistrationSelectContainer} />
-        </Switch>
+        <Route path="/artist/:artistId" component={ArtistPageContainer} />
       </section>
     </div>
   );

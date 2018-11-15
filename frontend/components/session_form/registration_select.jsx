@@ -21,12 +21,12 @@ class RegistrationSelect extends React.Component {
       <div>
         <div className="session-form">
           <h1>Sign up for a tunesmith account</h1>
-          <Link to="/" className="close-form">&times;</Link>
+          <p className="close-form" onClick={this.props.closeModal}>&times;</p>
           <div className="registration-select-form">
             <div className="signup-row">
               <i className="fas fa-headphones-alt"></i>
               <div className="registration-option">
-                <Link className="registration-link user-registration" to="/signup/user">Sign up as a fan</Link>
+                {this.props.fanSignup}
                 <p className="signup-text">
                   Follow your favorite artists, keep a wishlist, get instant streaming of your purchases, showcase your collection, and explore the music of like-minded fans.
                 </p>
@@ -35,7 +35,7 @@ class RegistrationSelect extends React.Component {
             <div className="signup-row">
               <i className="fas fa-music"></i>
               <div className="registration-option">
-                <Link className="registration-link artist-registration" to="/signup/artist">Sign up as an artist</Link>
+                {this.props.artistSignup}
                 <p className="signup-text">
                   Sell directly to your fans with total control over your music and pricing. Easy access to your customers’ data, real-time stats, music chart reporting, and more.
                 </p>
@@ -49,7 +49,6 @@ class RegistrationSelect extends React.Component {
               onClick={this.demoUser}>demo login</button>.
           </p>
         </div>
-        <div className="session-screen"/>
       </div>
     )
   }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import SessionForm from './session_form';
 import { signup, login } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
   const errors = state.errors.session;
@@ -22,7 +23,6 @@ const mapStateToProps = (state) => {
     emailError: emailError || '',
     usernameError: usernameError || '',
     passwordError: passwordError || '',
-    linkToForm: <Link className="session-footer-button" to='/login'>Log in</Link>,
     formType: 'Sign up',
     formClass: "signup-form",
   };
@@ -31,7 +31,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     processForm: (user) => dispatch(signup(user)),
-    demoUserLogin: (demoUser) => dispatch(login(demoUser)),
+    demoUserLogin: (demoUser) => dispatch(login(demoUser)).then(dispatch(closeModal())),
+    otherForm: (
+      <button className="session-footer-button" onClick={() => dispatch(openModal('login'))}>
+        Log in
+      </button>
+    ),
+    closeModal: () => dispatch(closeModal()),
   };
 };
 

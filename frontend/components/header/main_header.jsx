@@ -23,10 +23,10 @@ class MainHeader extends React.Component {
       return (
         <>
         <li>
-          <Link to="/signup" className="header-session">sign up</Link>
+          {this.props.signupForm}
         </li>
         <li>
-          <Link to="/login" className="header-session">log in</Link>
+          {this.props.loginForm}
         </li>
         </>
       )

@@ -93,7 +93,6 @@ class ArtistSignupForm extends React.Component {
             </p>
           </form>
         </div>
-        <div className="session-screen"/>
       </div>
     );
   }
