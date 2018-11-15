@@ -10,7 +10,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <>
-        <h1>Hello from the home page dummy</h1>
+        <h1>Hello from the home page</h1>
         <FeaturedAlbumsContainer />
       </>
     );
