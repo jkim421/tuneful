@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
-import { login } from '../../actions/session_actions';
+import { login, receiveSessionErrors } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { Link } from 'react-router-dom';
 
@@ -21,6 +21,7 @@ const mapStateToProps = (state) => {
 const mapDispatchProps = (dispatch) => {
   return {
     processForm: (user) => dispatch(login(user)),
+    clearErrors: () => dispatch(receiveSessionErrors([])),
     demoUserLogin: (demoUser) => dispatch(login(demoUser)).then(dispatch(closeModal())),
     otherForm: (
       <button className="session-footer-button" onClick={() => dispatch(openModal('signup'))}>

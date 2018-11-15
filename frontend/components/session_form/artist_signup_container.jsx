@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
-import { signup, login } from '../../actions/session_actions';
+import { signup, login, receiveSessionErrors } from '../../actions/session_actions';
 import { createArtist } from '../../actions/artist_actions';
 import { Link } from 'react-router-dom';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
-  const errors = state.errors.artist;
+  const errors = state.errors.session;
   let emailError, usernameError, passwordError, nameError;
   errors.forEach( (error) => {
     if (error.includes("Username")) {
@@ -34,6 +34,7 @@ const mapStateToProps = (state) => {
 const mapDispatchProps = (dispatch) => {
   return {
     processForm: (artist) => dispatch(createArtist(artist)),
+    clearErrors: () => dispatch(receiveSessionErrors([])),
     demoUserLogin: (demoUser) => dispatch(login(demoUser)).then(dispatch(closeModal())),
     otherForm: (
       <button className="session-footer-button" onClick={() => dispatch(openModal('login'))}>

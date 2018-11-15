@@ -1,5 +1,6 @@
 import React from 'react';
 import * as ArtistApiUtil from '../util/artist_api_util';
+import { receiveSessionErrors } from './session_actions';
 
 export const ADD_ARTIST = 'CREATE_ARTIST';
 export const RETRIEVE_ARTIST = 'RETRIEVE_ARTIST';
@@ -29,6 +30,6 @@ export const receiveArtistErrors = (errors) => {
 export const createArtist = artist => dispatch => {
   return ArtistApiUtil.createArtist(artist).then(returnedArtist =>
     dispatch(addArtist(returnedArtist)),
-    errors => dispatch(receiveArtistErrors(errors.responseJSON))
+    errors => dispatch(receiveSessionErrors(errors.responseJSON))
   );
 };
