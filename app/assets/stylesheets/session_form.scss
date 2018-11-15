@@ -16,14 +16,14 @@
   padding: 0;
   position: absolute;
   top: 45px;
-  left: 351px;
+  left: 35%;
   font-size: 16px;
   border-radius: 6px;
 }
 
 .signup-form {
   box-sizing: border-box;
-  padding: 20px 0;
+  padding: 20px 0 10px 0;
 }
 
 .session-form h1 {
@@ -94,13 +94,14 @@
 
 .session-footer {
   color: #818285;
-  margin-top: 30px;
+  margin-top: 20px;
   font-size: 12px;
   text-align: center;
 }
 
 .session-footer:last-of-type {
-  margin-top: 20px;
+  margin-top: 10px;
+  padding-bottom: 15px;
 }
 
 .session-footer-button {
@@ -166,7 +167,7 @@
   width: 100%;
   border: none;
   font-size: 16px;
-  margin-top: 30px;
+  margin: 20px 0;
   font-weight: 400;
   text-decoration: none;
   height: 35px;
@@ -187,4 +188,8 @@
 
 .registration-link:hover {
   text-decoration: underline;
+}
+
+.signup-text {
+  padding-top: 18px;
 }

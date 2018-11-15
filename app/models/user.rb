@@ -24,15 +24,16 @@ class User < ApplicationRecord
 
   # has_many :album_comments
   #
-  # has_many :user_follows
-  # has_many :followed_artists,
-  #   through: :user_follows,
-  #   source: :artist
+  has_many :user_follows
 
-  # has_many :user_collection_albums
-  # has_many :collected_albums,
-  #   through: :user_collection_albums,
-  #   source: :album
+  has_many :followed_artists,
+    through: :user_follows,
+    source: :artist
+
+  has_many :user_collection_albums
+  has_many :collected_albums,
+    through: :user_collection_albums,
+    source: :album
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
