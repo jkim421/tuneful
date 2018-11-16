@@ -12,7 +12,6 @@ class Api::UserCollectionAlbumsController < ApplicationController
   def destroy
     @user = User.find(params[:user_id])
     collection_album = UserCollectionAlbum.find(params[:album_id])
-    debugger
     if collection_album
       collection_album.destroy!
       render 'api/user/show'
