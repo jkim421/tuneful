@@ -56,7 +56,7 @@ class FeaturedAlbums extends React.Component {
       firstFeature = features[0];
       sideFeatures = features.slice(1);
     }
-
+    debugger
     return (
       <div className="features-container">
         <main className="featured-albums">

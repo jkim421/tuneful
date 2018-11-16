@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import FeaturedAlbums from './featured_albums';
 import { fetchAlbums } from '../../actions/album_actions';
+import { selectFeatures } from '../../selectors/albums_selectors';
 
 const mapStateToProps = (state) => {
   return {
     artists: Object.values(state.entities.artists),
-    albums: Object.values(state.entities.albums),
+    albums: selectFeatures(state.entities.albums),
   };
 };
 
