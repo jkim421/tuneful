@@ -8,19 +8,16 @@ class NewAlbumItem extends React.Component {
     this.state = { collected: false }
   }
 
-  onCollection(e) {
-    e.target.toggleClass()
-  }
-
-  displayCollect(e) {
-    const addButton = document.getElementsByClassName("new-album-collection");
+  handleCollection() {
+    this.props.handleCollection();
   }
 
   collectionButton() {
     if (!!this.props.currentUser) {
       return (
         <button
-          className="new-album-collection hidden-collect">
+          className="new-album-collection hidden-collect"
+          onClick={ this.handleCollection }>
           { this.props.userCollection.includes(this.props.album.id)
             ? "remove from collection" : "add to collection" }
         </button>
