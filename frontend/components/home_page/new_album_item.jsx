@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 
 class NewAlbumItem extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = { collected: false }
+  }
+
   onCollection(e) {
     e.target.toggleClass()
   }
@@ -16,7 +21,8 @@ class NewAlbumItem extends React.Component {
       return (
         <button
           className="new-album-collection uncollected">
-          add to collection
+          { this.props.userCollection.includes(this.props.album.id)
+            ? "remove from collection" : "add to collection" }
         </button>
       );
     } else {

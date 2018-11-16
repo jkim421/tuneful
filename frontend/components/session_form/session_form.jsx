@@ -55,7 +55,7 @@ class SessionForm extends React.Component {
         <>
           <label htmlFor="session-email">Email</label>
           <input
-            type="text"
+            type="email"
             className="input-field"
             onChange={this.update('email')} />
         </>

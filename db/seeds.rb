@@ -17,7 +17,7 @@ demo = User.create!(username: 'demo', password: 'password', email: 'demo@demo.co
 pierce = User.create!(username:'pierce', password: 'password', email: 'piercemurphymusic@gmail.com')
 agrarian = User.create!(username:'agrarians', password: 'password', email: 'agrarians@gmail.com')
 
-bleatingedge = Artist.create!(user_id: john.id, name: 'bleatingedge', location: 'New York, NY', bio: 'We Bleat For Music')
+bleatingedge = Artist.create!(user_id: john.id, name: 'The Bleating Edge', location: 'New York, NY', bio: 'We Bleat For Music')
 pierce_murphy = Artist.create!(user_id: pierce.id, name: "Pierce Murphy", location: 'Denver, CO')
 agrarians = Artist.create!(user_id: agrarian.id, name: "The Agrarians", location: 'Raleigh, NC')
 
@@ -26,17 +26,13 @@ blues = Genre.create!(name: 'Blues')
 pop = Genre.create!(name: 'Pop');
 folk = Genre.create!(name: 'Folk');
 
-to_japan = Album.create!(artist_id: pierce_murphy.id, title: 'To Japan', genre_id: rock.id, featured: true, description: "Written in Japan in 2014, '来日 / To Japan' is the story of a journey through that beautiful country in search for a way to spare a blossoming love from the wake of the world.")
-to_japan1 = Song.create!(album_id: to_japan.id, title: "Introduction", track_num: 1)
-to_japan2 = Song.create!(album_id: to_japan.id, title: "So Little Of The World", track_num: 2)
-to_japan3 = Song.create!(album_id: to_japan.id, title: "Tokyo To Kyoto", track_num: 3)
-to_japan4 = Song.create!(album_id: to_japan.id, title: "Nightingales", track_num: 4)
-to_japan5 = Song.create!(album_id: to_japan.id, title: "Kyoto To Osaka", track_num: 5)
-to_japan6 = Song.create!(album_id: to_japan.id, title: "Shinsaibashi", track_num: 6)
-to_japan7 = Song.create!(album_id: to_japan.id, title: "Hiroshima", track_num: 7)
-to_japan8 = Song.create!(album_id: to_japan.id, title: "Return To Tokyo", track_num: 8)
-to_japan9 = Song.create!(album_id: to_japan.id, title: "Pacific Echoes", track_num: 9)
-to_japan10 = Song.create!(album_id: to_japan.id, title: "Epilogue", track_num: 10)
+familyband  = Album.create!(artist_id: agrarians.id, title: "Family Band", genre_id: folk.id, featured: true, description: "Songs written and recorded from February 2017 - February 2018.  These songs are for Al, The Terror Twinnes, Grammar, and Louis.")
+familyband1 = Song.create!(album_id: familyband.id, title: "(We) The(e) Children", track_num: 1)
+familyband2 = Song.create!(album_id: familyband.id, title: "You're the One!", track_num: 2)
+familyband3 = Song.create!(album_id: familyband.id, title: "The(se) Terror Twin(ne)s", track_num: 3)
+familyband4 = Song.create!(album_id: familyband.id, title: "And Decades Now", track_num: 4)
+familyband5 = Song.create!(album_id: familyband.id, title: "Weaken Me, Angel", track_num: 5)
+
 
 this_isnt_magic  = Album.create!(artist_id: pierce_murphy.id, title: "This Isn't Magic", genre_id: blues.id, featured: true, description: "It may not be magic, but it's definitely magical.")
 this_isnt_magic1 = Song.create!(album_id: this_isnt_magic.id, title: "If You Won't Choose Me", track_num: 1)
@@ -52,15 +48,23 @@ nighthawks2 = Song.create!(album_id: nighthawks.id, title: "Orfeo", track_num: 2
 nighthawks3 = Song.create!(album_id: nighthawks.id, title: "Nighthawks", track_num: 3)
 nighthawks4 = Song.create!(album_id: nighthawks.id, title: "Versailles", track_num: 4)
 
-familyband  = Album.create!(artist_id: agrarians.id, title: "Family Band", genre_id: folk.id, featured: true, description: "Songs written and recorded from February 2017 - February 2018.  These songs are for Al, The Terror Twinnes, Grammar, and Louis.")
-familyband1 = Song.create!(album_id: familyband.id, title: "(We) The(e) Children", track_num: 1)
-familyband2 = Song.create!(album_id: familyband.id, title: "You're the One!", track_num: 2)
-familyband3 = Song.create!(album_id: familyband.id, title: "The(se) Terror Twin(ne)s", track_num: 3)
-familyband4 = Song.create!(album_id: familyband.id, title: "And Decades Now", track_num: 4)
-familyband5 = Song.create!(album_id: familyband.id, title: "Weaken Me, Angel", track_num: 5)
+to_japan = Album.create!(artist_id: pierce_murphy.id, title: 'To Japan', genre_id: rock.id, featured: true, description: "Written in Japan in 2014, '来日 / To Japan' is the story of a journey through that beautiful country in search for a way to spare a blossoming love from the wake of the world.")
+to_japan1 = Song.create!(album_id: to_japan.id, title: "Introduction", track_num: 1)
+to_japan2 = Song.create!(album_id: to_japan.id, title: "So Little Of The World", track_num: 2)
+to_japan3 = Song.create!(album_id: to_japan.id, title: "Tokyo To Kyoto", track_num: 3)
+to_japan4 = Song.create!(album_id: to_japan.id, title: "Nightingales", track_num: 4)
+to_japan5 = Song.create!(album_id: to_japan.id, title: "Kyoto To Osaka", track_num: 5)
+to_japan6 = Song.create!(album_id: to_japan.id, title: "Shinsaibashi", track_num: 6)
+to_japan7 = Song.create!(album_id: to_japan.id, title: "Hiroshima", track_num: 7)
+to_japan8 = Song.create!(album_id: to_japan.id, title: "Return To Tokyo", track_num: 8)
+to_japan9 = Song.create!(album_id: to_japan.id, title: "Pacific Echoes", track_num: 9)
+to_japan10 = Song.create!(album_id: to_japan.id, title: "Epilogue", track_num: 10)
 
 bleatforit  = Album.create!(artist_id: bleatingedge.id, title: "Bleat For It", genre_id: rock.id, featured: false, description: "They bleat for you; we bleat for them.")
 bleatforit1 = Song.create!(album_id: bleatforit.id, title: "We Bleat", track_num: 1)
+
+bleat_new  = Album.create!(artist_id: bleatingedge.id, title: "Latest and Bleatest", genre_id: rock.id, featured: false, description: "Truly experimental, truly innovative, an incredible use of white noise and goat sounds.")
+bleat_new1 = Song.create!(album_id: bleat_new.id, title: "Bleat It Out", track_num: 1)
 
 john_follow1 = UserFollow.create!(user_id: john.id, artist_id: pierce_murphy.id)
 john_follow2 = UserFollow.create!(user_id: john.id, artist_id: agrarians.id)
@@ -68,3 +72,7 @@ john_follow2 = UserFollow.create!(user_id: john.id, artist_id: agrarians.id)
 john_collection1 = UserCollectionAlbum.create!(user_id: john.id, album_id: to_japan.id)
 john_collection2 = UserCollectionAlbum.create!(user_id: john.id, album_id: nighthawks.id)
 john_collection3 = UserCollectionAlbum.create!(user_id: john.id, album_id: familyband.id)
+
+demo_collection1 = UserCollectionAlbum.create!(user_id: demo.id, album_id: to_japan.id)
+demo_collection2 = UserCollectionAlbum.create!(user_id: demo.id, album_id: nighthawks.id)
+demo_collection3 = UserCollectionAlbum.create!(user_id: demo.id, album_id: familyband.id)

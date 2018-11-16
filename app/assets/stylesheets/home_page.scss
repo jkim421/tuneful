@@ -204,11 +204,13 @@
   font-size: 12px;
 }
 
-.display-button {
-  color: red;
+.hidden-collect {
+  display: none;
 }
 
-.new-album-collection:focus {
-  outline: none;
-  border: none;
+
+
+.new-album-collection:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }

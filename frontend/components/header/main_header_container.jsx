@@ -16,12 +16,12 @@ const mapDispatchToProps = (dispatch) => {
     logout: () => dispatch(logout()),
     signupForm: (
       <button className="header-session" onClick={() => dispatch(openModal('signup'))}>
-        Sign up
+        sign up
       </button>
     ),
     loginForm: (
       <button className="header-session" onClick={() => dispatch(openModal('login'))}>
-        Log in
+        log in
       </button>
     ),
   };
