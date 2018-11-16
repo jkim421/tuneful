@@ -14,7 +14,7 @@ class FeaturedAlbums extends React.Component {
   showMain(album) {
     if (this.props.albums.length > 0) {
       return (
-        <Link className="large-feature-link" to={`/artist/${album.artist_id}`}>
+        <Link className="large-feature-link" to={`/album/${album.id}`}>
           <div className="large-feature-details">
             <p className="large-feature-title">{album.title}</p>
             <p className="large-feature-band">{album.artist}</p>
@@ -31,7 +31,7 @@ class FeaturedAlbums extends React.Component {
       const albumDetails = albums.map( (album) => {
         return (
           <li className="small-feature-wrapper" key={album.id}>
-            <Link className="small-feature-link" to={`/artist/${album.artist_id}`}>
+            <Link className="small-feature-link" to={`/album/${album.id}`}>
               <div className="small-feature-details">
                 <p className="small-feature-title">{album.title}</p>
                 <p className="small-feature-band">{album.artist}</p>

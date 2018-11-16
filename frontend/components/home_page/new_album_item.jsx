@@ -20,7 +20,7 @@ class NewAlbumItem extends React.Component {
     if (!!this.props.currentUser) {
       return (
         <button
-          className="new-album-collection uncollected">
+          className="new-album-collection hidden-collect">
           { this.props.userCollection.includes(this.props.album.id)
             ? "remove from collection" : "add to collection" }
         </button>
@@ -36,7 +36,6 @@ class NewAlbumItem extends React.Component {
       <li className="new-album-item" key={album.id}>
         <div
           className="new-album-show"
-          ref={ (li) => this.newAlbum = li }
           onMouseOver={this.displayCollect}>
           <div className="new-album-cover">
             <Link className="new-album-link" to={`/album/${album.id}`} key={album.id} />
