@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import FeaturedAlbums from './featured_albums';
+import NewAlbums from './new_albums';
 import { fetchAlbums } from '../../actions/album_actions';
 
 const mapStateToProps = (state) => {
@@ -12,8 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getFeaturedAlbums: () => dispatch(fetchAlbums("features")),
+    getNewAlbums: () => dispatch(fetchAlbums("new")),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FeaturedAlbums);
+export default connect(mapStateToProps, mapDispatchToProps)(NewAlbums);

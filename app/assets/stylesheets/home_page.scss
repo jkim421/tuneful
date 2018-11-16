@@ -1,7 +1,20 @@
 .home-page {
   background-color: #eef2f3;
-  height: 1000px;
+  height: 2000px;
   padding-top: 105px;
+}
+
+.home-page-separator {
+  margin: 40px auto;
+  width: 80%;
+  min-width: 1110px;
+  border-bottom: 1px solid rgba(119,119,119,0.10);
+}
+
+.home-separator-text {
+  font-size: 14px;
+  color: #408ea3;
+  padding: 0 0 40px 0;
 }
 
 .features-container {
@@ -105,4 +118,35 @@
 
 .small-feature-band {
   font-size: 12px;
+}
+
+.new-albums-container {
+  width: 1110px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.new-albums-list {
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid purple;
+}
+
+.new-album-item {
+  width: 207px;
+  padding-right: 19px;
+}
+
+.new-albums-list li:last-of-type {
+  padding-right: 0;
+}
+
+.new-album-cover {
+  height: 207px;
+  border: 1px solid red;
+}
+
+.new-album-details {
+  height: 207px;
+  border: 1px solid green;
 }

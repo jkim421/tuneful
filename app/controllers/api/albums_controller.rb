@@ -4,7 +4,7 @@ class Api::AlbumsController < ApplicationController
     if filter == "features"
       @albums = Album.where(featured: true)
     elsif filter == "new"
-      @albums = Album.limit(2).order('created_at DESC')
+      @albums = Album.limit(5).order('created_at DESC')
     else
       @albums = Album.all
     end
