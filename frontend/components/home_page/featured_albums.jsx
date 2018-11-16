@@ -15,11 +15,9 @@ class FeaturedAlbums extends React.Component {
     if (this.props.albums.length > 0) {
       return (
         <Link className="large-feature-link" to={`/artist/${album.artist_id}`}>
-          <div className="large-feature">
-            <div className="large-feature-details">
-              <p className="large-feature-title">{album.title}</p>
-              <p className="large-feature-band">{album.artist}</p>
-            </div>
+          <div className="large-feature-details">
+            <p className="large-feature-title">{album.title}</p>
+            <p className="large-feature-band">{album.artist}</p>
           </div>
         </Link>
       )
@@ -32,12 +30,14 @@ class FeaturedAlbums extends React.Component {
     if (this.props.albums.length > 0) {
       const albumDetails = albums.map( (album) => {
         return (
-          <Link className="small-feature-link" to={`/artist/${album.artist_id}`} key={album.id}>
-            <div className="small-feature-details">
-              <p className="small-feature-title">{album.title}</p>
-              <p className="small-feature-band">{album.artist}</p>
-            </div>
-          </Link>
+          <div className="small-feature-wrapper">
+            <Link className="small-feature-link" to={`/artist/${album.artist_id}`} key={album.id}>
+              <div className="small-feature-details">
+                <p className="small-feature-title">{album.title}</p>
+                <p className="small-feature-band">{album.artist}</p>
+              </div>
+            </Link>
+          </div>
         )
       })
       return albumDetails;
@@ -56,7 +56,6 @@ class FeaturedAlbums extends React.Component {
       firstFeature = features[0];
       sideFeatures = features.slice(1);
     }
-    debugger
     return (
       <div className="features-container">
         <main className="featured-albums">

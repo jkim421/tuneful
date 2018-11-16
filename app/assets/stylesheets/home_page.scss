@@ -27,7 +27,8 @@
 }
 
 .featured-albums {
-  min-width: 1440px;
+  width: 100%;
+  min-width: 900px;
   height: 540px;
   display: flex;
 }
@@ -39,46 +40,51 @@
 }
 
 .large-feature-link:hover, .small-feature-link:hover {
-
+  opacity: 0.9;
 }
 
 .feature-sizing {
   box-sizing: border-box;
 }
 
-.large-feature-link {
-  width: 1070px;
-  height: 100%;
-  box-sizing: border-box;
-  // background-color: lightsalmon;
-  background-image: url("https://pbs.twimg.com/media/DsDiwLcVAAU5HmH.jpg");
+.main-feature {
+  width: 74.3%;
+  min-width: 669px;
+  display: flex;
+  background-color: white;
 }
 
-.large-feature {
-  width: 1070px;
-  height: 100%;
+.large-feature-link {
+  width: 100%;
   box-sizing: border-box;
-  // background-color: lightsalmon;
   background-image: url("https://pbs.twimg.com/media/DsDiwLcVAAU5HmH.jpg");
 }
 
 .side-features {
-  margin: 0;
-  width: 370px;
+  width: 25.7%;
+  min-width: 231px;
   display: flex;
+  margin: 0;
   border-left: 2px solid #222222;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .small-feature-link {
-  height: 180px;
+  width: 100%;
   box-sizing: border-box;
   background-image: url("https://pbs.twimg.com/media/DsBiB5hWsAIE9Jh.jpg");
   background-size: cover;
 }
 
+.small-feature-wrapper {
+  height: 180px;
+  display: flex;
+  background: white;
+  box-sizing: border-box;
+}
 
-.small-feature-link:nth-of-type(2) {
+.small-feature-wrapper:nth-of-type(2) {
   border-top: 2px solid #222222;
   border-bottom: 2px solid #222222;
 }
