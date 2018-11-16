@@ -2,9 +2,55 @@
   width: 100%;
   background-color: #222222;
   height: 540px;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .featured-albums {
-  min-width: 1070px;
-  background-color: salmon;
+  min-width: 1440px;
+  height: 540px;
+  display: flex;
+  color: white;
+}
+
+.featured-album:hover {
+  background-color: white;
+  opacity: 0.99;
+}
+
+.large-feature {
+  width: 1070px;
+  height: 100%;
+  box-sizing: border-box;
+  // background-color: lightsalmon;
+  background-image: url("https://pbs.twimg.com/media/DsDiwLcVAAU5HmH.jpg");
+}
+
+.side-features {
+  margin: 0;
+  width: 370px;
+  display: flex;
+  border-left: 2px solid #222222;
+  flex-direction: column;
+}
+
+.small-feature {
+  height: 180px;
+  box-sizing: border-box;
+  background-image: url("https://pbs.twimg.com/media/DsBiB5hWsAIE9Jh.jpg");
+  background-size: cover;
+}
+
+.small-feature:nth-of-type(2) {
+  border-top: 2px solid #222222;
+  border-bottom: 2px solid #222222;
+}
+
+.feature-title {
+  font-size: 18px;
+}
+
+.feature-band {
+  font-size: 12px;
 }

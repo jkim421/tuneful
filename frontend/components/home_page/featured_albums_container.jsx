@@ -1,23 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import FeaturedAlbums from './featured_albums';
+import { fetchAlbums } from '../../actions/album_actions';
 
-class FeaturedAlbums extends React.Component {
+const mapStateToProps = (state) => {
+  return {
+    artists: Object.values(state.entities.artists),
+    albums: Object.values(state.entities.albums),
+  };
+};
 
-  constructor(props) {
-    super(props);
-  }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getFeaturedAlbums: () => dispatch(fetchAlbums("features")),
+    getNewAlbums: () => dispatch(fetchAlbums("new")),
+  };
+};
 
-  render() {
-    return (
-      <div className="features-container">
-        <main className="featured-albums">
-          <section className="main-feature">
-          </section>
-          <aside className="side-features">
-          </aside>
-        </main>
-      </div>
-    );
-  }
-}
-
-export default FeaturedAlbums;
+export default connect(mapStateToProps, mapDispatchToProps)(FeaturedAlbums);

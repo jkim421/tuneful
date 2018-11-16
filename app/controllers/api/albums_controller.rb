@@ -1,16 +1,15 @@
 class Api::AlbumsController < ApplicationController
 
   def index
-    debugger
-    if selection_filter == "features"
+    if filter == "features"
       @albums = Album.where(featured: true)
-    elsif selection_filter = "newnotable"
+    elsif filter == "new"
       @albums = Album.limit(2).order('created_at DESC')
     else
       @albums = Album.all
     end
 
-    render index
+    render :index
 
   end
 
@@ -28,8 +27,8 @@ class Api::AlbumsController < ApplicationController
       :featured)
   end
 
-  def selection_filter
-    return params[:selection_filter]
+  def filter
+    return params[:filter]
   end
 
 end
