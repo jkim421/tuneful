@@ -51,7 +51,7 @@ class MainHeader extends React.Component {
 
   render() {
     return (
-      <div className="main-header-row">
+      <div id="main-header" className="main-header-row">
         <div className="main-header-content">
           <div className="main-header-top">
             <p className="home-logo">~tunesmith</p>
