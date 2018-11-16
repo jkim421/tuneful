@@ -6,9 +6,10 @@ export const createCollectionAlbum = (data) => {
   });
 };
 
-export const deleteCollectionAlbum = (albumId) => {
+export const deleteCollectionAlbum = (data) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/user_collection_albums/${albumId}`,
+    url: `/api/user_collection_albums/${data.user_id}`,
+    data: { data }
   });
 };

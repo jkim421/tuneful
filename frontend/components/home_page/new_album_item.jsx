@@ -9,12 +9,15 @@ class NewAlbumItem extends React.Component {
   }
 
   handleCollection(e) {
-    debugger
     const collInfo = {
       album_id: this.props.album.id,
       user_id: this.props.currentUser,
     };
-    this.props.handleCollection(collInfo);
+    if (this.props.userCollection.includes(this.props.album.id)) {
+      this.props.removeCollection(collInfo);
+    } else {
+      this.props.addCollection(collInfo);
+    }
   }
 
   collectionButton() {

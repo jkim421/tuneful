@@ -1,29 +1,18 @@
 import React from 'react';
 import * as UserApiUtil from '../util/user_api_util';
+import {
+  receiveCurrentUser,
+  updateCurrentUser,
+} from '../actions/session_actions';
 
-export const ADD_TO_COLLECTION = "ADD_TO_COLLECTION";
-export const REMOVE_FROM_COLLECTION = "REMOVE_FROM_COLLECTION";
 
-export const addToCollection = (data) => {
-  return {
-    type: ADD_TO_COLLECTION,
-    data,
-  };
-};
-
-export const removeFromCollection = (data) => {
-  return {
-    type: REMOVE_FROM_COLLECTION,
-    data,
-  };
-};
 
 export const createCollectionAlbum = data => dispatch => {
-  return UserApiUtil.createCollectionAlbum(data).then(collected =>
-    dispatch(addToCollection(collected)));
+  return UserApiUtil.createCollectionAlbum(data).then(user =>
+    dispatch(receiveCurrentUser(user)));
 };
 
-export const deleteCollectionAlbum = albumId => dispatch => {
-  return UserApiUtil.deleteCollectionAlbum(albumId).then( resId =>
-    dispatch(removeFromCollection(resId)));
+export const deleteCollectionAlbum = data => dispatch => {
+  return UserApiUtil.deleteCollectionAlbum(data).then( user =>
+    dispatch(updateCurrentUser(user)));
 };

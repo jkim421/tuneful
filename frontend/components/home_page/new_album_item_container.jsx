@@ -16,7 +16,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleCollection: (data) => dispatch(createCollectionAlbum(data)),
+    addCollection: (data) => dispatch(createCollectionAlbum(data)),
+    removeCollection: (data) => dispatch(deleteCollectionAlbum(data)),
   };
 };
 

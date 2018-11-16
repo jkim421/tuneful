@@ -1,23 +1,26 @@
 class Api::UserCollectionAlbumsController < ApplicationController
 
   def create
-    @collection_album = UserCollectionAlbum.new(collection_params)
-    if @collection_album.save
-      render 'api/user_collection_albums/show'
+    @user = User.find(collection_params[:user_id])
+    collection_item = UserCollectionAlbum.new(collection_params)
+    if collection_item.save
+      render 'api/users/show'
     else
-      render json: @collection_album.errors.full_messages, status: 422
+      render json: @collection_item.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    @user = User.find(params[:user_id])
-    collection_album = UserCollectionAlbum.find(params[:album_id])
-    debugger
-    if collection_album
-      collection_album.destroy!
-      render 'api/user/show'
+    collection_item = UserCollectionAlbum.find_by(
+      album_id: collection_params[:album_id],
+      user_id: collection_params[:user_id]
+    )
+    @user = User.find(collection_item.user_id)
+    if collection_item
+      collection_item.destroy!
+      render 'api/users/show'
     else
-      render json: ["Invalid album"]
+      render json: ["Invalid album"], status: 422
     end
   end
 
