@@ -5,11 +5,16 @@ class NewAlbumItem extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { collected: false }
+    this.handleCollection = this.handleCollection.bind(this);
   }
 
-  handleCollection() {
-    this.props.handleCollection();
+  handleCollection(e) {
+    debugger
+    const collInfo = {
+      album_id: this.props.album.id,
+      user_id: this.props.currentUser,
+    };
+    this.props.handleCollection(collInfo);
   }
 
   collectionButton() {

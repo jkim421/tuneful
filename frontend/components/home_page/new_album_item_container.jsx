@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import NewAlbumItem from './new_album_item';
+import {
+  createCollectionAlbum,
+  deleteCollectionAlbum
+} from '../../actions/user_actions';
 
 const mapStateToProps = (state) => {
   const userId = state.session.id;
@@ -12,8 +16,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleCollection: () => dispatch()
+    handleCollection: (data) => dispatch(createCollectionAlbum(data)),
   };
 };
 
-export default connect(mapStateToProps)(NewAlbumItem);
+export default connect(mapStateToProps, mapDispatchToProps)(NewAlbumItem);
