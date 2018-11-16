@@ -15,6 +15,7 @@
   font-size: 14px;
   color: #408ea3;
   padding: 0 0 40px 0;
+  // font-weight: 600;
 }
 
 .features-container {
@@ -27,7 +28,7 @@
 }
 
 .featured-albums {
-  width: 100%;
+  width: 1440px;
   min-width: 900px;
   height: 540px;
   display: flex;
@@ -133,13 +134,11 @@
 .new-albums-container {
   width: 1110px;
   margin: 0 auto;
-  border: 1px solid black;
 }
 
 .new-albums-list {
   display: flex;
   margin: 0 auto;
-  border: 1px solid purple;
 }
 
 .new-album-item {
@@ -153,10 +152,63 @@
 
 .new-album-cover {
   height: 207px;
-  border: 1px solid red;
+  background-image: url(https://pbs.twimg.com/media/DrFbHgdV4AE05sB.jpg);
+  background-size: auto 100%;
+  background-position: center;
+  display: flex;
+}
+
+.new-album-link {
+  height: 100%;
+  width: 100%;
+  text-align: center;
 }
 
 .new-album-details {
   height: 207px;
-  border: 1px solid green;
+  padding: 13px 18px 13px 10px;
+  background: #fff;
+}
+
+.new-album-byline-link {
+  text-decoration: none;
+  color: black;
+}
+
+.new-album-byline {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.new-album-byline:hover {
+  text-decoration: underline;
+}
+
+.new-album-genre {
+  font-size: 12px;
+  color: #999;
+  font-weight: 300;
+  padding: 2px 0;
+}
+
+.new-album-description {
+  font-size: 13px;
+  font-family: 'Source Serif Pro', serif;
+}
+
+.new-album-collection {
+  padding-top: 5px;
+  border: none;
+  background: none;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.display-button {
+  color: red;
+}
+
+.new-album-collection:focus {
+  outline: none;
+  border: none;
 }

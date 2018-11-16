@@ -1,11 +1,13 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_ALBUMS, RECEIVE_ALBUM } from '../actions/album_actions';
+import { RECEIVE_ALBUMS, RECEIVE_ALBUM, RECEIVE_NEW_ALBUMS } from '../actions/album_actions';
 
-const albumsReducer = (state = {}, action) => {
+const albumsReducer = (state = { new: [] }, action) => {
   switch(action.type) {
     case RECEIVE_ALBUMS:
       return merge({}, state, action.albums);
+    case RECEIVE_NEW_ALBUMS:
+      return merge({}, state, action.albums, { new: Object.keys(action.albums) })
     default:
       return state;
   }

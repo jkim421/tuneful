@@ -11,22 +11,32 @@ class NewAlbums extends React.Component {
     this.props.getNewAlbums()
   }
 
+  onCollection(e) {
+    e.target.toggleClass()
+  }
+
+  displayCollect(e) {
+  }
+
   showNewAlbums(albums) {
     if (this.props.albums.length > 0) {
       const albumDetails = albums.map( (album) => {
         return (
-          <li className="new-album-item">
+          <li className="new-album-item" key={album.id}>
             <div className="new-album-show">
               <div className="new-album-cover">
-                <Link className="new-album-link" to={`/album/${album.id}`} key={album.id}>
-                ALBUM COVER
-                </Link>
+                <Link className="new-album-link" to={`/album/${album.id}`} key={album.id} />
               </div>
-              <div className="new-album-details">
-                <p className="new-album-title">{album.title}</p>
-                <p className="new-album-band">{album.artist}</p>
-                <p className="new-album-genre">{album.genre}</p>
+              <div className="new-album-details" onMouseOver={this.displayCollect}>
+                <Link className="new-album-byline-link" to={`/album/${album.id}`}>
+                  <p className="new-album-byline">{album.title}<br/>by {album.artist}</p>
+                </Link>
+                <p className="new-album-genre">{album.genre.toLowerCase()}</p>
                 <p className="new-album-description">{album.description}</p>
+                <button
+                  className="new-album-collection uncollected">
+                  add to collection
+                </button>
               </div>
             </div>
           </li>

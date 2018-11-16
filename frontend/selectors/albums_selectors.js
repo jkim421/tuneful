@@ -8,3 +8,11 @@ export const selectFeatures = (albums) => {
   });
   return features;
 };
+
+export const selectNew = (albums = {}, keys = []) => {
+  let albumVals = Object.values(albums);
+  const newAlbums = keys.map( (id) => {
+    return albums[id];
+  });
+  return newAlbums;
+};

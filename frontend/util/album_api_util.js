@@ -2,7 +2,7 @@ export const fetchAlbums = (filter) => {
   return $.ajax({
     method: 'GET',
     url: '/api/albums',
-    data: { filter},
+    data: { filter },
   });
 };
 

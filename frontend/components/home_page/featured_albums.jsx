@@ -30,14 +30,14 @@ class FeaturedAlbums extends React.Component {
     if (this.props.albums.length > 0) {
       const albumDetails = albums.map( (album) => {
         return (
-          <div className="small-feature-wrapper">
-            <Link className="small-feature-link" to={`/artist/${album.artist_id}`} key={album.id}>
+          <li className="small-feature-wrapper" key={album.id}>
+            <Link className="small-feature-link" to={`/artist/${album.artist_id}`}>
               <div className="small-feature-details">
                 <p className="small-feature-title">{album.title}</p>
                 <p className="small-feature-band">{album.artist}</p>
               </div>
             </Link>
-          </div>
+          </li>
         )
       })
       return albumDetails;
@@ -53,8 +53,8 @@ class FeaturedAlbums extends React.Component {
 
     if (this.props.albums.length > 0) {
       features = this.props.albums;
-      firstFeature = features[0];
-      sideFeatures = features.slice(1);
+      firstFeature = features.pop(1);
+      sideFeatures = features.slice(-3);
     }
     return (
       <div className="features-container">
@@ -62,9 +62,9 @@ class FeaturedAlbums extends React.Component {
           <section className="main-feature">
             {this.showMain(firstFeature)}
           </section>
-          <aside className="side-features">
+          <ul className="side-features">
             {this.showSide(sideFeatures)}
-          </aside>
+          </ul>
         </main>
       </div>
     );
