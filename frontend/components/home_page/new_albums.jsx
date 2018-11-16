@@ -12,13 +12,6 @@ class NewAlbums extends React.Component {
     this.props.getNewAlbums()
   }
 
-  onCollection(e) {
-    e.target.toggleClass()
-  }
-
-  displayCollect(e) {
-  }
-
   render() {
     const albums = this.props.albums.reverse();
     return (

@@ -61,3 +61,10 @@ familyband5 = Song.create!(album_id: familyband.id, title: "Weaken Me, Angel", t
 
 bleatforit  = Album.create!(artist_id: bleatingedge.id, title: "Bleat For It", genre_id: rock.id, featured: false, description: "They bleat for you; we bleat for them.")
 bleatforit1 = Song.create!(album_id: bleatforit.id, title: "We Bleat", track_num: 1)
+
+john_follow1 = UserFollow.create!(user_id: john.id, artist_id: pierce_murphy.id)
+john_follow2 = UserFollow.create!(user_id: john.id, artist_id: agrarians.id)
+
+john_collection1 = UserCollectionAlbum.create!(user_id: john.id, album_id: to_japan.id)
+john_collection2 = UserCollectionAlbum.create!(user_id: john.id, album_id: nighthawks.id)
+john_collection3 = UserCollectionAlbum.create!(user_id: john.id, album_id: familyband.id)

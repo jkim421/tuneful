@@ -34,6 +34,7 @@ const mapStateToProps = (state) => {
 const mapDispatchProps = (dispatch) => {
   return {
     processForm: (artist) => dispatch(createArtist(artist)),
+    closeModal: () => dispatch(closeModal()),
     clearErrors: () => dispatch(receiveSessionErrors([])),
     demoUserLogin: (demoUser) => dispatch(login(demoUser)).then(dispatch(closeModal())),
     otherForm: (
@@ -41,7 +42,6 @@ const mapDispatchProps = (dispatch) => {
         Log in
       </button>
     ),
-    closeModal: () => dispatch(closeModal()),
   };
 };
 

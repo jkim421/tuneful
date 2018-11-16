@@ -1,5 +1,6 @@
 import React from 'react';
 import * as SessionApiUtil from '../util/session_api_util';
+import { closeModal } from './modal_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
@@ -33,7 +34,7 @@ export const signup = user => dispatch => {
 };
 
 export const login = user => dispatch => {
-  return SessionApiUtil.login(user).then ( returnedUser =>
+  return SessionApiUtil.login(user).then( returnedUser =>
     dispatch(receiveCurrentUser(returnedUser)),
     errors => dispatch(receiveSessionErrors(errors.responseJSON))
   );
