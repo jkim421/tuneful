@@ -6,7 +6,7 @@ class Api::UserCollectionAlbumsController < ApplicationController
     if collection_item.save
       render 'api/users/show'
     else
-      render json: @collection_item.errors.full_messages, status: 422
+      render json: collection_item.errors.full_messages, status: 422
     end
   end
 
