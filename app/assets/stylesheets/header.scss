@@ -5,6 +5,13 @@
   z-index: 1;
 }
 
+#thin-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+}
+
 .main-header-row {
   height: 105px;
   background-color: rgba(255,255,255,0.98);
@@ -49,13 +56,6 @@
 .header-session:hover {
   cursor: pointer;
   text-decoration: underline;
-}
-
-.home-loggedin {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 20px;
 }
 
 .home-logo {
@@ -118,4 +118,64 @@
 .home-action-list li:last-of-type {
   border-right: none;
   padding-right: 0;
+}
+
+.thin-header-row {
+  height: 105px;
+  background-color: rgba(255,255,255,0.98);
+  box-sizing: border-box;
+  padding-top: 8px;
+}
+
+.main-header-content {
+  box-sizing: border-box;
+  width: 70%;
+  min-width: 900px;
+  height: 100%;
+  margin: 0 auto;
+  // outline: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 10px 20px 10px;
+}
+
+.thin-logo {
+  font-size: 24px;
+}
+
+.thin-search {
+  width: 230px;
+  height: 22px;
+  border-radius: 3px;
+  outline: none;
+  border-style: solid;
+  border: 1px solid #bebebe;
+  padding-left: 10px;
+  font-size: 12px;
+  font-weight: 200;
+}
+
+.thin-search:focus {
+  box-shadow: 0 0 1px 1px #ddd;
+}
+
+.thin-action-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 700;
+}
+
+.thin-header-session {
+  border: none;
+  outline: none;
+  background: none;
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+}
+
+.thin-header-collection {
+
 }

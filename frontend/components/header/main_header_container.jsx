@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
 import MainHeader from './main_header';
+import { logout } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {

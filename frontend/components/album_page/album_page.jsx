@@ -7,7 +7,7 @@ class AlbumPage extends React.Component {
 
   render() {
     return (
-      <h1>Hello</h1>
+      <h1>HELLO FROM ALBUM PAGE</h1>
     )
   }
 

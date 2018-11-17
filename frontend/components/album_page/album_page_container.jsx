@@ -4,7 +4,7 @@ import AlbumPage from './album_page';
 
 const mapStateToProps = (state) => {
   return {
-    <h1>ALBUM PAGE</h1>
+
   };
 };
 
