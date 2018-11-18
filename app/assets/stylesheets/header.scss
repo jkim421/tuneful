@@ -121,27 +121,35 @@
 }
 
 .thin-header-row {
-  height: 105px;
-  background-color: rgba(255,255,255,0.98);
+  height: 44px;
+  background-color: #ECECEC;
   box-sizing: border-box;
-  padding-top: 8px;
+  border-bottom: dotted #afafaf 1px;
 }
 
-.main-header-content {
+.thin-header-content {
   box-sizing: border-box;
   width: 70%;
-  min-width: 900px;
+  min-width: 960px;
   height: 100%;
   margin: 0 auto;
-  // outline: 1px solid black;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  padding: 10px 10px 20px 10px;
+  align-items: center;
+}
+
+.thin-header-left {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 410px;
 }
 
 .thin-logo {
-  font-size: 24px;
+  font-size: 16px;
+  text-decoration: none;
+  line-height: 44px;
 }
 
 .thin-search {
@@ -149,11 +157,20 @@
   height: 22px;
   border-radius: 3px;
   outline: none;
-  border-style: solid;
-  border: 1px solid #bebebe;
+  box-sizing: border-box;
   padding-left: 10px;
+  text-align: center;
+  background-color: #E0E0E0;
+  border: none;
   font-size: 12px;
   font-weight: 200;
+}
+
+.thin-search:focus {
+  border: 1px solid #bebebe;
+  padding-left: 10px;
+  text-align: left;
+  background-color: #fff;
 }
 
 .thin-search:focus {
@@ -161,21 +178,126 @@
 }
 
 .thin-action-list {
+  height: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
   font-weight: 700;
+  padding-right: 10px;
+}
+
+.thin-header-session, .thin-header-home {
+  border: none;
+  outline: none;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 13px;
+  color: #1DA0C3;
+  background: none;
+  transition: background-color 0.12s ease-out;
 }
 
 .thin-header-session {
-  border: none;
-  outline: none;
-  background: none;
-  text-decoration: none;
-  font-size: 16px;
-  color: black;
+  text-align: center;
+  padding: 0 12px;
 }
 
-.thin-header-collection {
+.thin-header-home {
+  line-height: 44px;
+  padding: 0 12px;
+}
 
+.thin-header-actions:hover {
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.06);
+  color: #666666;
+}
+
+.thin-header-actions:focus {
+  background-color: rgba(0,0,0,0.2);
+  color: #ffffff;
+}
+
+// GEAR DROPDOWN
+
+// .hidden {
+//   display: none;
+// }
+
+.thin-header-right {
+  width: 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#gear-dropdown-btn {
+  position: relative;
+  width: 50px;
+  text-align: center;
+  line-height: 44px;
+  padding: 0 8px;
+}
+
+#gear-dropdown {
+  position: absolute;
+  top: 44px;
+  right: -57px;
+  border: 1px solid red;
+  box-sizing: border-box;
+  width: 102px;
+  border: 1px solid #ccc;
+  border-top: dotted #afafaf 1px;
+  background: #f1f1f1f1;
+  text-align: left;
+  line-height: 36px;
+}
+
+.thin-header-coll {
+  text-align: center;
+  width: 80px;
+  line-height: 44px;
+}
+
+.gear-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-cog{
+  font-size: 14px;
+}
+
+.thin-header-dropdown:hover {
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.06);
+  color: #666666;
+}
+
+.thin-header-dropdown {
+  display: inline-block;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  font-size: 13px;
+  color: #1DA0C3;
+  font-weight: 400;
+  background: none;
+  transition: background-color 0.12s ease-out;
+  box-sizing: border-box;
+  text-align: left;
+  padding-left: 8px;
+  width: 100%;
+}
+
+.gear-logout {
+  line-height: 36px;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: inline-block;
 }

@@ -15,12 +15,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
     signupForm: (
-      <button className="thin-header-session" onClick={() => dispatch(openModal('signup'))}>
+      <button className="thin-header-session thin-header-actions" onClick={() => dispatch(openModal('signup'))}>
         sign up
       </button>
     ),
     loginForm: (
-      <button className="thin-header-session" onClick={() => dispatch(openModal('login'))}>
+      <button className="thin-header-session thin-header-actions" onClick={() => dispatch(openModal('login'))}>
         log in
       </button>
     ),
