@@ -9,8 +9,17 @@ class Api::AlbumsController < ApplicationController
       @albums = Album.all
     end
 
-    render :index
+    render "api/albums/index.json.jbuilder"
+  end
 
+  def show
+    @album = Album.find(params[:id])
+    @songs = Song.where(album_id: params[:id])
+    if @album
+      render "api/albums/show.json.jbuilder"
+    else
+      render json: ["Invalid album"], status: 422
+    end
   end
 
   private

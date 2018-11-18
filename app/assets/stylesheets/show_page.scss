@@ -18,7 +18,6 @@
 }
 
 .show-content {
-  height: 900px;
   padding: 44px 0;
   display: flex;
   justify-content: space-between;
@@ -70,6 +69,10 @@
 
 .album-byline-link:hover {
   text-decoration: underline;
+}
+
+.album-byline-genre {
+  font-size: 12px;
 }
 
 .player-container {
@@ -151,6 +154,8 @@
   font-size: 12px;
   font-weight: 700;
   margin: 14px 0;
+  outline: none;
+  background: rgba(255,255,255,.5);
 }
 
 .artist-follow-btn:hover {
@@ -167,6 +172,7 @@
   background-image: url(https://pbs.twimg.com/media/DLXycjdU8AA4NoQ.jpg);
   background-size: cover;
   display: block;
+  margin-bottom: 8px;
 }
 
 .side-discog-title {

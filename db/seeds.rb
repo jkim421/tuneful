@@ -63,8 +63,11 @@ to_japan10 = Song.create!(album_id: to_japan.id, title: "Epilogue", track_num: 1
 bleatforit  = Album.create!(artist_id: bleatingedge.id, title: "Bleat For It", genre_id: rock.id, featured: false, description: "They bleat for you; we bleat for them.")
 bleatforit1 = Song.create!(album_id: bleatforit.id, title: "We Bleat", track_num: 1)
 
-bleat_new  = Album.create!(artist_id: bleatingedge.id, title: "Latest and Bleatest", genre_id: rock.id, featured: false, description: "Truly experimental, truly innovative, an incredible use of white noise and goat sounds.")
-bleat_new1 = Song.create!(album_id: bleat_new.id, title: "Bleat It Out", track_num: 1)
+bleat_latest  = Album.create!(artist_id: bleatingedge.id, title: "Latest and Bleatest", genre_id: rock.id, featured: false, description: "Truly experimental, truly innovative, an incredible use of white noise and goat sounds.")
+bleat_latest1 = Song.create!(album_id: bleat_latest.id, title: "Bleat It Out", track_num: 1)
+
+bleat_oldest  = Album.create!(artist_id: bleatingedge.id, title: "Bleat Eaters", genre_id: pop.id, featured: false, description: "Never send to know for whom the bell fleats; it bleats for thee.")
+bleat_oldest1 = Song.create!(album_id: bleat_oldest.id, title: "Veggies No More", track_num: 1)
 
 john_follow1 = UserFollow.create!(user_id: john.id, artist_id: pierce_murphy.id)
 john_follow2 = UserFollow.create!(user_id: john.id, artist_id: agrarians.id)

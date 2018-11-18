@@ -6,7 +6,26 @@ class AlbumPage extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    debugger
+    this.props.fetchAlbum(this.props.match.params.albumId);
+    this.props.fetchArtist(this.props.album.artist_id);
+  }
+
+  showReleaseDate() {
+    if (!!this.props.album.release_date) {
+      return (
+        <p className="album-release-date">
+          released RELEASE DATE
+        </p>
+      )
+    } else {
+      return null
+    }
+  }
+
   render() {
+    debugger
     return (
       <main className="show-page">
         <section className="show-body">
@@ -15,10 +34,12 @@ class AlbumPage extends React.Component {
             <div className="show-details">
               <div className="album-details">
                 <div className="album-byline">
-                  <p className="album-byline-title">ALBUM NAME</p>
+                  <p className="album-byline-title">{this.props.album.title || ""}</p>
                   <div className="album-byline-artist">
                     by&nbsp;
-                    <Link to="/" className="album-byline-link">ALBUM ARTIST</Link>
+                    <Link to="/" className="album-byline-link">{this.props.album.artist || ""}</Link>
+                    <br/>
+                    <Link to="/" className="album-byline-link album-byline-genre">{this.props.album.genre || ""}</Link>
                   </div>
                 </div>
                 <div className="player-container">
@@ -36,9 +57,7 @@ class AlbumPage extends React.Component {
                     <li className="album-track-item">SONG 5</li>
                   </ul>
                 </div>
-                <p className="album-release-date">
-                  released RELEASE DATE
-                </p>
+                {this.releaseDate}
               </div>
               <div className="album-cover">
                 <div className="album-cover-img" />

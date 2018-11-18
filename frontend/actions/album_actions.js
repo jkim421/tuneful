@@ -20,16 +20,21 @@ export const receiveNewAlbums = (albums) => {
   };
 };
 
-export const receiveAlbum = (albums) => {
+export const receiveAlbum = (album) => {
   return {
     type: RECEIVE_ALBUM,
-    albums,
+    album,
   };
 };
 
 export const fetchAlbums = filter => dispatch => {
   return AlbumApiUtil.fetchAlbums(filter).then(albums =>
     dispatch(receiveAlbums(albums)));
+};
+
+export const fetchAlbum = albumId => dispatch => {
+  return AlbumApiUtil.fetchAlbum(albumId).then(album =>
+    dispatch(receiveAlbum(album)));
 };
 
 export const fetchNewAlbums = filter => dispatch => {

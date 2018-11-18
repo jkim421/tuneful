@@ -8,6 +8,8 @@ const albumsReducer = (state = { new: [] }, action) => {
       return merge({}, state, action.albums);
     case RECEIVE_NEW_ALBUMS:
       return merge({}, state, action.albums, { new: Object.keys(action.albums) })
+    case RECEIVE_ALBUM:
+      return merge ({}, state, { [action.album.id]: action.album });
     default:
       return state;
   }

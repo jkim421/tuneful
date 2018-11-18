@@ -23,7 +23,8 @@ class Api::ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
-    render 'api/artists/show'
+    @albums = Album.where(artist_id: params[:id])
+    render 'api/artists/show.json.jbuilder'
   end
 
   private

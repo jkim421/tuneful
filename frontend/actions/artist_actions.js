@@ -33,3 +33,10 @@ export const createArtist = artist => dispatch => {
     errors => dispatch(receiveSessionErrors(errors.responseJSON))
   );
 };
+
+export const fetchArtist = artistId => dispatch => {
+  return ArtistApiUtil.fetchArtist(artistId).then(returnedArtist =>
+    dispatch(retrieveArtist(returnedArtist)),
+    errors => dispatch(receiveSessionErrors(errors.responseJSON))
+  );
+};

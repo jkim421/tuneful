@@ -6,7 +6,7 @@ export const createArtist = (artist) => {
   });
 };
 
-export const retrieveArtist = (artistId) => {
+export const fetchArtist = (artistId) => {
   return $.ajax({
     method: 'GET',
     url: `/api/artists/${artistId}`,
