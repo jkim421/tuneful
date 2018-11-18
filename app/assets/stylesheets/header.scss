@@ -244,8 +244,8 @@
 
 #gear-dropdown {
   position: absolute;
-  top: 44px;
-  right: -57px;
+  top: 43px;
+  right: -56px;
   border: 1px solid red;
   box-sizing: border-box;
   width: 102px;
@@ -276,6 +276,11 @@
   cursor: pointer;
   background-color: rgba(0,0,0,0.06);
   color: #666666;
+}
+
+.thin-header-dropdown:focus {
+  background-color: rgba(0,0,0,0.2);
+  color: #ffffff;
 }
 
 .thin-header-dropdown {

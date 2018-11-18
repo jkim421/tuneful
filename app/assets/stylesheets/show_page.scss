@@ -1,0 +1,186 @@
+.show-page {
+  height: 100%;
+  padding-top: 44px;
+  background-color: #eee;
+}
+
+.show-body {
+  margin: 0 auto;
+  margin-bottom: 50px;
+  width: 970px;
+}
+
+.show-cover-img {
+  height: 180px;
+  background-image: url(https://static1.squarespace.com/static/54c2e69ae4b039d95906c50a/598a4d44e3df28c8a47ba035/598a5314cd39c31515c25177/1502237468394/SQspace_Mother%27s+Garden+PART3.jpg);
+  background-size: 100% auto;
+  background-position: 50% 50%;
+}
+
+.show-content {
+  height: 900px;
+  padding: 44px 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ddd;
+}
+
+.show-sidebar {
+  border-top: 1px solid red;
+  border-bottom: 1px solid red;
+  width: 120px;
+  padding: 0 30px 0 40px;
+}
+
+.show-details {
+  display: flex;
+  justify-content: space-between;
+  width: 780px;
+}
+
+.album-details {
+  padding-left: 27px;
+  width: 380px;
+}
+
+.album-details .album-byline,
+.album-details .player-container,
+.album-details .album-download,
+.album-details .album-tracks {
+  margin-bottom: 30px;
+}
+
+.album-byline {
+  color: #000000;
+}
+
+.album-byline-title {
+  font-size: 28px;
+}
+
+.album-byline-artist {
+  font-size: 14px;
+}
+
+.album-byline-link {
+  color: #696969;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.album-byline-link:hover {
+  text-decoration: underline;
+}
+
+.player-container {
+  border-top: 1px solid purple;
+  border-bottom: 1px solid purple;
+  height: 52px;
+}
+
+.album-download {
+  font-size: 18px;
+  color: #696969;
+}
+
+.album-download:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.album-track-item {
+  font-size: 12px;
+  color: #696969;
+  margin: 12px 0;
+}
+
+.album-cover-img {
+  height: 350px;
+  width: 350px;
+  background-image: url(https://pbs.twimg.com/media/Dc1wM70U8AEIGtF.png);
+  background-size: cover;
+  background-position: 50% 50%;
+  margin-bottom: 18px;
+}
+
+.album-collection-icon {
+  font-size: 13px;
+  color: #696969;
+  margin-right: 5px;
+}
+
+.album-collection-btn {
+  font-size: 13px;
+  font-weight: 700px;
+  color: #696969;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.album-collection-btn:hover {
+  text-decoration: underline;
+}
+
+.artist-side-img {
+  width: 120px;
+  height: 120px;
+  background-image: url(https://pbs.twimg.com/media/DsHZCe6UcAEd3Ro.jpg);
+  background-size: 350px;
+  background-position: 78% 35%;
+  margin-bottom: 14px;
+}
+
+.artist-side-name {
+ font-size: 14px;
+ color: #000000;
+ font-weight: 700;
+}
+
+.artist-side-loc {
+  font-size: 12px;
+  color: #666666;
+}
+
+.artist-follow-btn {
+  height: 28px;
+  width: 100%;
+  color: #696969;
+  border: solid 1px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 14px 0;
+}
+
+.artist-follow-btn:hover {
+  text-decoration: underline;
+}
+
+.discog-label {
+  margin: 20px 0 14px 0;
+}
+
+.side-discog-img {
+  width: 120px;
+  height: 120px;
+  background-image: url(https://pbs.twimg.com/media/DLXycjdU8AA4NoQ.jpg);
+  background-size: cover;
+  display: block;
+}
+
+.side-discog-title {
+  font-size: 12px;
+  color: #696969;
+  text-decoration: none;
+}
+
+.side-discog-title:hover {
+  text-decoration: underline;
+}
+
+.side-discog-date {
+  font-size: 10px;
+  color: #666666;
+  margin-bottom: 9px;
+}
