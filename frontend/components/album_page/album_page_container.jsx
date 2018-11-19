@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import AlbumPage from './album_page';
 import {
   createCollectionAlbum,
-  deleteCollectionAlbum
+  deleteCollectionAlbum,
+  createFollow,
+  deleteFollow,
 } from '../../actions/user_actions';
 import { fetchAlbum, fetchArtistAlbums } from '../../actions/album_actions';
 import { fetchArtist } from '../../actions/artist_actions';
@@ -22,6 +24,7 @@ const mapStateToProps = (state, ownProps) => {
     discog: selectDiscog(state.entities.albums, artist.album_ids),
     currentUser: userId,
     userCollection: userId ? state.entities.users[userId].user_collection_ids : [],
+    userFollows: userId ? state.entities.users[userId].user_follow_ids : [],
   };
 };
 
@@ -33,6 +36,8 @@ const mapDispatchToProps = (dispatch) => {
     fetchSongs: (albumId) => dispatch(fetchSongs(albumId)),
     addCollection: (data) => dispatch(createCollectionAlbum(data)),
     removeCollection: (data) => dispatch(deleteCollectionAlbum(data)),
+    addFollow: (data) => dispatch(createFollow(data)),
+    removeFollow: (data) => dispatch(deleteFollow(data)),
   };
 };
 

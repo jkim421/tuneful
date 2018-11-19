@@ -7,10 +7,10 @@ class AlbumPage extends React.Component {
   constructor(props) {
     super(props);
     this.handleCollection = this.handleCollection.bind(this);
+    this.handleFollow = this.handleFollow.bind(this);
   }
 
   componentDidMount() {
-    debugger
     const albumId = this.props.match.params.albumId;
     this.props.fetchAlbum(albumId);
     this.props.fetchSongs(albumId);
@@ -18,7 +18,6 @@ class AlbumPage extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    debugger
     const albumId = this.props.match.params.albumId;
     if (this.props.match.params.albumId !== prevProps.match.params.albumId) {
       this.props.fetchSongs(albumId);
@@ -61,21 +60,51 @@ class AlbumPage extends React.Component {
     if (!!this.props.currentUser) {
       return (
         <>
-          {this.props.userCollection.includes(this.props.album.id)
-            ? <i className="fas fa-heart album-collection-icon"></i>
-            : <i className="far fa-heart album-collection-icon"></i>}
+        {this.props.userCollection.includes(this.props.album.id)
+          ? <i className="fas fa-heart album-collection-icon"></i>
+          : <i className="far fa-heart album-collection-icon"></i>}
           <button
             className="album-collection-btn"
             onClick={ this.handleCollection }>
             { this.props.userCollection.includes(this.props.album.id)
               ? "remove from collection" : "add to collection" }
-          </button>
-        </>
-      );
+            </button>
+            </>
+        );
+      } else {
+        return null;
+      }
+    }
+
+  handleFollow(e) {
+    const followInfo = {
+      artist_id: this.props.album.artist_id,
+      user_id: this.props.currentUser,
+    };
+    debugger
+    if (this.props.userFollows.includes(this.props.album.artist_id)) {
+      this.props.removeFollow(followInfo);
     } else {
-      return null;
+      this.props.addFollow(followInfo);
     }
   }
+
+  followButton() {
+    if (!!this.props.currentUser) {
+      return (
+        <>
+          <button
+            className="artist-follow-btn"
+            onClick={ this.handleFollow }>
+            { this.props.userFollows.includes(this.props.album.artist_id)
+              ? "Following" : "Follow" }
+            </button>
+            </>
+        );
+      } else {
+        return null;
+      }
+    }
 
   render() {
     return (
@@ -89,7 +118,7 @@ class AlbumPage extends React.Component {
                   <p className="album-byline-title">{this.props.album.title || ""}</p>
                   <div className="album-byline-artist">
                     by&nbsp;
-                    <Link to="/" className="album-byline-link">{this.props.album.artist || ""}</Link>
+                    <Link to={`/artists/${this.props.album.artist_id}`} className="album-byline-link">{this.props.album.artist || ""}</Link>
                     <br/>
                     <Link to="/" className="album-byline-link album-byline-genre">{this.props.album.genre || ""}</Link>
                   </div>
@@ -115,10 +144,10 @@ class AlbumPage extends React.Component {
               </div>
             </div>
             <aside className="show-sidebar">
-              <div className="artist-side-img"/>
+              <Link className="artist-side-img" to={`/artists/${this.props.album.artist_id}`}/>
               <p className="artist-side-name">{this.props.artist.name || ""}</p>
               <p className="artist-side-loc">{this.props.artist.location || ""}</p>
-              <button className="artist-follow-btn">Follow</button>
+              { this.followButton() }
               <p className="artist-description">{this.props.artist.bio || ""}</p>
                 <Discography
                   albumId={this.props.match.params.albumId}
