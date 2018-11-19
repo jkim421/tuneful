@@ -52,9 +52,10 @@ input:focus {
   background-color: #eef2f3;
   display: flex;
   flex-direction: column;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  height: 50px;
-  padding-top: 44px;
+  height: 80px;
 }
 
 .footer-text, .footer-link {
