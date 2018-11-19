@@ -11,8 +11,9 @@ const usersReducer = (state = {}, action) => {
     case ADD_ARTIST:
       return merge({}, state, { [action.artist.user.id]: action.artist.user });
     case UPDATE_CURRENT_USER:
-      const updateUser = merge({}, state);
+      let updateUser = merge({}, state);
       updateUser[action.user.id].user_collection_ids = [];
+      updateUser[action.user.id].user_follow_ids = [];
       const newState = merge(updateUser, { [action.user.id]: action.user });
       return newState
     default:

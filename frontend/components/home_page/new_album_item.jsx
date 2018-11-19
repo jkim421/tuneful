@@ -43,10 +43,10 @@ class NewAlbumItem extends React.Component {
           className="new-album-show"
           onMouseOver={this.displayCollect}>
           <div className="new-album-cover">
-            <Link className="new-album-link" to={`/album/${album.id}`} key={album.id} />
+            <Link className="new-album-link" to={`/albums/${album.id}`} key={album.id} />
           </div>
           <div className="new-album-details" onMouseOver={this.displayCollect}>
-            <Link className="new-album-byline-link" to={`/album/${album.id}`}>
+            <Link className="new-album-byline-link" to={`/albums/${album.id}`}>
               <p className="new-album-byline">{album.title}<br/>by {album.artist}</p>
             </Link>
             <p className="new-album-genre">{album.genre.toLowerCase()}</p>

@@ -13,3 +13,21 @@ export const deleteCollectionAlbum = (data) => {
     data: { data }
   });
 };
+
+export const createFollow = (data) => {
+  debugger
+  return $.ajax({
+    method: 'POST',
+    url: '/api/user_follows',
+    data: { data },
+  });
+};
+
+export const deleteFollow = (data) => {
+  debugger
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/user_follows/${data.user_id}`,
+    data: { data }
+  });
+};

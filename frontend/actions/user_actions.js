@@ -5,8 +5,6 @@ import {
   updateCurrentUser,
 } from '../actions/session_actions';
 
-
-
 export const createCollectionAlbum = data => dispatch => {
   return UserApiUtil.createCollectionAlbum(data).then(user =>
     dispatch(receiveCurrentUser(user)));
@@ -14,5 +12,17 @@ export const createCollectionAlbum = data => dispatch => {
 
 export const deleteCollectionAlbum = data => dispatch => {
   return UserApiUtil.deleteCollectionAlbum(data).then( user =>
+    dispatch(updateCurrentUser(user)));
+};
+
+export const createFollow = data => dispatch => {
+  debugger
+  return UserApiUtil.createFollow(data).then(user =>
+    dispatch(receiveCurrentUser(user)));
+};
+
+export const deleteFollow = data => dispatch => {
+  debugger
+  return UserApiUtil.deleteFollow(data).then( user =>
     dispatch(updateCurrentUser(user)));
 };

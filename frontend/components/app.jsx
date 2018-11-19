@@ -17,8 +17,8 @@ const App = () => {
       </header>
       <section>
         <Route exact path="/" component={HomePageContainer} />
-        <Route path="/album/:albumId" component={AlbumPageContainer} />
-        <Route path="/artist/:artistId" component={ArtistPageContainer} />
+        <Route path="/albums/:albumId" component={AlbumPageContainer} />
+        <Route path="/artists/:artistId" component={ArtistPageContainer} />
       </section>
       <Footer />
     </div>
