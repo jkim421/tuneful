@@ -32,6 +32,11 @@ export const fetchAlbums = filter => dispatch => {
     dispatch(receiveAlbums(albums)));
 };
 
+export const fetchArtistAlbums = artistId => dispatch => {
+  return AlbumApiUtil.fetchArtistAlbums(artistId).then(albums =>
+    dispatch(receiveAlbums(albums)));
+};
+
 export const fetchAlbum = albumId => dispatch => {
   return AlbumApiUtil.fetchAlbum(albumId).then(album =>
     dispatch(receiveAlbum(album)));

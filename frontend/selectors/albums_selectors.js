@@ -17,10 +17,8 @@ export const selectNew = (albums = {}, keys = []) => {
   return newAlbums;
 };
 
-export const selectSongs = (songs = []) => {
+export const selectDiscog = (albums = {}, albumIds = []) => {
   let albumVals = Object.values(albums);
-  const newAlbums = keys.map( (id) => {
-    return albums[id];
-  });
-  return newAlbums;
+  const discog = albumVals.filter( album => albumIds.includes(album.id) );
+  return discog;
 };

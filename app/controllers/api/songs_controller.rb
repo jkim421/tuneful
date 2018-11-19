@@ -1,7 +1,12 @@
 class Api::SongsController < ApplicationController
 
+  def index
+    @songs = Song.where(album_id: params[:albumId])
+    render "api/songs/index.json.jbuilder"
+  end
+
   def show
-    @songs = Song.where(album_id: params[:id])
+    @song = Song.find(params[:id])
     render "api/songs/show.json.jbuilder"
   end
 

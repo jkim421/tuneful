@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SongItemContainer from './song_item_container';
 
 class AlbumPage extends React.Component {
   constructor(props) {
@@ -7,9 +8,11 @@ class AlbumPage extends React.Component {
   }
 
   componentDidMount() {
-    debugger
-    this.props.fetchAlbum(this.props.match.params.albumId);
+    const albumId = this.props.match.params.albumId;
+    this.props.fetchAlbum(albumId);
+    this.props.fetchSongs(albumId);
     this.props.fetchArtist(this.props.album.artist_id);
+    this.props.fetchArtistAlbums(this.props.album.artist_id);
   }
 
   showReleaseDate() {
@@ -19,6 +22,14 @@ class AlbumPage extends React.Component {
           released RELEASE DATE
         </p>
       )
+    } else {
+      return <p>"no release date"</p>
+    }
+  }
+
+  albumTracks(songs) {
+    if (songs.length > 0) {
+      return songs.map( (song) => <SongItemContainer key={song.id} song={song}/>)
     } else {
       return null
     }
@@ -50,14 +61,10 @@ class AlbumPage extends React.Component {
                 </div>
                 <div className="album-tracks">
                   <ul className="album-song-list">
-                    <li className="album-track-item">SONG 1</li>
-                    <li className="album-track-item">SONG 2</li>
-                    <li className="album-track-item">SONG 3</li>
-                    <li className="album-track-item">SONG 4</li>
-                    <li className="album-track-item">SONG 5</li>
+                    {this.albumTracks(this.props.songs)}
                   </ul>
                 </div>
-                {this.releaseDate}
+                {this.showReleaseDate()}
               </div>
               <div className="album-cover">
                 <div className="album-cover-img" />
@@ -69,8 +76,8 @@ class AlbumPage extends React.Component {
             </div>
             <aside className="show-sidebar">
               <div className="artist-side-img"/>
-              <p className="artist-side-name">ARTIST NAME</p>
-              <p className="artist-side-loc">ARTIST LOCATION</p>
+              <p className="artist-side-name">{this.props.artist.name || ""}</p>
+              <p className="artist-side-loc">{this.props.artist.location || ""}</p>
               <button className="artist-follow-btn">Follow</button>
               <p className="artist-description">DESCRIPTION</p>
               <div className="side-discog">

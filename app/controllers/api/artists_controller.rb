@@ -22,9 +22,13 @@ class Api::ArtistsController < ApplicationController
   end
 
   def show
-    @artist = Artist.find(params[:id])
+    @artist = Artist.find(params[:id]) || nil
     @albums = Album.where(artist_id: params[:id])
-    render 'api/artists/show.json.jbuilder'
+    if @artist
+      render 'api/artists/show.json.jbuilder'
+    else
+      render json: ["Couldn't find artist"], status: 404
+    end
   end
 
   private
