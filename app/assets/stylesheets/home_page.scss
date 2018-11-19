@@ -38,6 +38,7 @@
   text-decoration: none;
   color: white;
   box-sizing: border-box;
+  transition: opacity 0.1s linear;
 }
 
 .large-feature-link:hover, .small-feature-link:hover {
