@@ -7,7 +7,7 @@ const Discography = ({ albumId, discog }) => {
     return (
       discog.map( album => {
         return (
-          <li className="side-discog-item">
+          <li className="side-discog-item" key={album.id}>
             <Link to={`/album/${album.id}`} className="side-discog-img" />
             <Link to={`/album/${album.id}`} className="side-discog-title">{album.title}</Link>
             <p className="side-discog-date">RELEASE DATE</p>
@@ -16,7 +16,6 @@ const Discography = ({ albumId, discog }) => {
       })
     )
   };
-  debugger
   return (
     <div className="side-discog">
       <p className="discog-label">{correctDiscog.length > 0 ? "discography" : ""}</p>

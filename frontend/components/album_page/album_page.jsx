@@ -10,10 +10,19 @@ class AlbumPage extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     const albumId = this.props.match.params.albumId;
     this.props.fetchAlbum(albumId);
     this.props.fetchSongs(albumId);
     this.props.fetchArtistAlbums(this.props.album.artist_id);
+  }
+
+  componentDidUpdate(prevProps) {
+    debugger
+    const albumId = this.props.match.params.albumId;
+    if (this.props.match.params.albumId !== prevProps.match.params.albumId) {
+      this.props.fetchSongs(albumId);
+    }
   }
 
   showReleaseDate() {
