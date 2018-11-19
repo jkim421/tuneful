@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SongItemContainer from './song_item_container';
+import Discography from './discography';
 
 class AlbumPage extends React.Component {
   constructor(props) {
     super(props);
+    this.handleCollection = this.handleCollection.bind(this);
   }
 
   componentDidMount() {
     const albumId = this.props.match.params.albumId;
     this.props.fetchAlbum(albumId);
     this.props.fetchSongs(albumId);
-    this.props.fetchArtist(this.props.album.artist_id);
     this.props.fetchArtistAlbums(this.props.album.artist_id);
   }
 
@@ -35,8 +36,39 @@ class AlbumPage extends React.Component {
     }
   }
 
+  handleCollection(e) {
+    const collInfo = {
+      album_id: this.props.album.id,
+      user_id: this.props.currentUser,
+    };
+    if (this.props.userCollection.includes(this.props.album.id)) {
+      this.props.removeCollection(collInfo);
+    } else {
+      this.props.addCollection(collInfo);
+    }
+  }
+
+  collectionButton() {
+    if (!!this.props.currentUser) {
+      return (
+        <>
+          {this.props.userCollection.includes(this.props.album.id)
+            ? <i className="fas fa-heart album-collection-icon"></i>
+            : <i className="far fa-heart album-collection-icon"></i>}
+          <button
+            className="album-collection-btn"
+            onClick={ this.handleCollection }>
+            { this.props.userCollection.includes(this.props.album.id)
+              ? "remove from collection" : "add to collection" }
+          </button>
+        </>
+      );
+    } else {
+      return null;
+    }
+  }
+
   render() {
-    debugger
     return (
       <main className="show-page">
         <section className="show-body">
@@ -69,8 +101,7 @@ class AlbumPage extends React.Component {
               <div className="album-cover">
                 <div className="album-cover-img" />
                 <div className="album-collection">
-                  <i className="far fa-heart album-collection-icon"></i>
-                  <button className="album-collection-btn">add to collection</button>
+                  { this.collectionButton() }
                 </div>
               </div>
             </div>
@@ -79,27 +110,10 @@ class AlbumPage extends React.Component {
               <p className="artist-side-name">{this.props.artist.name || ""}</p>
               <p className="artist-side-loc">{this.props.artist.location || ""}</p>
               <button className="artist-follow-btn">Follow</button>
-              <p className="artist-description">DESCRIPTION</p>
-              <div className="side-discog">
-                <p className="discog-label">discography</p>
-                <ul className="side-discog-list">
-                  <li className="side-discog-item">
-                    <Link to="/" className="side-discog-img" />
-                    <Link to="/" className="side-discog-title">ALBUM TITLE</Link>
-                    <p className="side-discog-date">RELEASE DATE</p>
-                  </li>
-                  <li className="side-discog-item">
-                    <Link to="/" className="side-discog-img" />
-                    <Link to="/" className="side-discog-title">ALBUM TITLE</Link>
-                    <p className="side-discog-date">RELEASE DATE</p>
-                  </li>
-                  <li className="side-discog-item">
-                    <Link to="/" className="side-discog-img" />
-                    <Link to="/" className="side-discog-title">ALBUM TITLE</Link>
-                    <p className="side-discog-date">RELEASE DATE</p>
-                  </li>
-                </ul>
-              </div>
+              <p className="artist-description">{this.props.artist.bio || ""}</p>
+                <Discography
+                  albumId={this.props.match.params.albumId}
+                  discog={this.props.discog}/>
             </aside>
           </section>
         </section>

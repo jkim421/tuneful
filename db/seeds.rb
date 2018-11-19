@@ -18,7 +18,7 @@ pierce = User.create!(username:'pierce', password: 'password', email: 'piercemur
 agrarian = User.create!(username:'agrarians', password: 'password', email: 'agrarians@gmail.com')
 
 bleatingedge = Artist.create!(user_id: john.id, name: 'The Bleating Edge', location: 'New York, NY', bio: 'We Bleat For Music')
-pierce_murphy = Artist.create!(user_id: pierce.id, name: "Pierce Murphy", location: 'Denver, CO')
+pierce_murphy = Artist.create!(user_id: pierce.id, name: "Pierce Murphy", location: 'Denver, CO', bio: 'Test bio for this great new artist')
 agrarians = Artist.create!(user_id: agrarian.id, name: "The Agrarians", location: 'Raleigh, NC')
 
 rock = Genre.create!(name: 'Rock')

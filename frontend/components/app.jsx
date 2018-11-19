@@ -6,6 +6,7 @@ import HeaderSelect from './header/header_select';
 import HomePageContainer from './home_page/home_page_container';
 import ArtistPageContainer from './artist_page/artist_page_container';
 import AlbumPageContainer from './album_page/album_page_container';
+import Footer from './footer/footer';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/album/:albumId" component={AlbumPageContainer} />
         <Route path="/artist/:artistId" component={ArtistPageContainer} />
       </section>
+      <Footer />
     </div>
   );
 };

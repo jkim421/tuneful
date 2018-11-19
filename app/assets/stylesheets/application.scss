@@ -47,3 +47,21 @@ button {
 input:focus {
   outline: none;
 }
+
+.footer-body {
+  background-color: #eef2f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50px;
+  padding-top: 44px;
+}
+
+.footer-text, .footer-link {
+  color: #696969;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}

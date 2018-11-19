@@ -16,6 +16,7 @@ class Api::AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
+    @artist = @album.artist
     @songs = Song.where(album_id: params[:id])
     if @album
       render "api/albums/show.json.jbuilder"
