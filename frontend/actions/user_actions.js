@@ -16,13 +16,11 @@ export const deleteCollectionAlbum = data => dispatch => {
 };
 
 export const createFollow = data => dispatch => {
-  debugger
   return UserApiUtil.createFollow(data).then(user =>
     dispatch(receiveCurrentUser(user)));
 };
 
 export const deleteFollow = data => dispatch => {
-  debugger
   return UserApiUtil.deleteFollow(data).then( user =>
     dispatch(updateCurrentUser(user)));
 };
