@@ -31,8 +31,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchAlbum: (albumId) => dispatch(fetchAlbum(albumId)),
-    fetchArtistAlbums: (artistId) => dispatch(fetchArtistAlbums(artistId)),
     fetchArtist: (artistId) => dispatch(fetchArtist(artistId)),
+    fetchArtistAlbums: (artistId) => dispatch(fetchArtistAlbums(artistId)),
     fetchSongs: (albumId) => dispatch(fetchSongs(albumId)),
     addCollection: (data) => dispatch(createCollectionAlbum(data)),
     removeCollection: (data) => dispatch(deleteCollectionAlbum(data)),

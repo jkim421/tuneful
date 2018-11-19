@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SongItemContainer from './song_item_container';
-import Discography from './discography';
+import Discography from '../discography/discography';
 
 class AlbumPage extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class AlbumPage extends React.Component {
         </p>
       )
     } else {
-      return <p>"no release date"</p>
+      return <p className="album-release-date">"no release date"</p>
     }
   }
 
@@ -109,7 +109,7 @@ class AlbumPage extends React.Component {
     return (
       <main className="show-page">
         <section className="show-body">
-          <div className="show-cover-img"/>
+          <Link to={`/artists/${this.props.artist.id}`} className="show-cover-img"/>
           <section className="show-content">
             <div className="show-details">
               <div className="album-details">
@@ -126,12 +126,15 @@ class AlbumPage extends React.Component {
                   SONG PLAYER
                 </div>
                 <div className="album-download">
-                  DOWNLOAD ALBUM
+                  Download Album
                 </div>
                 <div className="album-tracks">
                   <ul className="album-song-list">
                     {this.albumTracks(this.props.songs)}
                   </ul>
+                </div>
+                <div className="album-description">
+                  {this.props.album.description}
                 </div>
                 {this.showReleaseDate()}
               </div>
@@ -155,7 +158,6 @@ class AlbumPage extends React.Component {
           </section>
         </section>
       </main>
-
     )
   }
 
