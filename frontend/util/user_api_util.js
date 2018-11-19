@@ -15,7 +15,6 @@ export const deleteCollectionAlbum = (data) => {
 };
 
 export const createFollow = (data) => {
-  debugger
   return $.ajax({
     method: 'POST',
     url: '/api/user_follows',
@@ -24,7 +23,6 @@ export const createFollow = (data) => {
 };
 
 export const deleteFollow = (data) => {
-  debugger
   return $.ajax({
     method: 'DELETE',
     url: `/api/user_follows/${data.user_id}`,

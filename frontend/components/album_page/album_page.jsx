@@ -81,7 +81,6 @@ class AlbumPage extends React.Component {
       artist_id: this.props.album.artist_id,
       user_id: this.props.currentUser,
     };
-    debugger
     if (this.props.userFollows.includes(this.props.album.artist_id)) {
       this.props.removeFollow(followInfo);
     } else {
