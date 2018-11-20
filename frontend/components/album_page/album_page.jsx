@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SongItemContainer from './song_item_container';
 import SideDiscography from '../discography/side_discography';
+import SongPlayerContainer from '../song_player/song_player_container';
 
 class AlbumPage extends React.Component {
   constructor(props) {
@@ -109,7 +110,6 @@ class AlbumPage extends React.Component {
     }
 
   render() {
-    debugger
     return (
       <main className="show-page">
         <section className="show-body">
@@ -129,7 +129,7 @@ class AlbumPage extends React.Component {
                   </div>
                 </div>
                 <div className="player-container">
-                  SONG PLAYER
+                  <SongPlayerContainer />
                 </div>
                 <div className="album-download">
                   Download Album

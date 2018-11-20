@@ -1,7 +1,7 @@
 class Api::SongsController < ApplicationController
 
   def index
-    @songs = Song.where(album_id: params[:albumId])
+    @songs = Song.where(album_id: params[:albumId]).order("track_num ASC")
     render "api/songs/index.json.jbuilder"
   end
 
