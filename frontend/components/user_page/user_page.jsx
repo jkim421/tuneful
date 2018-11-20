@@ -106,6 +106,23 @@ class UserPage extends React.Component {
     }
   }
 
+  username() {
+    if (this.props.user) {
+      if (this.props.user.artist_id) {
+        return (
+          <>
+            <p className="user-header-name">{this.props.artists.name}</p>
+            <p className="user-header-name-sm">{this.props.user.username}</p>
+          </>
+        )
+      } else {
+        return (
+          <p className="user-header-name">{this.props.user.username}</p>
+        )
+      }
+    }
+  }
+  
   render() {
     return (
       <main className="user-page">
@@ -114,7 +131,7 @@ class UserPage extends React.Component {
             <div className="user-header-img"/>
             <div className="user-header-details">
               <div className="user-header-toprow">
-                <p className="user-header-name">Name</p>
+                {this.username()}
                 <button className="user-header-follow">Follow</button>
               </div>
               <p className="user-header-loc">Location</p>
