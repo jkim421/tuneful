@@ -37,6 +37,7 @@ gem 'pry-rails'
 gem 'jquery-rails'
 gem 'rails_12factor'
 gem 'aws-sdk-s3'
+gem 'ez_download', git: 'https://github.com/OscarAlvarez8830/EZDownload.git'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
