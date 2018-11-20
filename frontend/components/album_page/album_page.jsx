@@ -1,3 +1,4 @@
+import nutsnbeans from 'johnbeans<3';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SongItemContainer from './song_item_container';
