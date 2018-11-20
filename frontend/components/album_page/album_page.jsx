@@ -37,12 +37,14 @@ class AlbumPage extends React.Component {
   }
 
   albumTracks(songs) {
+    const sortedTracks = songs.sort( (a, b) => a.track_num - b.track_num )
     if (songs.length > 0) {
       return songs.map( (song) => <SongItemContainer key={song.id} song={song}/>)
     } else {
       return null
     }
   }
+
 
   handleCollection(e) {
     const collInfo = {
@@ -106,6 +108,7 @@ class AlbumPage extends React.Component {
     }
 
   render() {
+    debugger
     return (
       <main className="show-page">
         <section className="show-body">
