@@ -35,6 +35,7 @@
 
 .user-header-toprow {
   display: flex;
+  align-items: center;
 }
 
 .user-tabs {
@@ -120,5 +121,73 @@
 }
 
 .user-page-album-details:hover {
+  text-decoration: underline;
+}
+
+.user-header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-header-artist {
+  display: flex;
+  align-items: center;
+}
+
+.user-header-follow {
+
+}
+
+.user-header-artistname, .user-header-name {
+  font-size: 30px;
+  color: #333333;
+  font-weight: 600;
+}
+
+.user-header-name-sm {
+  font-size: 15px;
+  color: #333333;
+}
+
+.user-header-loc, .user-header-bio {
+  font-size: 13px;
+  color: #828282;
+}
+
+.user-header-bio {
+  font-size: 15px;
+  color: #333333;
+  margin-top: 10px;
+}
+
+.user-header-follow {
+  width: 88px;
+  height: 30px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid rgb(0,161,198);
+  color: rgb(0,161,198);
+  border-radius: 5px;
+  outline: none;
+  background: none;
+  margin-left: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-plus {
+  margin-right: 7px;
+}
+
+.user-header-follow:hover {
+  cursor: pointer;
+}
+
+.user-header-follow-text {
+  font-size: 11px;
+}
+
+.user-header-follow-text:hover {
   text-decoration: underline;
 }

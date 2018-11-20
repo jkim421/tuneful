@@ -106,14 +106,16 @@ class UserPage extends React.Component {
     }
   }
 
-  username() {
+  usernameDisplay() {
     if (this.props.user) {
-      if (this.props.user.artist_id) {
+      if (this.props.user.artist_id && this.props.artist) {
         return (
-          <>
-            <p className="user-header-name">{this.props.artists.name}</p>
+          <div className="user-header-titles">
+            <div className="user-header-artist">
+              <p className="user-header-artistname">{this.props.artist.name}</p>
+            </div>
             <p className="user-header-name-sm">{this.props.user.username}</p>
-          </>
+          </div>
         )
       } else {
         return (
@@ -122,7 +124,7 @@ class UserPage extends React.Component {
       }
     }
   }
-  
+
   render() {
     return (
       <main className="user-page">
@@ -131,11 +133,14 @@ class UserPage extends React.Component {
             <div className="user-header-img"/>
             <div className="user-header-details">
               <div className="user-header-toprow">
-                {this.username()}
-                <button className="user-header-follow">Follow</button>
+                {this.usernameDisplay()}
               </div>
-              <p className="user-header-loc">Location</p>
-              <p className="user-header-bio">Bio</p>
+              <p className="user-header-loc">
+                {this.props.artist ? this.props.artist.location : ""}
+              </p>
+              <p className="user-header-bio">
+                {this.props.artist ? this.props.artist.bio : ""}
+              </p>
             </div>
           </div>
           {this.linkTabs()}

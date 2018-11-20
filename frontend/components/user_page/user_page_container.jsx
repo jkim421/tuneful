@@ -11,7 +11,6 @@ import { selectDiscog } from '../../selectors/albums_selectors';
 import { selectCollection } from '../../selectors/albums_selectors';
 import { selectFollows } from '../../selectors/artists_selectors';
 
-
 const mapStateToProps = (state, ownProps) => {
   const userId = ownProps.match.params.userId;
   const user = state.entities.users[userId] || null;
