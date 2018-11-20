@@ -9,7 +9,11 @@ class SongPlayer extends React.Component {
   }
 
   render() {
-
+    return (
+      <div className="song-player">
+        SONGPLAYER
+      </div>
+    )
   }
 
 }

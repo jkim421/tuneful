@@ -6,8 +6,8 @@ class SongItem extends React.Component {
   }
 
   songPlayer(song) {
+    debugger
     if (song.audio_url) {
-      debugger
       return (
         <audio controls>
           <source src={song.audio_url} type="audio/ogg"/>

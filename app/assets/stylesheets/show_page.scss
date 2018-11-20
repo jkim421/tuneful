@@ -78,6 +78,7 @@
 }
 
 .player-container {
+  box-sizing: border-box;
   border-top: 1px solid purple;
   border-bottom: 1px solid purple;
   height: 52px;
