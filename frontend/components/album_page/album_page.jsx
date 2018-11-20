@@ -1,4 +1,3 @@
-import nutsnbeans from 'johnbeans<3';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SongItemContainer from './song_item_container';
@@ -40,7 +39,8 @@ class AlbumPage extends React.Component {
   albumTracks(songs) {
     const sortedTracks = songs.sort( (a, b) => a.track_num - b.track_num )
     if (songs.length > 0) {
-      return songs.map( (song) => <SongItemContainer key={song.id} song={song}/>)
+      return songs.map( (song) =>
+        <SongItemContainer key={song.id} song={song}/>)
     } else {
       return null
     }

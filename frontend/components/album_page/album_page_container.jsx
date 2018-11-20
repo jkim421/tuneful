@@ -19,7 +19,6 @@ const mapStateToProps = (state, ownProps) => {
   const songs = state.entities.songs[ownProps.match.params.albumId] || [];
   return {
     album,
-    hi im a poop nugget 
     artist,
     songs,
     discog: selectDiscog(state.entities.albums, artist.album_ids),
