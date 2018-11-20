@@ -4,6 +4,7 @@ import { receiveSessionErrors } from './session_actions';
 
 export const ADD_ARTIST = 'CREATE_ARTIST';
 export const RETRIEVE_ARTIST = 'RETRIEVE_ARTIST';
+export const RECEIVE_ARTISTS = 'RECEIVE_ARTISTS';
 export const RECEIVE_ARTIST_ERRORS = 'RECEIVE_ARTIST_ERRORS';
 
 export const addArtist = (artist) => {
@@ -19,6 +20,13 @@ export const retrieveArtist = (artist) => {
     artist,
   };
 };
+
+export const receiveArtists = (artists) => {
+  return {
+    type: RECEIVE_ARTISTS,
+    artists
+  }
+}
 
 export const receiveArtistErrors = (errors) => {
   return {

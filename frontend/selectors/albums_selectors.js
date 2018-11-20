@@ -22,3 +22,9 @@ export const selectDiscog = (albums = {}, albumIds = []) => {
   const discog = albumVals.filter( album => albumIds.includes(album.id) );
   return discog;
 };
+
+export const selectCollection = (albums = {}, albumIds = []) => {
+  let albumVals = Object.values(albums);
+  const collection = albumVals.filter( album => albumIds.includes(album.id) );
+  return collection;
+}

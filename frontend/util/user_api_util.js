@@ -1,3 +1,26 @@
+export const fetchUser = (userId) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users/${userId}`,
+  });
+};
+
+export const fetchCollectionAlbums = (userCollectionIds) => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/albums',
+    data: { userCollectionIds }
+  });
+};
+
+export const fetchFollowedArtists = (userFollowIds) => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/artists',
+    data: { userFollowIds }
+  });
+};
+
 export const createCollectionAlbum = (data) => {
   return $.ajax({
     method: 'POST',

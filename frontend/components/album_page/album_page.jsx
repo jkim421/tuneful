@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SongItemContainer from './song_item_container';
-import Discography from '../discography/discography';
+import SideDiscography from '../discography/side_discography';
 
 class AlbumPage extends React.Component {
   constructor(props) {
@@ -151,7 +151,7 @@ class AlbumPage extends React.Component {
               <p className="artist-side-loc">{this.props.artist.location || ""}</p>
               { this.followButton() }
               <p className="artist-description">{this.props.artist.bio || ""}</p>
-                <Discography
+                <SideDiscography
                   albumId={this.props.match.params.albumId}
                   discog={this.props.discog}/>
             </aside>

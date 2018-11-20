@@ -10,7 +10,7 @@ export const UPDATE_CURRENT_USER = 'UPDATE_CURRENT_USER';
 export const receiveCurrentUser = (user) => {
   return {
     type: RECEIVE_CURRENT_USER,
-    user
+    user: user,
   };
 };
 
@@ -30,7 +30,7 @@ export const receiveSessionErrors = (errors) => {
 export const updateCurrentUser = (user) => {
   return {
     type: UPDATE_CURRENT_USER,
-    user
+    user: user,
   };
 };
 

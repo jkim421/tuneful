@@ -38,7 +38,7 @@ class MainHeader extends React.Component {
         <ul className="home-action-list">
           <li className="home-name">Hi {this.props.currentUser.username}</li>
           <li>
-            <Link className="header-session header-collection" to={`/users/${this.props.currentUser}`}>collection</Link>
+            <Link className="header-session header-collection" to={`/users/${this.props.currentUser.id}/`}>collection</Link>
           </li>
         </ul>
       );

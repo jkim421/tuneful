@@ -21,6 +21,16 @@ class Api::ArtistsController < ApplicationController
   def update
   end
 
+  def index
+    if !!params[:userFollowIds]
+      @artists = Artist.where(id: params[:userFollowIds])
+    else
+      @artists = Artist.all
+    end
+
+    render 'api/artists/index.json.jbuilder'
+  end
+
   def show
     @artist = Artist.find(params[:id])
     @albums = Album.where(artist_id: params[:id])

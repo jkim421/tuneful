@@ -6,6 +6,7 @@ import HeaderSelect from './header/header_select';
 import HomePageContainer from './home_page/home_page_container';
 import ArtistPageContainer from './artist_page/artist_page_container';
 import AlbumPageContainer from './album_page/album_page_container';
+import UserPageContainer from './user_page/user_page_container';
 import Footer from './footer/footer';
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route exact path="/" component={HomePageContainer} />
         <Route path="/albums/:albumId" component={AlbumPageContainer} />
         <Route path="/artists/:artistId" component={ArtistPageContainer} />
+        <Route path="/users/:userId" component={UserPageContainer} />
       </section>
       <Footer />
     </div>

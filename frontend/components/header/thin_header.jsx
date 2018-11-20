@@ -12,6 +12,7 @@ class ThinHeader extends React.Component {
   logout(e) {
     e.preventDefault();
     this.props.logout();
+    this.props.history.push('/');
   }
 
   toggleGearDisplay() {
@@ -24,7 +25,7 @@ class ThinHeader extends React.Component {
       return (
         <li>
           <Link
-            to={`/artists/${this.props.currentUser.artist_id}`}
+            to={`/artists/${this.props.currentUser.artist_id}/`}
             className="thin-header-dropdown">artist page</Link>
         </li>
       )
@@ -38,7 +39,7 @@ class ThinHeader extends React.Component {
       return (
         <div className="thin-header-right">
           <Link
-            to={`/users/${this.props.currentUser.id}`}
+            to={`/users/${this.props.currentUser.id}/`}
             className="thin-header-coll thin-header-actions thin-header-session">
             collection</Link>
           <div

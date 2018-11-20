@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Discography = ({ albumId, discog }) => {
+const SideDiscography = ({ albumId, discog }) => {
   const correctDiscog = discog.filter( album => album.id !== parseInt(albumId) );
   const albums = (discog) => {
     return (
@@ -26,4 +26,4 @@ const Discography = ({ albumId, discog }) => {
   )
 };
 
-export default Discography;
+export default SideDiscography;

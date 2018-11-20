@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Discography from '../discography/discography';
 import ArtistAlbum from './artist_album';
 
 class ArtistPage extends React.Component {

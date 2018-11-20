@@ -4,7 +4,6 @@ import Root from './components/root';
 import { signup } from './actions/session_actions'
 import configureStore from './store/store';
 import { login, logout } from './actions/session_actions';
-import { createCollectionAlbum } from './actions/user_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const rootEl = document.getElementById('root');
@@ -12,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.currentUser) {
   const preloadedState = {
     entities: {
-      users: { [window.currentUser.id]: window.currentUser }
+      users: { [window.currentUser.user.id]: window.currentUser.user }
     },
-    session: { id: window.currentUser.id }
+    session: { id: window.currentUser.user.id }
   };
   store = configureStore(preloadedState);
   delete window.currentUser;
@@ -25,7 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // FOR TESTING DELETE
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.createCollectionAlbum = createCollectionAlbum;
-
   ReactDOM.render(<Root store={ store }/>, rootEl);
 })

@@ -1,0 +1,124 @@
+.user-page {
+  height: 100%;
+  padding-top: 49px;
+  background-color: #fff;
+}
+
+.user-body {
+  min-height: 700px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-top: 70px;
+  width: 1215px;
+  border-top: none;
+}
+
+.user-header-row {
+  height: 210px;
+  display: flex;
+  padding-bottom: 27px;
+}
+
+.user-header-img {
+  height: 100%;
+  width: 210px;
+  background-image: url(https://pbs.twimg.com/media/DdKsdUFVQAA7REO.jpg);
+  background-size: 120%;
+  background-position: 50% 30%;
+}
+
+.user-header-details {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 0px 0px 43px;
+}
+
+.user-header-toprow {
+  display: flex;
+}
+
+.user-tabs {
+  height: 35px;
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-left: 10px;
+  margin-bottom: 25px;
+  margin-right: 26px;
+}
+
+.user-tabs-link {
+  width: 142px;
+  height: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0px 20px;
+  font-size: 15px;
+  font-weight: 600px;
+  color: #02abcd;
+  text-decoration: none;
+  text-align: center;
+}
+
+.user-item-display {
+  padding-bottom: 44px;
+  display: flex;
+}
+
+.user-tabs-link:hover:not(.selected-user-tab) {
+  border-bottom: 2px solid #02abcd;
+}
+
+.selected-user-tab {
+  color: #333333;
+  border-bottom: 2px solid #333333;
+}
+
+.user-page-discog {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user-page-album {
+  display: flex;
+  margin: 0 10px 20px 0;
+  padding: 10px;
+  padding-bottom: 20px;
+  border: 1px solid #fff;
+  transition: border 0.1s linear;
+}
+
+.user-page-album:hover {
+  border: 1px dotted rgba(0,0,0,0.2);
+}
+
+.user-page-link {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  text-decoration: none;
+}
+
+.user-page-album-img {
+  width: 210px;
+  height: 210px;
+  background-image: url(https://pbs.twimg.com/media/DLXycjdU8AA4NoQ.jpg);
+  background-size: cover;
+  display: inline-block;
+}
+
+.user-page-album-title {
+  padding-top: 6px;
+  color: #363636;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.user-page-album-artist {
+  padding-top: 2px;
+  color: #505958;
+  font-size: 12px;
+}
+
+.user-page-album-details:hover {
+  text-decoration: underline;
+}
