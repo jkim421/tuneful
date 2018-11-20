@@ -11,10 +11,22 @@ class FeaturedAlbums extends React.Component {
     this.props.getFeaturedAlbums()
   }
 
+  backgroundImage(album) {
+    return (
+      {
+        backgroundImage: `url(${album.photo_url})`,
+        backgroundPosition: "center"
+      }
+    )
+  }
+
   showMain(album) {
     if (this.props.albums.length > 0) {
       return (
-        <Link className="large-feature-link" to={`/albums/${album.id}`}>
+        <Link
+          className="large-feature-link"
+          to={`/albums/${album.id}`}
+          style={ this.backgroundImage(album) }>
           <div className="large-feature-details">
             <p className="large-feature-title">{album.title}</p>
             <p className="large-feature-band">{album.artist}</p>
@@ -31,7 +43,10 @@ class FeaturedAlbums extends React.Component {
       const albumDetails = albums.map( (album) => {
         return (
           <li className="small-feature-wrapper" key={album.id}>
-            <Link className="small-feature-link" to={`/albums/${album.id}`}>
+            <Link
+              className="small-feature-link"
+              to={`/albums/${album.id}`}
+              style={ this.backgroundImage(album) }>>
               <div className="small-feature-details">
                 <p className="small-feature-title">{album.title}</p>
                 <p className="small-feature-band">{album.artist}</p>

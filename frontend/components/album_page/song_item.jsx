@@ -5,14 +5,28 @@ class SongItem extends React.Component {
     super(props);
   }
 
+  songPlayer(song) {
+    if (song.audio_url) {
+      debugger
+      return (
+        <audio controls>
+          <source src={song.audio_url} type="audio/ogg"/>
+        </audio>
+      )
+    }
+  }
+
   render() {
+    const song = this.props.song;
+    debugger
     return (
       <li className="album-track-item">
+        {this.songPlayer(song)}
         <span>
-          {this.props.song.track_num}.&nbsp;
+          {song.track_num}.&nbsp;
         </span>
         <span>
-          {this.props.song.title}
+          {song.title}
         </span>
       </li>
     )

@@ -5,7 +5,7 @@ const UserPageFollow = ({ artist }) => {
   return (
     <li className="user-page-album" key={artist.id}>
       <Link to={`/artists/${artist.id}`} className="user-page-link">
-        <img className="user-page-album-img"/>
+        <img className="user-page-album-img" src={artist.photo_url}/>
         <div className="user-page-album-details">
           <p className="user-page-album-title">{artist.name}</p>
         </div>

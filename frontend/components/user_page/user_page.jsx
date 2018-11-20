@@ -96,11 +96,11 @@ class UserPage extends React.Component {
           <Link
             to={`/users/${userId}/`}
             className={`user-tabs-link ${this.selectPath("user_collection")}`}>
-            collection</Link>
+            collection &nbsp;{this.props.userCollection.length}</Link>
           <Link
             to={`/users/${userId}/follows`}
             className={`user-tabs-link ${this.selectPath("follows")}`}>
-            follows</Link>
+            follows &nbsp;{this.props.userFollows.length}</Link>
         </div>
       )
     }
@@ -125,12 +125,26 @@ class UserPage extends React.Component {
     }
   }
 
+  photoDisplay() {
+    if (this.props.artist) {
+      return <img className="user-header-img" src={this.props.artist.photo_url}/>
+    } else {
+      if (this.props.user) {
+        if (this.props.user.photo_url) {
+          return <img className="user-header-img" src={this.props.user.photo_url}/>
+        } else {
+          return <div className="user-default-img"/>
+        }
+      }
+    }
+  }
+
   render() {
     return (
       <main className="user-page">
         <section className="user-body">
           <div className="user-header-row">
-            <div className="user-header-img"/>
+            {this.photoDisplay()}
             <div className="user-header-details">
               <div className="user-header-toprow">
                 {this.usernameDisplay()}

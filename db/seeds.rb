@@ -11,6 +11,8 @@ Artist.destroy_all
 Genre.destroy_all
 Album.destroy_all
 Song.destroy_all
+UserCollectionAlbum.destroy_all
+UserFollow.destroy_all
 
 john = User.create!(username: 'john', password: 'password', email: 'jkim21@pm.me')
 demo = User.create!(username: 'demo', password: 'password', email: 'demo@demo.com')

@@ -35,6 +35,15 @@ class NewAlbumItem extends React.Component {
     }
   }
 
+  backgroundImage(album) {
+    return (
+      {
+        backgroundImage: `url(${album.photo_url})`,
+        backgroundPosition: "center"
+      }
+    )
+  }
+
   render() {
     const album = this.props.album
     return (
@@ -42,9 +51,12 @@ class NewAlbumItem extends React.Component {
         <div
           className="new-album-show"
           onMouseOver={this.displayCollect}>
-          <div className="new-album-cover">
-            <Link className="new-album-link" to={`/albums/${album.id}`} key={album.id} />
-          </div>
+          <Link
+            className="new-album-link"
+            to={`/albums/${album.id}`} key={album.id}
+            style={ this.backgroundImage(album) }>
+            <img className="new-album-img" src={album.photo_url}/>
+          </Link>
           <div className="new-album-details" onMouseOver={this.displayCollect}>
             <Link className="new-album-byline-link" to={`/albums/${album.id}`}>
               <p className="new-album-byline">{album.title}<br/>by {album.artist}</p>

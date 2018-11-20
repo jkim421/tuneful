@@ -8,7 +8,9 @@ const SideDiscography = ({ albumId, discog }) => {
       discog.map( album => {
         return (
           <li className="side-discog-item" key={album.id}>
-            <Link to={`/albums/${album.id}`} className="side-discog-img" />
+            <Link to={`/albums/${album.id}`}>
+              <img className="side-discog-img" src={album.photo_url}/>
+            </Link>
             <Link to={`/albums/${album.id}`} className="side-discog-title">{album.title}</Link>
             <p className="side-discog-date">RELEASE DATE</p>
           </li>

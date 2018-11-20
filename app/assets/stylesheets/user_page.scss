@@ -27,6 +27,13 @@
   background-position: 50% 30%;
 }
 
+.user-default-img {
+  height: 100%;
+  width: 210px;
+  background-color: #fff;
+  border: 1px dashed #aaa;
+}
+
 .user-header-details {
   display: flex;
   flex-direction: column;
@@ -102,7 +109,7 @@
 .user-page-album-img {
   width: 210px;
   height: 210px;
-  background-image: url(https://pbs.twimg.com/media/DLXycjdU8AA4NoQ.jpg);
+  // background-image: url(https://pbs.twimg.com/media/DLXycjdU8AA4NoQ.jpg);
   background-size: cover;
   display: inline-block;
 }

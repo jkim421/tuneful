@@ -21,6 +21,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   has_one_attached :photo
+  has_one_attached :cover_photo
 
   has_one :artist
 

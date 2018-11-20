@@ -6,7 +6,7 @@ class Api::AlbumsController < ApplicationController
     elsif filter == "new"
       @albums = Album.limit(5).order('created_at DESC')
     elsif !!params[:artistId]
-      @albums = Album.where(artist_id: params[:artistId].to_i)
+      @albums = Album.where(artist_id: params[:artistId].to_i).order('created_at DESC')
     elsif !!params[:userCollectionIds]
       @albums = Album.where(id: params[:userCollectionIds])
     else

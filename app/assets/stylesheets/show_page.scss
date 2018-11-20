@@ -11,12 +11,13 @@
   border-top: none;
 }
 
-.show-cover-img {
-  height: 180px;
-  background-image: url(https://static1.squarespace.com/static/54c2e69ae4b039d95906c50a/598a4d44e3df28c8a47ba035/598a5314cd39c31515c25177/1502237468394/SQspace_Mother%27s+Garden+PART3.jpg);
-  background-size: 100% auto;
-  background-position: 50% 50%;
+.show-cover-link {
   display: block;
+  height: 180px;
+}
+
+.show-cover-img {
+  width: 100%;
 }
 
 .show-content {
@@ -110,7 +111,7 @@
 .album-cover-img {
   height: 350px;
   width: 350px;
-  background-image: url(https://pbs.twimg.com/media/Dc1wM70U8AEIGtF.png);
+  // background-image: url(https://pbs.twimg.com/media/Dc1wM70U8AEIGtF.png);
   background-size: cover;
   background-position: 50% 50%;
   margin-bottom: 18px;
@@ -139,7 +140,7 @@
   width: 120px;
   height: 120px;
   display: inline-block;
-  background-image: url(https://pbs.twimg.com/media/DsHZCe6UcAEd3Ro.jpg);
+  // background-image: url(https://pbs.twimg.com/media/DsHZCe6UcAEd3Ro.jpg);
   background-size: 350px;
   background-position: 78% 35%;
   margin-bottom: 14px;
@@ -184,7 +185,7 @@
 .side-discog-img {
   width: 120px;
   height: 120px;
-  background-image: url(https://pbs.twimg.com/media/DLXycjdU8AA4NoQ.jpg);
+  // background-image: url(https://pbs.twimg.com/media/DLXycjdU8AA4NoQ.jpg);
   background-size: cover;
   display: block;
   margin-bottom: 8px;
@@ -226,7 +227,7 @@
   flex-direction: column;
   overflow: auto;
   text-decoration: none;
-  height: 250px;
+  height: 260px;
 }
 
 .artist-discog-link:hover {
@@ -236,7 +237,7 @@
 .artist-discog-img {
   width: 230px;
   height: 230px;
-  background-image: url(https://pbs.twimg.com/media/DLXycjdU8AA4NoQ.jpg);
+  // background-image: url(https://pbs.twimg.com/media/DLXycjdU8AA4NoQ.jpg);
   background-size: cover;
   display: inline-block;
   position: relative;

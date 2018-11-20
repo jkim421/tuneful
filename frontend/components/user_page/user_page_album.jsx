@@ -5,7 +5,7 @@ const UserPageAlbum = ({ album }) => {
   return (
     <li className="user-page-album" key={album.id}>
       <Link to={`/albums/${album.id}`} className="user-page-link">
-        <img className="user-page-album-img"/>
+        <img className="user-page-album-img" src={album.photo_url}/>
         <div className="user-page-album-details">
           <p className="user-page-album-title">{album.title}</p>
           <p className="user-page-album-artist">{album.artist}</p>

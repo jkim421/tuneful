@@ -55,7 +55,11 @@ class ArtistPage extends React.Component {
     return (
       <main className="show-page">
         <section className="show-body">
-          <Link to={`/artists/${this.props.artist.id}`} className="show-cover-img"/>
+          <div className="show-cover-container">
+            <Link className="show-cover-link" to={`/artists/${this.props.artist.id}`}>
+              <img className="show-cover-img" src={this.props.artist.cover_photo_url}/>
+            </Link>
+          </div>
           <section className="show-content">
             <div className="artist-albums">
               <ul className="artist-albums-list">
@@ -63,7 +67,9 @@ class ArtistPage extends React.Component {
               </ul>
             </div>
             <aside className="show-sidebar">
-              <Link className="artist-side-img" to={`/artists/${this.props.artist.id}`}/>
+              <Link to={`/artists/${this.props.artist.id}`}>
+                <img className="artist-side-img" src={this.props.artist.photo_url}/>
+              </Link>
               <p className="artist-side-name">{this.props.artist.name || ""}</p>
               <p className="artist-side-loc">{this.props.artist.location || ""}</p>
               { this.followButton() }

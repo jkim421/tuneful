@@ -67,7 +67,7 @@ class AlbumPage extends React.Component {
             className="album-collection-btn"
             onClick={ this.handleCollection }>
             { this.props.userCollection.includes(this.props.album.id)
-              ? "remove from collection" : "add to collection" }
+              ? "In Collection" : "Add to Collection" }
             </button>
             </>
         );
@@ -109,7 +109,9 @@ class AlbumPage extends React.Component {
     return (
       <main className="show-page">
         <section className="show-body">
-          <Link to={`/artists/${this.props.artist.id}`} className="show-cover-img"/>
+          <Link to={`/artists/${this.props.artist.id}`} className="show-cover-link">
+            <img className="show-cover-img" src={this.props.artist.cover_photo_url}/>
+          </Link>
           <section className="show-content">
             <div className="show-details">
               <div className="album-details">
@@ -139,14 +141,16 @@ class AlbumPage extends React.Component {
                 {this.showReleaseDate()}
               </div>
               <div className="album-cover">
-                <div className="album-cover-img" />
+                <img className="album-cover-img" src={this.props.album.photo_url}/>
                 <div className="album-collection">
                   { this.collectionButton() }
                 </div>
               </div>
             </div>
             <aside className="show-sidebar">
-              <Link className="artist-side-img" to={`/artists/${this.props.album.artist_id}`}/>
+              <Link to={`/artists/${this.props.album.artist_id}`}>
+                <img className="artist-side-img" src={this.props.artist.photo_url}/>
+              </Link>
               <p className="artist-side-name">{this.props.artist.name || ""}</p>
               <p className="artist-side-loc">{this.props.artist.location || ""}</p>
               { this.followButton() }

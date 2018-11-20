@@ -5,7 +5,7 @@ const ArtistAlbum = ({ album }) => {
   return (
     <li className="artist-discog-item">
       <Link to={`/albums/${album.id}`} className="artist-discog-link">
-        <img className="artist-discog-img"/>
+        <img className="artist-discog-img" src={album.photo_url}/>
         <p className="artist-discog-title">{album.title}</p>
       </Link>
     </li>

@@ -18,11 +18,12 @@ class Artist < ApplicationRecord
 
   validates :name, presence: true
 
-  has_one_attached :photo
-
   has_many :albums
   has_many :songs
-  
+
+  has_one_attached :photo
+  has_one_attached :cover_photo
+
   has_many :followers,
     class_name: :user_follows,
     foreign_key: :artist_id

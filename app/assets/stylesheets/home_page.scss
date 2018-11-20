@@ -59,7 +59,13 @@
 .large-feature-link {
   width: 100%;
   box-sizing: border-box;
-  background-image: url("https://pbs.twimg.com/media/DsDiwLcVAAU5HmH.jpg");
+  // background-image: url("https://pbs.twimg.com/media/DsDiwLcVAAU5HmH.jpg");
+  overflow: hidden;
+}
+
+.large-feature-img {
+  width: 100%;
+  height: auto;
 }
 
 .side-features {
@@ -75,8 +81,8 @@
 .small-feature-link {
   width: 100%;
   box-sizing: border-box;
-  background-image: url("https://pbs.twimg.com/media/DsBiB5hWsAIE9Jh.jpg");
   background-size: cover;
+  // background-image: url("https://pbs.twimg.com/media/DsBiB5hWsAIE9Jh.jpg");
 }
 
 .small-feature-wrapper {
@@ -118,8 +124,8 @@
 .small-feature-details {
   width: 310px;
   position: relative;
-  top: 124px;
-  left: 22px;
+  top: 105px;
+  left: 14px;
 }
 
 
@@ -151,18 +157,16 @@
   padding-right: 0;
 }
 
-.new-album-cover {
+.new-album-link {
   height: 207px;
-  background-image: url(https://pbs.twimg.com/media/DrFbHgdV4AE05sB.jpg);
-  background-size: auto 100%;
-  background-position: center;
+  width: 207px;
+  text-align: center;
   display: flex;
 }
 
-.new-album-link {
+.new-album-img {
   height: 100%;
   width: 100%;
-  text-align: center;
 }
 
 .new-album-details {

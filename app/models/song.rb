@@ -20,6 +20,6 @@ class Song < ApplicationRecord
     through: :album,
     source: :artist
 
-  has_one_attached :song
+  has_one_attached :audio_file
 
 end
