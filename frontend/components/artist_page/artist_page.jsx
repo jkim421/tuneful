@@ -17,8 +17,9 @@ class ArtistPage extends React.Component {
   handleFollow(e) {
     const followInfo = {
       artist_id: this.props.artist.id,
-      user_id: this.props.currentUser.id,
+      user_id: this.props.currentUser,
     };
+    debugger
     if (this.props.userFollows.includes(this.props.artist.id)) {
       this.props.removeFollow(followInfo);
     } else {

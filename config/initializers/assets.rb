@@ -19,5 +19,6 @@ Rails.application.config.assets.precompile +=
       header.scss
       home_page.scss
       show_page.scss
-      user_page.scss 
+      user_page.scss
+      song_player.scss
     )
