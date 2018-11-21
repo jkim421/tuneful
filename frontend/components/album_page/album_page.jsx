@@ -116,7 +116,7 @@ class AlbumPage extends React.Component {
           <Link to={`/artists/${this.props.artist.id}`} className="show-cover-link">
             <img className="show-cover-img" src={this.props.artist.cover_photo_url}/>
           </Link>
-          <section className="show-content">
+          <section className="show-content" id="show-content">
             <div className="show-details">
               <div className="album-details">
                 <div className="album-byline">
@@ -129,10 +129,12 @@ class AlbumPage extends React.Component {
                   </div>
                 </div>
                 <div className="player-container">
-                  <SongPlayerContainer />
+                  <SongPlayerContainer songs={this.props.songs}/>
                 </div>
-                <div className="album-download">
-                  Download Album
+                <div className="download-container">
+                  <p className="album-download">
+                    Download Album
+                  </p>
                 </div>
                 <div className="album-tracks">
                   <ul className="album-song-list">

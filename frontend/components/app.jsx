@@ -17,10 +17,12 @@ const App = () => {
         <HeaderSelect />
       </header>
       <section>
-        <Route exact path="/" component={HomePageContainer} />
-        <Route path="/albums/:albumId" component={AlbumPageContainer} />
-        <Route path="/artists/:artistId" component={ArtistPageContainer} />
-        <Route path="/users/:userId" component={UserPageContainer} />
+        <Switch>
+          <Route exact path="/" component={HomePageContainer} />
+          <Route path="/albums/:albumId" component={AlbumPageContainer} />
+          <Route path="/artists/:artistId" component={ArtistPageContainer} />
+          <Route path="/users/:userId" component={UserPageContainer} />
+        </Switch>
       </section>
       <Footer />
     </div>

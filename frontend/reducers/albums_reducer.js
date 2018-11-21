@@ -12,8 +12,8 @@ const albumsReducer = (state = { new: [] }, action) => {
     case RECEIVE_NEW_ALBUMS:
       return merge({}, state, action.albums.albums, { new: Object.keys(action.albums.albums) });
     case RECEIVE_ALBUM:
-      const album = Object.values(action.albums.albums);
-      return merge ({}, state, { [album[0].id]: action[0] });
+      const album = Object.values(action.albums)[0];
+      return merge ({}, state, { [album.id]: album });
     default:
       return state;
   }

@@ -15,8 +15,11 @@
   border: 1px solid #d9d9d9;
   background: #fff;
   outline: none;
-  font-size: 24px;
   cursor: pointer;
+}
+
+.playpause-icon {
+  font-size: 20px;
 }
 
 .prev-btn, .next-btn {
@@ -40,6 +43,7 @@
 .progress-bar-bottom {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .progress-bar {
@@ -49,6 +53,7 @@
   border: 1px solid #d9d9d9;
   border-radius: 1px;
   position: relative;
+  cursor: pointer;
 }
 
 .progress-bar-slider {
@@ -58,6 +63,7 @@
   border: 1px solid #bebebe;
   background: #fff;
   border-radius: 1px;
-  position: absolute;
   cursor: pointer;
+  position: absolute;
+  left: 0px;
 }

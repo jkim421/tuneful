@@ -20,10 +20,11 @@ export const receiveNewAlbums = (albums) => {
   };
 };
 
-export const receiveAlbum = (album) => {
+export const receiveAlbum = ({albums, artists}) => {
   return {
     type: RECEIVE_ALBUM,
-    album,
+    albums,
+    artists,
   };
 };
 

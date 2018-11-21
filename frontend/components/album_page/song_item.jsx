@@ -6,22 +6,21 @@ class SongItem extends React.Component {
   }
 
   songPlayer(song) {
-    debugger
     if (song.audio_url) {
       return (
-        <audio controls>
-          <source src={song.audio_url} type="audio/ogg"/>
-        </audio>
+        <div>aux</div>
       )
     }
   }
 
   render() {
     const song = this.props.song;
-    debugger
     return (
       <li className="album-track-item">
         {this.songPlayer(song)}
+        <span className="album-track-btn">
+          <i className="fas fa-play album-track-icon"/>
+        </span>
         <span>
           {song.track_num}.&nbsp;
         </span>
