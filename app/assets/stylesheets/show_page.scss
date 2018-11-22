@@ -223,17 +223,19 @@
 
 .artist-albums-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 780px;
-  height: 500px;
+  min-height: 500px;
   display: flex;
-  justify-content: space-between;
   box-sizing: border-box;
   padding-left: 30px;
 }
 
 .artist-discog-item {
   display: flex;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .artist-discog-link {

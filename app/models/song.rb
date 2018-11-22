@@ -14,7 +14,7 @@
 class Song < ApplicationRecord
 
   validates :title, :track_num, presence: true
-  validates :track_number, uniqueness: { scope: :album }
+  validates :track_num, uniqueness: { scope: :album }
 
   belongs_to :album
   has_one :artist,

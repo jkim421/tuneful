@@ -10,9 +10,9 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  downloadable :boolean          default(TRUE)
-#  release_date :datetime
 #  genre_id     :integer          not null
 #  featured     :boolean          default(FALSE)
+#  release_date :integer
 #
 
 class Album < ApplicationRecord
