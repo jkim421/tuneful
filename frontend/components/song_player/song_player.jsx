@@ -1,4 +1,5 @@
 import React from 'react';
+import { isEmpty } from 'lodash';
 
 class SongPlayer extends React.Component {
   constructor(props) {
@@ -13,15 +14,30 @@ class SongPlayer extends React.Component {
     this.updatePos = this.updatePos.bind(this);
     this.renderPlaytime = this.renderPlaytime.bind(this);
     this.handleProgClick = this.handleProgClick.bind(this);
+    this.handleForward = this.handleForward.bind(this);
+    this.handleBackward = this.handleBackward.bind(this);
+    this.forwardEnabled = this.forwardEnabled.bind(this);
+    this.backwardEnabled = this.backwardEnabled.bind(this);
     this.progInt = () => setInterval(this.updatePos, 200);
   }
 
-  componentDidMount() {
-    const player = document.getElementById("player");
+  componentDidUpdate(oldProps, oldState) {
+    if (this.props.songs.length > 0 &&
+        _.isEmpty(this.props.currentSong)) {
+      const songOne = this.props.songs[0];
+      this.props.setCurrentSong(songOne)
+    }
+    if (this.props.location.pathname !== oldProps.location.pathname) {
+      this.props.setCurrentSong({});
+    }
+    if (this.props.currentSong.track_num !== oldProps.currentSong.track_num) {
+      this.audio.current.pause();
+      this.audio.current.play();
+    }
   }
-
   componentWillUnmount() {
     clearInterval(this.intervalId);
+    this.props.setCurrentSong({});
   }
 
   handlePlay() {
@@ -46,7 +62,7 @@ class SongPlayer extends React.Component {
     const progress =
       calcWidth * (this.audio.current.currentTime / this.audio.current.duration);
     const roundedProg = Math.round(progress);
-    this.setState({sliderPos: roundedProg})
+    // this.setState({sliderPos: roundedProg})
   }
 
   renderIcon() {
@@ -85,7 +101,6 @@ class SongPlayer extends React.Component {
 
       renderCurrent = `${currentMin}:${currentSec}`
       renderDuration = `${durationMin}:${durationSec}`
-
     } else {
       renderCurrent = "00:00";
       renderDuration = "00:00";
@@ -108,20 +123,35 @@ class SongPlayer extends React.Component {
     }
   }
 
+  handleForward(e) {
+    this.props.setCurrentSong(this.props.songs[
+      this.props.currentSong.track_num]);
+  }
+
+  handleBackward(e) {
+    this.props.setCurrentSong(this.props.songs[
+      this.props.currentSong.track_num - 2]);
+  }
+
+  forwardEnabled() {
+    (this.props.currentSong.track_num === (this.props.songs.length - 1)) ?
+      false : true
+  }
+
+  backwardEnabled() {
+    (this.props.currentSong.track_num !== 1) ?
+      false : true
+  }
+
   render() {
-    let currentTime = null;
-    let duration = null;
-    if (this.audio.current) {
-      currentTime = this.audio.current.currentTime;
-      duration = this.audio.current.duration
-    }
+    const backDisabled = (this.props.currentSong.track_num === 1) ? true : false;
+    const frwdDisabled = (this.props.currentSong.track_num === (this.props.songs.length - 1)) ? true : false;
     return (
       <div className="song-player-container">
         <audio
           id="audio-player"
-          ref={this.audio}>
-          <source src="https://s3.amazonaws.com/tunesmith-dev/ZS8DTRKTcgWoKVj8nr4GghG8" type="audio/ogg"/>
-        </audio>
+          ref={this.audio}
+          src={this.props.currentSong.audio_url} type="audio/ogg"/>
         <div className="song-player-controls">
           <button
             className="playpause-btn"
@@ -129,10 +159,12 @@ class SongPlayer extends React.Component {
             {this.renderIcon()}
           </button>
           <div className="progress-bar-container">
-            <div className="player-title">
-              Song Title
-              <span>
-                {this.renderPlaytime()}
+            <div className="player-details">
+              <span className="song-player-title">
+                {this.props.currentSong.title || ""}
+              </span>
+              <span className="song-player-time">
+                {this.audio.current ? this.renderPlaytime() : "00:00 / 00::00"}
               </span>
             </div>
             <div className="progress-bar-bottom">
@@ -144,10 +176,16 @@ class SongPlayer extends React.Component {
                 className="progress-bar-slider"
                 ref={this.slider}
                 style={{left: this.state.sliderPos}}/>
-              <button className="prev-btn">
+              <button
+                className="prev-btn"
+                onClick={this.handleBackward}
+                disabled={ backDisabled }>
                 <i className="fas fa-fast-backward prev-btn"/>
               </button>
-              <button className="next-btn">
+              <button
+                className="next-btn"
+                onClick={this.handleForward}
+                disabled={ frwdDisabled }>
                 <i className="fas fa-fast-forward next-btn"/>
               </button>
             </div>

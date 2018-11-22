@@ -32,6 +32,10 @@
   color: #000;
 }
 
+.prev-btn:disabled i, .next-btn:disabled i {
+  color: #ddd;
+}
+
 .progress-bar-container {
   box-sizing: border-box;
   display: flex;
@@ -66,4 +70,14 @@
   cursor: pointer;
   position: absolute;
   left: 0px;
+}
+
+.song-player-title {
+  color: #363636;
+  font-weight: 600;
+}
+
+.song-player-time {
+  margin-left: 10px;
+  color: #888888;
 }
