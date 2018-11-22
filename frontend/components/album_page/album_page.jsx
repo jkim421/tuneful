@@ -110,7 +110,6 @@ class AlbumPage extends React.Component {
     }
 
   render() {
-    debugger
     return (
       <main className="show-page">
         <section className="show-body">

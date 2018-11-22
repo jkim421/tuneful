@@ -22,15 +22,20 @@ classical = Genre.create!(name: "Classical")
 blues = Genre.create!(name: "Blues")
 funk = Genre.create!(name: "Funk")
 
-jahzzar = User.create!(username: "Jahzzar", password: "password", email: "jahzzar@gmail.com")
-loboloco = User.create!(username: "LoboLoco", password: "password", email: "loboloco@gmail.com")
-nctrnm = User.create!(username: "Nctrnm", password: "password", email: "nctrnm@gmail.com")
-oedipussy = User.create!(username: "Oedipussy", password: "password", email: "oedipussy@gmail.com")
-piercemurphy = User.create!(username: "PierceMurphy", password: "password", email: "piercemurphy@gmail.com")
-podingtonbear = User.create!(username: "PodingtonBear", password: "password", email: "podingtonbear@gmail.com")
-revolutionvoid = User.create!(username: "RevolutionVoid", password: "password", email: "revolutionvoid@gmail.com")
-theagrarians = User.create!(username: "TheAgrarians", password: "password", email: "theagrarians@gmail.com")
-demo = User.create!(username: "Demo", password: "password", email: "demo@gmail.com")
+jahzzar = User.create!(username: "jahzzar", password: "password", email: "jahzzar@gmail.com")
+loboloco = User.create!(username: "loboloco", password: "password", email: "loboloco@gmail.com")
+nctrnm = User.create!(username: "nctrnm", password: "password", email: "nctrnm@gmail.com")
+oedipussy = User.create!(username: "oedipussy", password: "password", email: "oedipussy@gmail.com")
+piercemurphy = User.create!(username: "pierce", password: "password", email: "piercemurphy@gmail.com")
+podingtonbear = User.create!(username: "podington", password: "password", email: "podingtonbear@gmail.com")
+revolutionvoid = User.create!(username: "revolutionvoid", password: "password", email: "revolutionvoid@gmail.com")
+theagrarians = User.create!(username: "agrarians", password: "password", email: "theagrarians@gmail.com")
+
+demo = User.new(username: "Demo", password: "password", email: "demo@gmail.com")
+demo_profile = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/demo.jpg")
+demo.photo.attach(io: demo_profile, filename: "demo.jpg")
+demo.save!
+
 
 jahzzar_art = Artist.new(user_id: jahzzar.id, name: "Jahzzar", location: "Gijón, Asturias", bio: "Jahzzar’s music offers sounds for ideas, to enjoy and share, to use. No matter the language, just communicate.")
 loboloco_art = Artist.new(user_id: loboloco.id, name: "Lobo Loco", location: "Göppingen, Germany", bio: "")
@@ -331,11 +336,6 @@ threadsoul2 = Song.create!(album_id: threadsoul.id, title: "As We May Think", tr
 threadsoul3 = Song.create!(album_id: threadsoul.id, title: "City Lights at Night", track_num: 3)
 threadsoul4 = Song.create!(album_id: threadsoul.id, title: "Infornography", track_num: 4)
 threadsoul5 = Song.create!(album_id: threadsoul.id, title: "The Robot is Dreaming", track_num: 5)
-familyband1 = Song.create!(album_id: familyband.id, title: "We Thee Children", track_num: 1)
-familyband2 = Song.create!(album_id: familyband.id, title: "You're the One", track_num: 2)
-familyband3 = Song.create!(album_id: familyband.id, title: "These Terror Twinnes", track_num: 3)
-familyband4 = Song.create!(album_id: familyband.id, title: "And Decades Now", track_num: 4)
-familyband5 = Song.create!(album_id: familyband.id, title: "Weaken Me Angel", track_num: 5)
 lastjoplinblues1 = Song.create!(album_id: lastjoplinblues.id, title: "Our Reasons No Vanguard", track_num: 1)
 lastjoplinblues2 = Song.create!(album_id: lastjoplinblues.id, title: "The Calculated Truths", track_num: 2)
 lastjoplinblues3 = Song.create!(album_id: lastjoplinblues.id, title: "The Mirage of Social Mess", track_num: 3)
@@ -346,3 +346,25 @@ oldermoodscolderbloods2 = Song.create!(album_id: oldermoodscolderbloods.id, titl
 oldermoodscolderbloods3 = Song.create!(album_id: oldermoodscolderbloods.id, title: "Others I am not", track_num: 3)
 oldermoodscolderbloods4 = Song.create!(album_id: oldermoodscolderbloods.id, title: "Once a LifeTime We Will Die", track_num: 4)
 oldermoodscolderbloods5 = Song.create!(album_id: oldermoodscolderbloods.id, title: "With Hue of Violet", track_num: 5)
+
+familyband1 = Song.new(album_id: familyband.id, title: "We Thee Children", track_num: 1)
+familyband2 = Song.new(album_id: familyband.id, title: "You're the One", track_num: 2)
+familyband3 = Song.new(album_id: familyband.id, title: "These Terror Twinnes", track_num: 3)
+familyband4 = Song.new(album_id: familyband.id, title: "And Decades Now", track_num: 4)
+familyband5 = Song.new(album_id: familyband.id, title: "Weaken Me Angel", track_num: 5)
+
+familyband1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/family_band/1_We_Thee_Children.mp3")
+familyband2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/family_band/2_Youre_the_One.mp3")
+familyband3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/family_band/3_These_Terror_Twinnes.mp3")
+familyband4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/family_band/4_And_Decades_Now.mp3")
+familyband5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/family_band/5_Weaken_Me_Angel.mp3")
+familyband1.audio_file.attach(io: familyband1_song, filename: "1_We_Thee_Children.mp3")
+familyband2.audio_file.attach(io: familyband2_song, filename: "2_Youre_the_One.mp3")
+familyband3.audio_file.attach(io: familyband3_song, filename: "3_These_Terror_Twinnes.mp3")
+familyband4.audio_file.attach(io: familyband4_song, filename: "4_And_Decades_Now.mp3")
+familyband5.audio_file.attach(io: familyband5_song, filename: "5_Weaken_Me_Angel.mp3")
+familyband1.save!
+familyband2.save!
+familyband3.save!
+familyband4.save!
+familyband5.save!

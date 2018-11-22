@@ -6,7 +6,6 @@ import { setCurrentSong } from '../../actions/song_actions';
 import { setPlayPause } from '../../actions/play_pause_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     currentSong: state.entities.currentSong,
     isPlaying: state.ui.playPause,

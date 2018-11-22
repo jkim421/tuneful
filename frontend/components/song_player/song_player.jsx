@@ -76,6 +76,7 @@ class SongPlayer extends React.Component {
   }
 
   renderPlaytime() {
+    debugger
     let duration, durationMin, durationSec;
     let currentTime, currentMin, currentSec;
     let renderCurrent, renderDuration;
@@ -137,7 +138,7 @@ class SongPlayer extends React.Component {
 
   render() {
     const backDisabled = (this.props.currentSong.track_num === 1) ? true : false;
-    const frwdDisabled = (this.props.currentSong.track_num === (this.props.songs.length - 1)) ? true : false;
+    const frwdDisabled = (this.props.currentSong.track_num === (this.props.songs.length)) ? true : false;
     return (
       <div className="song-player-container">
         <audio
@@ -156,7 +157,7 @@ class SongPlayer extends React.Component {
                 {this.props.currentSong.title || ""}
               </span>
               <span className="song-player-time">
-                {this.audio.current ? this.renderPlaytime() : "00:00 / 00::00"}
+                {!!this.audio.current.duration ? this.renderPlaytime() : "00:00 / 00::00"}
               </span>
             </div>
             <div className="progress-bar-bottom">
