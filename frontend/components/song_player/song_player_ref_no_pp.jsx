@@ -5,6 +5,7 @@ class SongPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isPlaying: false,
       sliderPos: 0 }
     this.audio = React.createRef();
     this.progbar = React.createRef();
@@ -18,9 +19,6 @@ class SongPlayer extends React.Component {
     this.progInt = () => setInterval(this.updatePos, 200);
   }
 
-  componentDidMount () {
-  }
-
   componentDidUpdate(oldProps, oldState) {
     if (this.props.songs.length > 0 &&
         _.isEmpty(this.props.currentSong)) {
@@ -30,10 +28,9 @@ class SongPlayer extends React.Component {
     if (this.props.location.pathname !== oldProps.location.pathname) {
       this.props.setCurrentSong({});
     }
-    if (this.props.isPlaying) {
-      this.audio.current.play();
-    } else {
+    if (this.props.currentSong.track_num !== oldProps.currentSong.track_num) {
       this.audio.current.pause();
+      this.audio.current.play();
     }
   }
   componentWillUnmount() {
@@ -42,13 +39,12 @@ class SongPlayer extends React.Component {
   }
 
   handlePlay() {
-    debugger
-    if (this.props.isPlaying) {
-      this.props.setPlayPause();
+    if (this.state.isPlaying) {
+      this.setState({isPlaying: false});
       this.audio.current.pause();
       clearInterval(this.intervalId);
     } else {
-      this.props.setPlayPause();
+      this.setState({isPlaying: true});
       this.audio.current.play();
       this.intervalId = this.progInt();
     }
@@ -64,11 +60,11 @@ class SongPlayer extends React.Component {
     const progress =
       calcWidth * (this.audio.current.currentTime / this.audio.current.duration);
     const roundedProg = Math.round(progress);
-    this.setState({sliderPos: roundedProg})
+    // this.setState({sliderPos: roundedProg})
   }
 
   renderIcon() {
-    if (this.props.isPlaying) {
+    if (this.state.isPlaying) {
       return <i className="fas fa-pause playpause-icon"/>
     } else {
       return <i className="fas fa-play playpause-icon"/>

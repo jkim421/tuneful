@@ -1,11 +1,11 @@
 import merge from 'lodash/merge';
 
-import { SET_CURRENT_SONG } from '../actions/song_actions';
+import { SET_PLAY_PAUSE } from '../actions/play_pause_actions';
 
-const playPauseReducer = (state = {}, action) => {
+const playPauseReducer = (state = false, action) => {
   switch(action.type) {
-    case SET_CURRENT_SONG:
-      return merge({}, action.song);
+    case SET_PLAY_PAUSE:
+      return !state
     default:
       return state;
   }
