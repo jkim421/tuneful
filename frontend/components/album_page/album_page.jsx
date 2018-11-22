@@ -29,7 +29,7 @@ class AlbumPage extends React.Component {
     if (!!this.props.album.release_date) {
       return (
         <p className="album-release-date">
-          released RELEASE DATE
+          &#169; {this.props.album.release_date}
         </p>
       )
     } else {
@@ -110,6 +110,7 @@ class AlbumPage extends React.Component {
     }
 
   render() {
+    debugger
     return (
       <main className="show-page">
         <section className="show-body">

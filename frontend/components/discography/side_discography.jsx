@@ -12,7 +12,7 @@ const SideDiscography = ({ albumId, discog }) => {
               <img className="side-discog-img" src={album.photo_url}/>
             </Link>
             <Link to={`/albums/${album.id}`} className="side-discog-title">{album.title}</Link>
-            <p className="side-discog-date">RELEASE DATE</p>
+            <p className="side-discog-date">{album.release_date}</p>
           </li>
         )
       })

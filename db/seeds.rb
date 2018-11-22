@@ -34,7 +34,7 @@ demo = User.create!(username: "Demo", password: "password", email: "demo@gmail.c
 
 jahzzar_art = Artist.new(user_id: jahzzar.id, name: "Jahzzar", location: "Gijón, Asturias", bio: "Jahzzar’s music offers sounds for ideas, to enjoy and share, to use. No matter the language, just communicate.")
 loboloco_art = Artist.new(user_id: loboloco.id, name: "Lobo Loco", location: "Göppingen, Germany", bio: "")
-nctrnm_art = Artist.new(user_id: nctrnm.id, name: "Nctrnm", location: "Colton, CA", bio: "i'm nctrnm: singer, songwriter, experimental/electronic producer from  Colton, CA.")
+nctrnm_art = Artist.new(user_id: nctrnm.id, name: "Nctrnm", location: "Colton, CA", bio: "i'm nctrnm: singer, songwriter, experimental/electronic producer.")
 oedipussy_art = Artist.new(user_id: oedipussy.id, name: "Oedipussy", location: "San Francisco, CA", bio: "")
 piercemurphy_art = Artist.new(user_id: piercemurphy.id, name: "Pierce Murphy", location: "Denver, CO", bio: "Wherever you see me, I'm looking forward to sharing some music with you.")
 podingtonbear_art = Artist.new(user_id: podingtonbear.id, name: "Podington Bear", location: "Portland, OR", bio: "A mysterious bear named Podington took the Internet by storm in 2007, releasing three beautifully crafted songs a week. ")
@@ -140,9 +140,6 @@ scenesfromthezoo.save!
 supers_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/super.jpg")
 supers.photo.attach(io: supers_photo, filename: "super.jpg")
 supers.save!
-hotpotdancing_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/hotpot.jpg")
-hotpotdancing.photo.attach(io: hotpotdancing_photo, filename: "hotpot.jpg")
-hotpotdancing.save!
 littlecaesar_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/littlecaesar.jpg")
 littlecaesar.photo.attach(io: littlecaesar_photo, filename: "littlecaesar.jpg")
 littlecaesar.save!
@@ -167,9 +164,6 @@ n3.save!
 death_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/death.jpg")
 death.photo.attach(io: death_photo, filename: "death.jpg")
 death.save!
-lifespan_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/life_span.jpg")
-lifespan.photo.attach(io: lifespan_photo, filename: "life_span.jpg")
-lifespan.save!
 oedipussy_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/oedipussy.jpg")
 oedipussy.photo.attach(io: oedipussy_photo, filename: "oedipussy.jpg")
 oedipussy.save!
@@ -188,28 +182,34 @@ bonvoyage.save!
 nocturnes_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/nocturnes.jpg")
 nocturnes.photo.attach(io: nocturnes_photo, filename: "nocturnes.jpg")
 nocturnes.save!
-passages_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/passages.jpg")
-passages.photo.attach(io: passages_photo, filename: "passages.jpg")
-passages.save!
 rainy_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/rainy.jpg")
 rainy.photo.attach(io: rainy_photo, filename: "rainy.jpg")
 rainy.save!
 thepoliticsofdesire_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/revolution_void/politics.jpg")
 thepoliticsofdesire.photo.attach(io: thepoliticsofdesire_photo, filename: "politics.jpg")
 thepoliticsofdesire.save!
-threadsoul_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/revolution_void/thread.jpg")
-threadsoul.photo.attach(io: threadsoul_photo, filename: "thread.jpg")
-threadsoul.save!
 familyband_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/family.jpg")
 familyband.photo.attach(io: familyband_photo, filename: "family.jpg")
 familyband.save!
 lastjoplinblues_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/last_joplin.jpg")
 lastjoplinblues.photo.attach(io: lastjoplinblues_photo, filename: "last_joplin.jpg")
 lastjoplinblues.save!
+
+hotpotdancing_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/hotpot.jpg")
+hotpotdancing.photo.attach(io: hotpotdancing_photo, filename: "hotpot.jpg")
+hotpotdancing.save!
 oldermoodscolderbloods_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/older_moods.jpg")
 oldermoodscolderbloods.photo.attach(io: oldermoodscolderbloods_photo, filename: "older_moods.jpg")
 oldermoodscolderbloods.save!
-
+passages_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/passages.jpg")
+passages.photo.attach(io: passages_photo, filename: "passages.jpg")
+passages.save!
+threadsoul_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/revolution_void/thread.jpg")
+threadsoul.photo.attach(io: threadsoul_photo, filename: "thread.jpg")
+threadsoul.save!
+lifespan_photo = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/life_span.jpg")
+lifespan.photo.attach(io: lifespan_photo, filename: "life_span.jpg")
+lifespan.save!
 
 hificitytales1 = Song.create!(album_id: hificitytales.id, title: "Take a Walk", track_num: 1)
 hificitytales2 = Song.create!(album_id: hificitytales.id, title: "Vacuum", track_num: 2)
