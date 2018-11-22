@@ -4,22 +4,22 @@ class SongItem extends React.Component {
   constructor(props) {
     super(props);
     this.changeSong = this.changeSong.bind(this);
+    this.renderIcon = this.renderIcon.bind(this);
   }
 
-  songPlayer(song) {
-    if (song.audio_url) {
-      return (
-        <div>aux</div>
-      )
+  renderIcon() {
+    if (this.props.isPlaying && this.props.currentSong.id === this.props.song.id) {
+      return <i className="fas fa-pause playpause-list-icon"/>
+    } else {
+      return <i className="fas fa-play playpause-list-icon"/>
     }
   }
 
-
-  renderIcon() {
-    if (this.state.isPlaying) {
-      return <i className="fas fa-pause playpause-icon"/>
-    } else {
-      return <i className="fas fa-play playpause-icon"/>
+  componentDidUpdate(oldProps) {
+    if (!_.isEmpty(oldProps.currentSong) &&
+        (this.props.currentSong.id !== oldProps.currentSong.id) &&
+        !this.props.isPlaying) {
+      this.props.setPlayPause();
     }
   }
 
@@ -31,11 +31,10 @@ class SongItem extends React.Component {
     const song = this.props.song;
     return (
       <li className="album-track-item">
-        {this.songPlayer(song)}
         <span
           className="album-track-btn"
           onClick={ this.changeSong }>
-          <i className="fas fa-play album-track-icon"/>
+          {this.renderIcon()}
         </span>
         <span>
           {song.track_num}.&nbsp;

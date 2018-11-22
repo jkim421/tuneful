@@ -23,7 +23,7 @@ class Api::ArtistsController < ApplicationController
 
   def index
     if !!params[:userFollowIds]
-      @artists = Artist.where(id: params[:userFollowIds])
+      @artists = Artist.where(id: params[:userFollowIds]).includes(:albums)
     else
       @artists = Artist.all
     end
@@ -32,8 +32,7 @@ class Api::ArtistsController < ApplicationController
   end
 
   def show
-    @artist = Artist.find(params[:id])
-    @albums = Album.where(artist_id: params[:id])
+    @artist = Artist.includes(:albums).find(params[:id])
     if @artist
       render 'api/artists/show.json.jbuilder'
     else

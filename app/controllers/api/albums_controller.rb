@@ -6,9 +6,14 @@ class Api::AlbumsController < ApplicationController
     elsif filter == "new"
       @albums = Album.limit(5).order('created_at DESC')
     elsif !!params[:artistId]
-      @albums = Album.where(artist_id: params[:artistId].to_i).order('created_at DESC')
+      @albums = Album.where(artist_id: params[:artistId].to_i)
+        .order('created_at DESC')
+        .includes(:songs)
+        .includes(:artist)
     elsif !!params[:userCollectionIds]
       @albums = Album.where(id: params[:userCollectionIds])
+        .includes(:songs)
+        .includes(:artist)
     else
       @albums = Album.all
     end
@@ -17,9 +22,7 @@ class Api::AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.find(params[:id])
-    @artist = @album.artist
-    @songs = Song.where(album_id: params[:id])
+    @album = Album.includes(:songs).includes(:artist).find(params[:id])
     if @album
       render "api/albums/show.json.jbuilder"
     else

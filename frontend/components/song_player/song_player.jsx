@@ -5,7 +5,8 @@ class SongPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sliderPos: 0 }
+      sliderPos: 0,
+      audioLoaded: false }
     this.audio = React.createRef();
     this.progbar = React.createRef();
     this.slider = React.createRef();
@@ -19,6 +20,9 @@ class SongPlayer extends React.Component {
   }
 
   componentDidMount () {
+    if (this.props.isPlaying) {
+      this.props.setPlayPause();
+    }
   }
 
   componentDidUpdate(oldProps, oldState) {
@@ -42,7 +46,6 @@ class SongPlayer extends React.Component {
   }
 
   handlePlay() {
-    debugger
     if (this.props.isPlaying) {
       this.props.setPlayPause();
       this.audio.current.pause();
@@ -76,7 +79,6 @@ class SongPlayer extends React.Component {
   }
 
   renderPlaytime() {
-    debugger
     let duration, durationMin, durationSec;
     let currentTime, currentMin, currentSec;
     let renderCurrent, renderDuration;
@@ -157,7 +159,7 @@ class SongPlayer extends React.Component {
                 {this.props.currentSong.title || ""}
               </span>
               <span className="song-player-time">
-                {!!this.audio.current.duration ? this.renderPlaytime() : "00:00 / 00::00"}
+                {this.renderPlaytime()}
               </span>
             </div>
             <div className="progress-bar-bottom">

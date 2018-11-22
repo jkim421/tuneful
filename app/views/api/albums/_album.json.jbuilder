@@ -4,15 +4,15 @@ json.albums do
     json.artist album.artist.name
     json.genre album.genre.name
     json.photo_url url_for(album.photo) if album.photo.attached?
-    json.song_ids songs.map{ |song| song.id }
+    json.song_ids album.songs.map{ |song| song.id }
   end
 end
 
 json.artists do
-  json.set! artist.id do
-    json.extract! artist, :id, :user_id, :name, :bio, :location
-    json.photo_url url_for(artist.photo) if artist.photo.attached?
-    json.cover_photo_url url_for(artist.cover_photo) if artist.cover_photo.attached?
-    json.album_ids artist.album_ids
+  json.set! album.artist.id do
+    json.extract! album.artist, :id, :user_id, :name, :bio, :location
+    json.photo_url url_for(album.artist.photo) if album.artist.photo.attached?
+    json.cover_photo_url url_for(album.artist.cover_photo) if album.artist.cover_photo.attached?
+    json.album_ids album.artist.album_ids
   end
 end
