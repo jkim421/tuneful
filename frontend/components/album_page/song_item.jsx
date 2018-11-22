@@ -31,17 +31,26 @@ class SongItem extends React.Component {
     const song = this.props.song;
     return (
       <li className="album-track-item">
-        <span
-          className="album-track-btn"
-          onClick={ this.changeSong }>
-          {this.renderIcon()}
-        </span>
-        <span>
-          {song.track_num}.&nbsp;
-        </span>
-        <span>
-          {song.title}
-        </span>
+        <div className="album-track-left">
+          <span
+            className="album-track-btn"
+            onClick={ this.changeSong }>
+            {this.renderIcon()}
+          </span>
+          <span>
+            {song.track_num}.&nbsp;
+          </span>
+          <span>
+            {song.title}
+          </span>
+        </div>
+        <div className="album-track-left">
+          <a
+            className="album-track-dl"
+            href={this.props.song.audio_url}
+            download="test">
+            download song</a>
+        </div>
       </li>
     )
   }

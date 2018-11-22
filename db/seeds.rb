@@ -226,11 +226,6 @@ kuddelmuddel2 = Song.create!(album_id: kuddelmuddel.id, title: "Forgiven Not For
 kuddelmuddel3 = Song.create!(album_id: kuddelmuddel.id, title: "Invisible", track_num: 3)
 kuddelmuddel4 = Song.create!(album_id: kuddelmuddel.id, title: "LH", track_num: 4)
 kuddelmuddel5 = Song.create!(album_id: kuddelmuddel.id, title: "Missing You", track_num: 5)
-scenesfromthezoo1 = Song.create!(album_id: scenesfromthezoo.id, title: "I saw you on TV", track_num: 1)
-scenesfromthezoo2 = Song.create!(album_id: scenesfromthezoo.id, title: "Mr Bleach", track_num: 2)
-scenesfromthezoo3 = Song.create!(album_id: scenesfromthezoo.id, title: "Wishlist", track_num: 3)
-scenesfromthezoo4 = Song.create!(album_id: scenesfromthezoo.id, title: "Glass half empty", track_num: 4)
-scenesfromthezoo5 = Song.create!(album_id: scenesfromthezoo.id, title: "Everything we talked about", track_num: 5)
 supers1 = Song.create!(album_id: supers.id, title: "Shake It", track_num: 1)
 supers2 = Song.create!(album_id: supers.id, title: "Chiefs", track_num: 2)
 supers3 = Song.create!(album_id: supers.id, title: "No Control", track_num: 3)
@@ -269,11 +264,6 @@ founded2 = Song.create!(album_id: founded.id, title: "Dealer", track_num: 2)
 founded3 = Song.create!(album_id: founded.id, title: "Found", track_num: 3)
 founded4 = Song.create!(album_id: founded.id, title: "La Femme", track_num: 4)
 founded5 = Song.create!(album_id: founded.id, title: "Truee", track_num: 5)
-n31 = Song.create!(album_id: n3.id, title: "XY", track_num: 1)
-n32 = Song.create!(album_id: n3.id, title: "Trivium", track_num: 2)
-n33 = Song.create!(album_id: n3.id, title: "Brown", track_num: 3)
-n34 = Song.create!(album_id: n3.id, title: "Hz", track_num: 4)
-n35 = Song.create!(album_id: n3.id, title: "Muenster", track_num: 5)
 death1 = Song.create!(album_id: death.id, title: "THey All Float", track_num: 1)
 death2 = Song.create!(album_id: death.id, title: "13", track_num: 2)
 death3 = Song.create!(album_id: death.id, title: "Hymen", track_num: 3)
@@ -297,16 +287,6 @@ thisisntmagic2 = Song.create!(album_id: thisisntmagic.id, title: "Just Give It T
 thisisntmagic3 = Song.create!(album_id: thisisntmagic.id, title: "Try To Be Nice", track_num: 3)
 thisisntmagic4 = Song.create!(album_id: thisisntmagic.id, title: "Rondo", track_num: 4)
 thisisntmagic5 = Song.create!(album_id: thisisntmagic.id, title: "Hey Mercy", track_num: 5)
-tojapan1 = Song.create!(album_id: tojapan.id, title: "Introduction", track_num: 1)
-tojapan2 = Song.create!(album_id: tojapan.id, title: "So Little of the World", track_num: 2)
-tojapan3 = Song.create!(album_id: tojapan.id, title: "Tokyo to Kyoto", track_num: 3)
-tojapan4 = Song.create!(album_id: tojapan.id, title: "Nightingales", track_num: 4)
-tojapan5 = Song.create!(album_id: tojapan.id, title: "Kyoto to Osaka", track_num: 5)
-tojapan6 = Song.create!(album_id: tojapan.id, title: "Shinsaibashi", track_num: 6)
-tojapan7 = Song.create!(album_id: tojapan.id, title: "Hiroshima", track_num: 7)
-tojapan8 = Song.create!(album_id: tojapan.id, title: "Return to Tokyo", track_num: 8)
-tojapan9 = Song.create!(album_id: tojapan.id, title: "Pacific Echoes", track_num: 9)
-tojapan10 = Song.create!(album_id: tojapan.id, title: "Epilogue", track_num: 10)
 bonvoyage1 = Song.create!(album_id: bonvoyage.id, title: "Caravan", track_num: 1)
 bonvoyage2 = Song.create!(album_id: bonvoyage.id, title: "Jettisoned", track_num: 2)
 bonvoyage3 = Song.create!(album_id: bonvoyage.id, title: "Pop Brasilia", track_num: 3)
@@ -368,3 +348,89 @@ familyband2.save!
 familyband3.save!
 familyband4.save!
 familyband5.save!
+
+scenesfromthezoo1 = Song.new(album_id: scenesfromthezoo.id, title: "I saw you on TV", track_num: 1)
+scenesfromthezoo2 = Song.new(album_id: scenesfromthezoo.id, title: "Mr Bleach", track_num: 2)
+scenesfromthezoo3 = Song.new(album_id: scenesfromthezoo.id, title: "Wishlist", track_num: 3)
+scenesfromthezoo4 = Song.new(album_id: scenesfromthezoo.id, title: "Glass half empty", track_num: 4)
+scenesfromthezoo5 = Song.new(album_id: scenesfromthezoo.id, title: "Everything we talked about", track_num: 5)
+
+scenesfromthezoo1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/scenes_from_the_zoo/1_I_saw_you_on_TV.mp3")
+scenesfromthezoo2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/scenes_from_the_zoo/2_Mr_Bleach.mp3")
+scenesfromthezoo3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/scenes_from_the_zoo/3_Wishlist.mp3")
+scenesfromthezoo4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/scenes_from_the_zoo/4_Glass_half_empty.mp3")
+scenesfromthezoo5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/scenes_from_the_zoo/5_Everything_we_talked_about.mp3")
+scenesfromthezoo1.audio_file.attach(io: scenesfromthezoo1_song, filename: "1_I_saw_you_on_TV.mp3")
+scenesfromthezoo2.audio_file.attach(io: scenesfromthezoo2_song, filename: "2_Mr_Bleach.mp3")
+scenesfromthezoo3.audio_file.attach(io: scenesfromthezoo3_song, filename: "3_Wishlist.mp3")
+scenesfromthezoo4.audio_file.attach(io: scenesfromthezoo4_song, filename: "4_Glass_half_empty.mp3")
+scenesfromthezoo5.audio_file.attach(io: scenesfromthezoo5_song, filename: "5_Everything_we_talked_about.mp3")
+scenesfromthezoo1.save!
+scenesfromthezoo2.save!
+scenesfromthezoo3.save!
+scenesfromthezoo4.save!
+scenesfromthezoo5.save!
+
+n31 = Song.new(album_id: n3.id, title: "XY", track_num: 1)
+n32 = Song.new(album_id: n3.id, title: "Trivium", track_num: 2)
+n33 = Song.new(album_id: n3.id, title: "Brown", track_num: 3)
+n34 = Song.new(album_id: n3.id, title: "Hz", track_num: 4)
+n35 = Song.new(album_id: n3.id, title: "Muenster", track_num: 5)
+
+n31_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/n3/1_XY.mp3")
+n32_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/n3/2_Trivium.mp3")
+n33_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/n3/3_Brown.mp3")
+n34_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/n3/4_Hz.mp3")
+n35_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/n3/5_Muenster.mp3")
+n31.audio_file.attach(io: n31_song, filename: "1_XY.mp3")
+n32.audio_file.attach(io: n32_song, filename: "2_Trivium.mp3")
+n33.audio_file.attach(io: n33_song, filename: "3_Brown.mp3")
+n34.audio_file.attach(io: n34_song, filename: "4_Hz.mp3")
+n35.audio_file.attach(io: n35_song, filename: "5_Muenster.mp3")
+n31.save!
+n32.save!
+n33.save!
+n34.save!
+n35.save!
+
+tojapan1 = Song.new(album_id: tojapan.id, title: "Introduction", track_num: 1)
+tojapan2 = Song.new(album_id: tojapan.id, title: "So Little of the World", track_num: 2)
+tojapan3 = Song.new(album_id: tojapan.id, title: "Tokyo to Kyoto", track_num: 3)
+tojapan4 = Song.new(album_id: tojapan.id, title: "Nightingales", track_num: 4)
+tojapan5 = Song.new(album_id: tojapan.id, title: "Kyoto to Osaka", track_num: 5)
+tojapan6 = Song.new(album_id: tojapan.id, title: "Shinsaibashi", track_num: 6)
+tojapan7 = Song.new(album_id: tojapan.id, title: "Hiroshima", track_num: 7)
+tojapan8 = Song.new(album_id: tojapan.id, title: "Return to Tokyo", track_num: 8)
+tojapan9 = Song.new(album_id: tojapan.id, title: "Pacific Echoes", track_num: 9)
+tojapan10 = Song.new(album_id: tojapan.id, title: "Epilogue", track_num: 10)
+
+tojapan1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/to_japan/1_introduction.mp3")
+tojapan2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/to_japan/2_so_little_of_the_world.mp3")
+tojapan3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/to_japan/3_tokyo_to_kyoto.mp3")
+tojapan4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/to_japan/4_nightingales.mp3")
+tojapan5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/to_japan/5_kyoto_to_osaka.mp3")
+tojapan6_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/to_japan/6_Shinsaibashi.mp3")
+tojapan7_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/to_japan/7_Hiroshima.mp3")
+tojapan8_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/to_japan/8_Return_To_Tokyo.mp3")
+tojapan9_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/to_japan/9_Pacific_Echoes.mp3")
+tojapan10_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/to_japan/10_Epilogue.mp3")
+tojapan1.audio_file.attach(io: tojapan1_song, filename: "1_introduction.mp3")
+tojapan2.audio_file.attach(io: tojapan2_song, filename: "2_so_little_of_the_world.mp3")
+tojapan3.audio_file.attach(io: tojapan3_song, filename: "3_tokyo_to_kyoto.mp3")
+tojapan4.audio_file.attach(io: tojapan4_song, filename: "4_nightingales.mp3")
+tojapan5.audio_file.attach(io: tojapan5_song, filename: "5_kyoto_to_osaka.mp3")
+tojapan6.audio_file.attach(io: tojapan6_song, filename: "6_Shinsaibashi.mp3")
+tojapan7.audio_file.attach(io: tojapan7_song, filename: "7_Hiroshima.mp3")
+tojapan8.audio_file.attach(io: tojapan8_song, filename: "8_Return_To_Tokyo.mp3")
+tojapan9.audio_file.attach(io: tojapan9_song, filename: "9_Pacific_Echoes.mp3")
+tojapan10.audio_file.attach(io: tojapan10_song, filename: "10_Epilogue.mp3")
+tojapan1.save!
+tojapan2.save!
+tojapan3.save!
+tojapan4.save!
+tojapan5.save!
+tojapan6.save!
+tojapan7.save!
+tojapan8.save!
+tojapan9.save!
+tojapan10.save!

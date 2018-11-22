@@ -94,6 +94,25 @@
   margin: 12px 0;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.album-track-item:hover .album-track-dl {
+  text-decoration: underline;
+  visibility: visible;
+  opacity: 1;
+}
+
+.album-track-dl {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.05s, opacity 0.05s linear;
+  color: #363636;
+}
+
+.album-track-left {
+  display: flex;
 }
 
 .album-track-btn {
