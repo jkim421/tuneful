@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_23_143157) do
+ActiveRecord::Schema.define(version: 2018_11_23_154512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2018_11_23_143157) do
     t.integer "artist_id", null: false
     t.string "title", null: false
     t.string "description"
-    t.string "cover_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "downloadable", default: true
@@ -56,7 +55,6 @@ ActiveRecord::Schema.define(version: 2018_11_23_143157) do
   create_table "artists", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "bio"
-    t.string "picture_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "location"
@@ -76,7 +74,6 @@ ActiveRecord::Schema.define(version: 2018_11_23_143157) do
     t.string "album_id", null: false
     t.string "title", null: false
     t.integer "track_num", null: false
-    t.string "stream_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["album_id", "track_num"], name: "index_songs_on_album_id_and_track_num", unique: true

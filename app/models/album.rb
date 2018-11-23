@@ -6,7 +6,6 @@
 #  artist_id    :integer          not null
 #  title        :string           not null
 #  description  :string
-#  cover_url    :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  downloadable :boolean          default(TRUE)

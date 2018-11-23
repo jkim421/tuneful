@@ -6,7 +6,6 @@
 #  album_id   :string           not null
 #  title      :string           not null
 #  track_num  :integer          not null
-#  stream_url :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

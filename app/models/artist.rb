@@ -2,15 +2,14 @@
 #
 # Table name: artists
 #
-#  id          :bigint(8)        not null, primary key
-#  user_id     :integer          not null
-#  bio         :string
-#  picture_url :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  location    :string
-#  name        :string           not null
-#  website     :string
+#  id         :bigint(8)        not null, primary key
+#  user_id    :integer          not null
+#  bio        :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  location   :string
+#  name       :string           not null
+#  website    :string
 #
 
 class Artist < ApplicationRecord
