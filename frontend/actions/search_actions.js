@@ -11,6 +11,12 @@ export const receiveResults = (results) => {
   };
 };
 
+export const resetSearchResults = () => {
+  return {
+    type: RESET_SEARCH_RESULTS,
+  };
+};
+
 export const fetchSearchResults = query => dispatch => {
   return SearchApiUtil.matchQuery(query).then(results =>
     dispatch(receiveResults(results)));

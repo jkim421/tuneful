@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SearchBar from './search_bar';
-import { fetchSearchResults } from '../../actions/search_actions';
+import { fetchSearchResults, resetSearchResults } from '../../actions/search_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -15,6 +15,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchSearchResults: (query) => dispatch(fetchSearchResults(query)),
+    resetSearchResults: () => dispatch(resetSearchResults()),
   };
 };
 

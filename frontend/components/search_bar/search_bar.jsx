@@ -1,68 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchItems from './search_items';
 
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       display: "hidden",
-      opacity: 1
+      opacity: 1,
+      query: "",
     }
     this.defineQuery = this.defineQuery.bind(this);
-    this.inputField = React.createRef();
+    this.handleInput = this.handleInput.bind(this);
+    this.clearInput = this.clearInput.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
+  }
+
+  handleInput(e) {
+    this.setState({query: e.target.value});
+    this.defineQuery(e.target.value);
   }
 
   clearInput(e) {
-    this.inputField.value = "";
+    this.setState({query: ""});
   }
 
-  defineQuery(e) {
-    let query = e.target.value;
+  handleBlur(e) {
+    this.setState({display: "hidden", opacity: 0});
+  }
+
+  defineQuery(query) {
     if (query.length > 1) {
       this.props.fetchSearchResults(query);
-      this.setState({display: "visible", opacity: 1})
+      this.setState({display: "visible", opacity: .95});
     } else if (query.length < 2) {
-      this.setState({display: "hidden", opacity: 0})
-    }
-  }
-
-  searchList() {
-    const results = this.props.searchResults;
-    if (results.albums.length > 0 || results.artists.length > 0) {
-      const albumResults = results.albums.map( album => {
-        return (
-          <li
-            key={album.id}
-            className="search-result-item">
-            <Link
-              to={`/albums/${album.id}`}
-              className="search-item-link"
-              onClick={this.clearInput}>
-              <p className="search-item-name">{album.title}</p>
-              <p className="search-item-by">by {album.artist}</p>
-            </Link>
-            <p className="search-item-type">ALBUM</p>
-          </li>
-        )
-      });
-      const artistResults = results.artists.map( artist => {
-        return (
-          <li
-            key={artist.id}
-            className="search-result-item">
-            <Link
-              to={`/artists/${artist.id}`}
-              className="search-item-link"
-              onClick={this.clearInput}>
-              <p className="search-item-name">{artist.name}</p>
-            </Link>
-            <p className="search-item-type">ARTIST</p>
-          </li>
-        )
-      });
-      return albumResults.concat(artistResults);
-    } else {
-      return null;
+      this.setState({display: "hidden", opacity: 0});
     }
   }
 
@@ -75,14 +47,19 @@ class SearchBar extends React.Component {
           type="text"
           className={this.props.inputType}
           placeholder={this.props.placeholderText}
-          ref={this.inputField}
-          onChange={this.defineQuery}/>
+          onBlur={this.handleBlur}
+          onChange={this.handleInput}
+          value={this.state.query}/>
         <ul
           className={this.props.listType}
           style={
             {visibility: this.state.display, opacity: this.state.opacity}
             }>
-          {this.searchList()}
+          <SearchItems
+            albums={results.albums}
+            artists={results.artists}
+            clearInput={this.clearInput}
+            query={this.state.query}/>
         </ul>
       </div>
     );
