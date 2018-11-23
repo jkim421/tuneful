@@ -45,7 +45,7 @@ class MainHeader extends React.Component {
       );
     } else {
       return (
-        <p className="home-pitch">Discover amazing new music and directly support the artists who make it.</p>
+        <p className="home-pitch">Discover amazing free music and directly support the artists who make it.</p>
       );
     }
   }

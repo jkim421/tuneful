@@ -5,7 +5,11 @@ export const fetchUser = (userId) => {
   });
 };
 
-export const fetchCollectionAlbums = (userCollectionIds) => {
+export const fetchCollectionAlbums = (userCollection) => {
+  let userCollectionIds = userCollection;
+  if (userCollection.length === 0) {
+    userCollectionIds = [null];
+  }
   return $.ajax({
     method: 'GET',
     url: '/api/albums',
@@ -13,7 +17,11 @@ export const fetchCollectionAlbums = (userCollectionIds) => {
   });
 };
 
-export const fetchFollowedArtists = (userFollowIds) => {
+export const fetchFollowedArtists = (userFollows) => {
+  let userFollowIds = userFollows;
+  if (userFollows.length === 0) {
+    userFollowIds = [null];
+  }
   return $.ajax({
     method: 'GET',
     url: '/api/artists',

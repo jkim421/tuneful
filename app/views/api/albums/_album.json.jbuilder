@@ -10,7 +10,7 @@ end
 
 json.artists do
   json.set! album.artist.id do
-    json.extract! album.artist, :id, :user_id, :name, :bio, :location
+    json.extract! album.artist, :id, :user_id, :name, :bio, :location, :website
     json.photo_url url_for(album.artist.photo) if album.artist.photo.attached?
     json.cover_photo_url url_for(album.artist.cover_photo) if album.artist.cover_photo.attached?
     json.album_ids album.artist.album_ids

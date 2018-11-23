@@ -5,7 +5,9 @@ import ThinSearchBarContainer from '../search_bar/thin_search_bar_container';
 class ThinHeader extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { "toggleGear": "hidden" }
+    this.state = {
+      toggleGear: "hidden",
+      }
     this.logout = this.logout.bind(this);
     this.toggleGearDisplay = this.toggleGearDisplay.bind(this);
   }
@@ -18,7 +20,7 @@ class ThinHeader extends React.Component {
 
   toggleGearDisplay() {
     const gearClass = (this.state.toggleGear === "hidden") ? "show" : "hidden";
-    this.setState({ "toggleGear": gearClass });
+    this.setState({ toggleGear: gearClass });
   }
 
   userArtistPage() {

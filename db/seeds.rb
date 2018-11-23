@@ -37,14 +37,14 @@ demo.photo.attach(io: demo_profile, filename: "demo.jpg")
 demo.save!
 
 
-jahzzar_art = Artist.new(user_id: jahzzar.id, name: "Jahzzar", location: "Gijón, Asturias", bio: "Jahzzar’s music offers sounds for ideas, to enjoy and share, to use. No matter the language, just communicate.")
-loboloco_art = Artist.new(user_id: loboloco.id, name: "Lobo Loco", location: "Göppingen, Germany", bio: "")
-nctrnm_art = Artist.new(user_id: nctrnm.id, name: "Nctrnm", location: "Colton, CA", bio: "i'm nctrnm: singer, songwriter, experimental/electronic producer.")
-oedipussy_art = Artist.new(user_id: oedipussy.id, name: "Oedipussy", location: "San Francisco, CA", bio: "")
-piercemurphy_art = Artist.new(user_id: piercemurphy.id, name: "Pierce Murphy", location: "Denver, CO", bio: "Wherever you see me, I'm looking forward to sharing some music with you.")
-podingtonbear_art = Artist.new(user_id: podingtonbear.id, name: "Podington Bear", location: "Portland, OR", bio: "A mysterious bear named Podington took the Internet by storm in 2007, releasing three beautifully crafted songs a week. ")
-revolutionvoid_art = Artist.new(user_id: revolutionvoid.id, name: "Revolution Void", location: "Seattle, WA", bio: "Revolution Void is the moniker of 23-year-old producer and jazz pianist Jonah Dempcy. ")
-theagrarians_art = Artist.new(user_id: theagrarians.id, name: "The Agrarians", location: "Baltimore, MD", bio: "")
+jahzzar_art = Artist.new(user_id: jahzzar.id, name: "Jahzzar", location: "Gijón, Asturias", website: "www.betterwithmusic.com", bio: "Jahzzar’s music offers sounds for ideas, to enjoy and share, to use. No matter the language, just communicate.")
+loboloco_art = Artist.new(user_id: loboloco.id, name: "Lobo Loco", location: "Göppingen, Germany", website: "www.musikbrause.de", bio: "")
+nctrnm_art = Artist.new(user_id: nctrnm.id, name: "Nctrnm", location: "Colton, CA", website: "www.soundcloud.com/nctrnm", bio: "i'm nctrnm: singer, songwriter, experimental/electronic producer.")
+oedipussy_art = Artist.new(user_id: oedipussy.id, name: "Oedipussy", location: "San Francisco, CA", website: "", bio: "")
+piercemurphy_art = Artist.new(user_id: piercemurphy.id, name: "Pierce Murphy", location: "Denver, CO", website: "www.piercemurphymusic.com", bio: "Wherever you see me, I'm looking forward to sharing some music with you.")
+podingtonbear_art = Artist.new(user_id: podingtonbear.id, name: "Podington Bear", location: "Portland, OR", website: "www.soundofpicture.com", bio: "A mysterious bear named Podington took the Internet by storm in 2007, releasing three beautifully crafted songs a week. ")
+revolutionvoid_art = Artist.new(user_id: revolutionvoid.id, name: "Revolution Void", location: "Seattle, WA", website: "www.revolutionvoid.com", bio: "Revolution Void is the moniker of 23-year-old producer and jazz pianist Jonah Dempcy. ")
+theagrarians_art = Artist.new(user_id: theagrarians.id, name: "The Agrarians", location: "Baltimore, MD", website: "www.enjoplinrealetime.blogspot.com", bio: "")
 
 jahzzar_art_profile = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/jahzzar_profile.jpg")
 jahzzar_art.photo.attach(io: jahzzar_art_profile, filename: "jahzzar_profile.jpg")
@@ -231,11 +231,6 @@ supers2 = Song.create!(album_id: supers.id, title: "Chiefs", track_num: 2)
 supers3 = Song.create!(album_id: supers.id, title: "No Control", track_num: 3)
 supers4 = Song.create!(album_id: supers.id, title: "Word Up", track_num: 4)
 supers5 = Song.create!(album_id: supers.id, title: "Comedie", track_num: 5)
-hotpotdancing1 = Song.create!(album_id: hotpotdancing.id, title: "Power Sofa", track_num: 1)
-hotpotdancing2 = Song.create!(album_id: hotpotdancing.id, title: "Carnevale", track_num: 2)
-hotpotdancing3 = Song.create!(album_id: hotpotdancing.id, title: "Atlas Dance Expedition", track_num: 3)
-hotpotdancing4 = Song.create!(album_id: hotpotdancing.id, title: "Vegetables Parade", track_num: 4)
-hotpotdancing5 = Song.create!(album_id: hotpotdancing.id, title: "Robo Formation Dance", track_num: 5)
 littlecaesar1 = Song.create!(album_id: littlecaesar.id, title: "Little Caesar Bandello", track_num: 1)
 littlecaesar2 = Song.create!(album_id: littlecaesar.id, title: "Madame Ragadance", track_num: 2)
 littlecaesar3 = Song.create!(album_id: littlecaesar.id, title: "Cave Jogging", track_num: 3)
@@ -269,11 +264,6 @@ death2 = Song.create!(album_id: death.id, title: "13", track_num: 2)
 death3 = Song.create!(album_id: death.id, title: "Hymen", track_num: 3)
 death4 = Song.create!(album_id: death.id, title: "Medusa", track_num: 4)
 death5 = Song.create!(album_id: death.id, title: "Slow Death", track_num: 5)
-lifespan1 = Song.create!(album_id: lifespan.id, title: "Fakers", track_num: 1)
-lifespan2 = Song.create!(album_id: lifespan.id, title: "Grove", track_num: 2)
-lifespan3 = Song.create!(album_id: lifespan.id, title: "Lotte", track_num: 3)
-lifespan4 = Song.create!(album_id: lifespan.id, title: "Mall", track_num: 4)
-lifespan5 = Song.create!(album_id: lifespan.id, title: "Shrm Oks", track_num: 5)
 oedipussy1 = Song.create!(album_id: oedipussy.id, title: "Summit WishRelic", track_num: 1)
 oedipussy2 = Song.create!(album_id: oedipussy.id, title: "Luke", track_num: 2)
 oedipussy3 = Song.create!(album_id: oedipussy.id, title: "tablehopzip", track_num: 3)
@@ -297,11 +287,6 @@ nocturnes2 = Song.create!(album_id: nocturnes.id, title: "Nocturne Op 9 No 2", t
 nocturnes3 = Song.create!(album_id: nocturnes.id, title: "Nocturne Op 15 No 1", track_num: 3)
 nocturnes4 = Song.create!(album_id: nocturnes.id, title: "Nocturne Op 27 No 1", track_num: 4)
 nocturnes5 = Song.create!(album_id: nocturnes.id, title: "Nocturne Op 48 No 1", track_num: 5)
-passages1 = Song.create!(album_id: passages.id, title: "Kaleidoscope", track_num: 1)
-passages2 = Song.create!(album_id: passages.id, title: "So It Goes", track_num: 2)
-passages3 = Song.create!(album_id: passages.id, title: "Boardwalk", track_num: 3)
-passages4 = Song.create!(album_id: passages.id, title: "Aim is True", track_num: 4)
-passages5 = Song.create!(album_id: passages.id, title: "The Gall", track_num: 5)
 rainy1 = Song.create!(album_id: rainy.id, title: "Alphabet Soup", track_num: 1)
 rainy2 = Song.create!(album_id: rainy.id, title: "Warbled Reflection", track_num: 2)
 rainy3 = Song.create!(album_id: rainy.id, title: "Toil", track_num: 3)
@@ -311,21 +296,11 @@ thepoliticsofdesire1 = Song.create!(album_id: thepoliticsofdesire.id, title: "Ti
 thepoliticsofdesire2 = Song.create!(album_id: thepoliticsofdesire.id, title: "Someone Elses Memories", track_num: 2)
 thepoliticsofdesire3 = Song.create!(album_id: thepoliticsofdesire.id, title: "The Narrative Changes", track_num: 3)
 thepoliticsofdesire4 = Song.create!(album_id: thepoliticsofdesire.id, title: "Scattered Knowledge", track_num: 4)
-threadsoul1 = Song.create!(album_id: threadsoul.id, title: "Biomythos", track_num: 1)
-threadsoul2 = Song.create!(album_id: threadsoul.id, title: "As We May Think", track_num: 2)
-threadsoul3 = Song.create!(album_id: threadsoul.id, title: "City Lights at Night", track_num: 3)
-threadsoul4 = Song.create!(album_id: threadsoul.id, title: "Infornography", track_num: 4)
-threadsoul5 = Song.create!(album_id: threadsoul.id, title: "The Robot is Dreaming", track_num: 5)
 lastjoplinblues1 = Song.create!(album_id: lastjoplinblues.id, title: "Our Reasons No Vanguard", track_num: 1)
 lastjoplinblues2 = Song.create!(album_id: lastjoplinblues.id, title: "The Calculated Truths", track_num: 2)
 lastjoplinblues3 = Song.create!(album_id: lastjoplinblues.id, title: "The Mirage of Social Mess", track_num: 3)
 lastjoplinblues4 = Song.create!(album_id: lastjoplinblues.id, title: "Natures Hideous Corset", track_num: 4)
 lastjoplinblues5 = Song.create!(album_id: lastjoplinblues.id, title: "Terrible Control", track_num: 5)
-oldermoodscolderbloods1 = Song.create!(album_id: oldermoodscolderbloods.id, title: "This Country Ride", track_num: 1)
-oldermoodscolderbloods2 = Song.create!(album_id: oldermoodscolderbloods.id, title: "Interlude", track_num: 2)
-oldermoodscolderbloods3 = Song.create!(album_id: oldermoodscolderbloods.id, title: "Others I am not", track_num: 3)
-oldermoodscolderbloods4 = Song.create!(album_id: oldermoodscolderbloods.id, title: "Once a LifeTime We Will Die", track_num: 4)
-oldermoodscolderbloods5 = Song.create!(album_id: oldermoodscolderbloods.id, title: "With Hue of Violet", track_num: 5)
 
 familyband1 = Song.new(album_id: familyband.id, title: "We Thee Children", track_num: 1)
 familyband2 = Song.new(album_id: familyband.id, title: "You're the One", track_num: 2)
@@ -434,3 +409,113 @@ tojapan7.save!
 tojapan8.save!
 tojapan9.save!
 tojapan10.save!
+
+lifespan1 = Song.new(album_id: lifespan.id, title: "Fakers", track_num: 1)
+lifespan2 = Song.new(album_id: lifespan.id, title: "Grove", track_num: 2)
+lifespan3 = Song.new(album_id: lifespan.id, title: "Lotte", track_num: 3)
+lifespan4 = Song.new(album_id: lifespan.id, title: "Mall", track_num: 4)
+lifespan5 = Song.new(album_id: lifespan.id, title: "Shrm Oks", track_num: 5)
+
+lifespan1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/life_span/1_Fakers.mp3")
+lifespan2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/life_span/2_Grove.mp3")
+lifespan3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/life_span/3_Lotte.mp3")
+lifespan4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/life_span/4_Mall.mp3")
+lifespan5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/life_span/5_Shrm_Oks.mp3")
+lifespan1.audio_file.attach(io: lifespan1_song, filename: "1_Fakers.mp3")
+lifespan2.audio_file.attach(io: lifespan2_song, filename: "2_Grove.mp3")
+lifespan3.audio_file.attach(io: lifespan3_song, filename: "3_Lotte.mp3")
+lifespan4.audio_file.attach(io: lifespan4_song, filename: "4_Mall.mp3")
+lifespan5.audio_file.attach(io: lifespan5_song, filename: "5_Shrm_Oks.mp3")
+lifespan1.save!
+lifespan2.save!
+lifespan3.save!
+lifespan4.save!
+lifespan5.save!
+
+threadsoul1 = Song.new(album_id: threadsoul.id, title: "Biomythos", track_num: 1)
+threadsoul2 = Song.new(album_id: threadsoul.id, title: "As We May Think", track_num: 2)
+threadsoul3 = Song.new(album_id: threadsoul.id, title: "City Lights at Night", track_num: 3)
+threadsoul4 = Song.new(album_id: threadsoul.id, title: "Infornography", track_num: 4)
+threadsoul5 = Song.new(album_id: threadsoul.id, title: "The Robot is Dreaming", track_num: 5)
+
+threadsoul1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/revolution_void/thread_soul/1_Biomythos.mp3")
+threadsoul2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/revolution_void/thread_soul/2_As_We_May_Think.mp3")
+threadsoul3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/revolution_void/thread_soul/3_City_Lights_at_Night.mp3")
+threadsoul4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/revolution_void/thread_soul/4_Infornography.mp3")
+threadsoul5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/revolution_void/thread_soul/5_The_Robot_is_Dreaming.mp3")
+threadsoul1.audio_file.attach(io: threadsoul1_song, filename: "1_Biomythos.mp3")
+threadsoul2.audio_file.attach(io: threadsoul2_song, filename: "2_As_We_May_Think.mp3")
+threadsoul3.audio_file.attach(io: threadsoul3_song, filename: "3_City_Lights_at_Night.mp3")
+threadsoul4.audio_file.attach(io: threadsoul4_song, filename: "4_Infornography.mp3")
+threadsoul5.audio_file.attach(io: threadsoul5_song, filename: "5_The_Robot_is_Dreaming.mp3")
+threadsoul1.save!
+threadsoul2.save!
+threadsoul3.save!
+threadsoul4.save!
+threadsoul5.save!
+
+passages1 = Song.new(album_id: passages.id, title: "Kaleidoscope", track_num: 1)
+passages2 = Song.new(album_id: passages.id, title: "So It Goes", track_num: 2)
+passages3 = Song.new(album_id: passages.id, title: "Boardwalk", track_num: 3)
+passages4 = Song.new(album_id: passages.id, title: "Aim is True", track_num: 4)
+passages5 = Song.new(album_id: passages.id, title: "The Gall", track_num: 5)
+
+passages1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/passages/1_Kaleidoscope.mp3")
+passages2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/passages/2_So_It_Goes.mp3")
+passages3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/passages/3_Boardwalk.mp3")
+passages4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/passages/4_Aim_Is_True.mp3")
+passages5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/passages/5_The_Gall.mp3")
+passages1.audio_file.attach(io: passages1_song, filename: "1_Kaleidoscope.mp3")
+passages2.audio_file.attach(io: passages2_song, filename: "2_So_It_Goes.mp3")
+passages3.audio_file.attach(io: passages3_song, filename: "3_Boardwalk.mp3")
+passages4.audio_file.attach(io: passages4_song, filename: "4_Aim_Is_True.mp3")
+passages5.audio_file.attach(io: passages5_song, filename: "5_The_Gall.mp3")
+passages1.save!
+passages2.save!
+passages3.save!
+passages4.save!
+passages5.save!
+
+oldermoodscolderbloods1 = Song.new(album_id: oldermoodscolderbloods.id, title: "This Country Ride", track_num: 1)
+oldermoodscolderbloods2 = Song.new(album_id: oldermoodscolderbloods.id, title: "Interlude", track_num: 2)
+oldermoodscolderbloods3 = Song.new(album_id: oldermoodscolderbloods.id, title: "Others I am not", track_num: 3)
+oldermoodscolderbloods4 = Song.new(album_id: oldermoodscolderbloods.id, title: "Once a LifeTime We Will Die", track_num: 4)
+oldermoodscolderbloods5 = Song.new(album_id: oldermoodscolderbloods.id, title: "With Hue of Violet", track_num: 5)
+
+oldermoodscolderbloods1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/older_moods/1_This_Country_Ride.mp3")
+oldermoodscolderbloods2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/older_moods/2_Interlude.mp3")
+oldermoodscolderbloods3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/older_moods/3_Others_I_am_not.mp3")
+oldermoodscolderbloods4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/older_moods/4_Once_a_LifeTime_We_Will_Die.mp3")
+oldermoodscolderbloods5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/older_moods/5_With_Hue_of_Violet.mp3")
+oldermoodscolderbloods1.audio_file.attach(io: oldermoodscolderbloods1_song, filename: "1_This_Country_Ride.mp3")
+oldermoodscolderbloods2.audio_file.attach(io: oldermoodscolderbloods2_song, filename: "2_Interlude.mp3")
+oldermoodscolderbloods3.audio_file.attach(io: oldermoodscolderbloods3_song, filename: "3_Others_I_am_not.mp3")
+oldermoodscolderbloods4.audio_file.attach(io: oldermoodscolderbloods4_song, filename: "4_Once_a_LifeTime_We_Will_Die.mp3")
+oldermoodscolderbloods5.audio_file.attach(io: oldermoodscolderbloods5_song, filename: "5_With_Hue_of_Violet.mp3")
+oldermoodscolderbloods1.save!
+oldermoodscolderbloods2.save!
+oldermoodscolderbloods3.save!
+oldermoodscolderbloods4.save!
+oldermoodscolderbloods5.save!
+
+hotpotdancing1 = Song.new(album_id: hotpotdancing.id, title: "Power Sofa", track_num: 1)
+hotpotdancing2 = Song.new(album_id: hotpotdancing.id, title: "Carnevale", track_num: 2)
+hotpotdancing3 = Song.new(album_id: hotpotdancing.id, title: "Atlas Dance Expedition", track_num: 3)
+hotpotdancing4 = Song.new(album_id: hotpotdancing.id, title: "Vegetables Parade", track_num: 4)
+hotpotdancing5 = Song.new(album_id: hotpotdancing.id, title: "Robo Formation Dance", track_num: 5)
+
+hotpotdancing1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/hot_pot_dancing/1_Power_Sofa.mp3")
+hotpotdancing2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/hot_pot_dancing/2_Carnevale.mp3")
+hotpotdancing3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/hot_pot_dancing/3_Atlas_Dance_Expedition.mp3")
+hotpotdancing4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/hot_pot_dancing/4_Vegetables_Parade.mp3")
+hotpotdancing5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/hot_pot_dancing/5_Robo_Formation_Dance.mp3")
+hotpotdancing1.audio_file.attach(io: hotpotdancing1_song, filename: "1_Power_Sofa.mp3")
+hotpotdancing2.audio_file.attach(io: hotpotdancing2_song, filename: "2_Carnevale.mp3")
+hotpotdancing3.audio_file.attach(io: hotpotdancing3_song, filename: "3_Atlas_Dance_Expedition.mp3")
+hotpotdancing4.audio_file.attach(io: hotpotdancing4_song, filename: "4_Vegetables_Parade.mp3")
+hotpotdancing5.audio_file.attach(io: hotpotdancing5_song, filename: "5_Robo_Formation_Dance.mp3")
+hotpotdancing1.save!
+hotpotdancing2.save!
+hotpotdancing3.save!
+hotpotdancing4.save!
+hotpotdancing5.save!

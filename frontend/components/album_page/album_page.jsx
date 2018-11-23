@@ -110,6 +110,7 @@ class AlbumPage extends React.Component {
     }
 
   render() {
+    debugger
     return (
       <main className="show-page">
         <section className="show-body">
@@ -161,6 +162,12 @@ class AlbumPage extends React.Component {
               <p className="artist-side-loc">{this.props.artist.location || ""}</p>
               { this.followButton() }
               <p className="artist-description">{this.props.artist.bio || ""}</p>
+              <a
+                className="artist-website"
+                href={this.props.artist.website}
+                target="_blank">
+                {this.props.artist.website ? "website" : ""}
+              </a>
                 <SideDiscography
                   albumId={this.props.match.params.albumId}
                   discog={this.props.discog}/>

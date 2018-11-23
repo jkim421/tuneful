@@ -217,16 +217,10 @@
   color: #666666;
 }
 
-.thin-header-actions:focus {
+.thin-header-actions:active {
   background-color: rgba(0,0,0,0.2);
   color: #ffffff;
 }
-
-// GEAR DROPDOWN
-
-// .hidden {
-//   display: none;
-// }
 
 .thin-header-right {
   width: 130px;
@@ -279,7 +273,7 @@
   color: #666666;
 }
 
-.thin-header-dropdown:focus {
+.thin-header-dropdown:active {
   background-color: rgba(0,0,0,0.2);
   color: #ffffff;
 }
