@@ -163,7 +163,7 @@ class AlbumPage extends React.Component {
               <p className="artist-description">{this.props.artist.bio || ""}</p>
               <a
                 className="artist-website"
-                href={this.props.artist.website}
+                href={`http://${this.props.artist.website}`}
                 target="_blank">
                 {this.props.artist.website ? "website" : ""}
               </a>
