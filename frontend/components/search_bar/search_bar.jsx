@@ -13,7 +13,6 @@ class SearchBar extends React.Component {
   }
 
   clearInput(e) {
-    debugger
     this.inputField.value = "";
   }
 
