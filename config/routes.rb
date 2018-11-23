@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :songs, only: [:create, :update, :index, :show]
     resources :user_collection_albums, only: [:create, :destroy, :index]
     resources :user_follows, only: [:create, :destroy, :index]
+    resources :search_results, only: [:index]
   end
 
 end

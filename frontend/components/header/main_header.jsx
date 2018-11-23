@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
+import MainSearchBarContainer from '../search_bar/main_search_bar_container';
 
 class MainHeader extends React.Component {
   constructor(props) {
@@ -55,7 +56,7 @@ class MainHeader extends React.Component {
         <div className="main-header-content">
           <div className="main-header-top">
             <p className="home-logo">~tunesmith</p>
-            <input className="home-search" placeholder="Search for artist or album" />
+            <MainSearchBarContainer />
           </div>
           <div className="main-header-bottom">
             {this.greeting()}

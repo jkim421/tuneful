@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
+import ThinSearchBarContainer from '../search_bar/thin_search_bar_container';
 
 class ThinHeader extends React.Component {
   constructor(props) {
@@ -78,7 +79,7 @@ class ThinHeader extends React.Component {
           <div className="thin-header-left">
             <Link to="/" className="thin-logo">~tunesmith</Link>
             <Link to="/" className="thin-header-home thin-header-actions">discover</Link>
-            <input className="thin-search" placeholder="search tunesmith" />
+            <ThinSearchBarContainer />
           </div>
           {this.authButtons()}
         </div>

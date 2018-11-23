@@ -21,4 +21,5 @@ Rails.application.config.assets.precompile +=
       show_page.scss
       user_page.scss
       song_player.scss
+      search_bar.scss
     )
