@@ -1,5 +1,9 @@
 # README
 
+tunesmith is a web platform where artists can freely distribute their music to fans and fans-to-be. Inspired by and modeled on bandcamp. 
+
+[Link to live app](https://tunesmith.herokuapp.com/)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
