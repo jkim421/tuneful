@@ -19,6 +19,6 @@ If user's are enjoying the music that's playing, they can save albums to their c
 
 ### Search Bar
 
-From any page on tunesmith, users can use a search bar in the app header to search for albums and artists. The search bar will dynamically return any albums and artists who's titles and names match the current query.
+From any page on tunesmith, users can use a search bar in the app header to search for albums and artists. The search bar will dynamically return any albums and artists who's titles and names match the current query. The search component utilizes a debouncing step so that the search query is only submitted to the database after the user has not updated the query for a set amount of time.
 
 ![search_bar](https://i.imgur.com/8HU43oR.png)
