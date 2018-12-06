@@ -19,6 +19,9 @@ class Api::ArtistsController < ApplicationController
   end
 
   def update
+    debugger
+    @artist = Artist.find(artist_params[id])
+    render 'api/artists/show.json.jbuilder'
   end
 
   def index

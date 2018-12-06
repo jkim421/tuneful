@@ -4,8 +4,8 @@ import {
   receiveCurrentUser,
   updateCurrentUser,
 } from '../actions/session_actions';
-import { receiveAlbums } from '../actions/album_actions';
-import { receiveArtists } from '../actions/artist_actions';
+import { receiveAlbums } from './album_actions';
+import { receiveArtists } from './artist_actions';
 
 export const RECEIVE_USER = "RECEIVE_USER";
 

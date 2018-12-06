@@ -6,6 +6,14 @@ export const createArtist = (artist) => {
   });
 };
 
+export const updateArtist = (artist) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/artists/${artist.id}`,
+    data: { artist },
+  });
+};
+
 export const fetchArtist = (artistId) => {
   return $.ajax({
     method: 'GET',
