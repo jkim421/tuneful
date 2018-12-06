@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchItems from './search_items';
+// import { debounce } from 'lodash';
+import { debounce } from '../../util/debounce';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -9,8 +11,9 @@ class SearchBar extends React.Component {
       display: "hidden",
       opacity: 1,
       query: "",
+      searchTimeout: null,
     }
-    this.defineQuery = this.defineQuery.bind(this);
+    this.sendQuery = this.sendQuery.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.clearInput = this.clearInput.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
@@ -18,7 +21,7 @@ class SearchBar extends React.Component {
 
   handleInput(e) {
     this.setState({query: e.target.value});
-    this.defineQuery(e.target.value);
+    this.sendQuery(e.target.value);
   }
 
   clearInput(e) {
@@ -29,13 +32,19 @@ class SearchBar extends React.Component {
     this.setState({display: "hidden", opacity: 0});
   }
 
-  defineQuery(query) {
+  checkQuery(query) {
     if (query.length > 1) {
-      this.props.fetchSearchResults(query);
+      this.props.fetchSearchResults(this.state.query);
       this.setState({display: "visible", opacity: .95});
     } else if (query.length < 2) {
       this.setState({display: "hidden", opacity: 0});
     }
+  }
+
+  sendQuery(query) {
+    clearTimeout(this.state.searchTimeout);
+    const debounced = setTimeout(() => this.checkQuery(query), 500);
+    this.setState({searchTimeout: debounced});
   }
 
   render() {
