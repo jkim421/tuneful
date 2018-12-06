@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchItems from './search_items';
-// import { debounce } from 'lodash';
-import { debounce } from '../../util/debounce';
 
 class SearchBar extends React.Component {
   constructor(props) {

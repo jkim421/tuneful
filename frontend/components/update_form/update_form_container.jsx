@@ -1,24 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import UpdateForm from './user_form';
-import { signup, login, receiveSessionErrors } from '../../actions/session_actions';
+import UpdateForm from './update_form';
+import { updateArtist } from '../../actions/update_form_actions';
 
 const mapStateToProps = (state) => {
   const errors = state.errors.session;
-  let nameError bioError, locationError, websiteError;
-  const user = state.entities.users[state.session.id] || {}
+  let nameError, bioError, locationError, websiteError;
+  const user = state.entities.users[state.session.id] || {};
 
   errors.forEach( (error) => {
     if (error.includes("Name")) {
-      usernameError = error;
+      nameError = error;
     } else if (error.includes("Bio")) {
-      passwordError = error;
-    }
-  } else if (error.includes("Location")) {
-      passwordError = error;
-    }
-  } else if (error.includes("Website")) {
-      passwordError = error;
+      bioError = error;
+    } else if (error.includes("Location")) {
+      locationError = error;
+    } else if (error.includes("Website")) {
+      websiteError = error;
     }
   });
 
@@ -28,15 +26,13 @@ const mapStateToProps = (state) => {
     bioError: bioError || '',
     locationError: locationError || '',
     websiteError: websiteError || '',
-    formType: 'Sign up',
-    formClass: "signup-form",
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    processForm: (user) => dispatch(signup(user)),
-    clearErrors: () => dispatch(receiveSessionErrors([])),
+    processForm: (artist) => dispatch(updateArtist(artist)),
+    // clearErrors: () => dispatch(receiveSessionErrors([])),
   };
 };
 

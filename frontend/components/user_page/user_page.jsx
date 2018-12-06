@@ -3,6 +3,7 @@ import { Link, Route } from 'react-router-dom';
 import UserDiscography from './user_discography';
 import UserCollection from './user_collection';
 import UserFollows from './user_follows';
+import UpdateForm from '../update_form/update_form';
 
 class UserPage extends React.Component {
   constructor(props) {
@@ -155,6 +156,9 @@ class UserPage extends React.Component {
               <p className="user-header-bio">
                 {this.props.artist ? this.props.artist.bio : ""}
               </p>
+            </div>
+            <div>
+              <UpdateForm/>
             </div>
           </div>
           {this.linkTabs()}

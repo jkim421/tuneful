@@ -11,40 +11,24 @@ class UpdateForm extends React.Component {
       website: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.demoUser = this.demoUser.bind(this);
   }
 
   componentWillUnmount(e) {
-    this.props.clearErrors();
+    // this.props.clearErrors();
   }
 
   handleSubmit(e) {
+    debugger
     e.preventDefault();
-    this.props.processForm(this.state).then(this.props.closeModal);
-  }
-
-  demoUser(e) {
-    e.preventDefault();
-    this.props.demoUserLogin({
-      username: "pierce",
-      password: "password"
-    })
+    // this.props.processForm(this.state).then(this.props.closeModal);
+    debugger
+    this.props.processForm(this.state);
   }
 
   update(field) {
     return (
       (e) => this.setState({[field]: e.target.value})
     );
-  }
-
-  formHeader() {
-    if (this.props.formType === "Sign up") {
-      return <h1>Sign up as a fan</h1>
-    } else if (this.props.formType === 'Log in') {
-      return <h1>Log in</h1>
-    } else {
-      return <h1>Sign up as an artist</h1>
-    }
   }
 
   emailField() {
@@ -79,66 +63,57 @@ class UpdateForm extends React.Component {
     }
   }
 
-  redirectLink() {
-    if (this.props.formType === "Log in") {
-      return <p className="session-footer">Don't have an account? {this.props.otherForm}.</p>
-      } else {
-      return <p className="session-footer">Already have an account? {this.props.otherForm}.</p>
-      }
-    }
-
   render() {
     return (
-      <div>
-        <div className="session-form">
-          {this.formHeader()}
-          <p className="close-form" onClick={this.props.closeModal}>&times;</p>
-          <form
-            className={this.props.formClass} onSubmit={this.handleSubmit}>
-            <div className="session-form-inputs">
-              {this.nameField()}
-              <p className="session-errors">
-                {this.props.nameError}
-              </p>
-              {this.emailField()}
-              <p className="session-errors">
-                {this.props.emailError}
-              </p>
-
-              <label htmlFor="session-username">Username</label>
-              <input
+      <div className="update-form">
+        <form
+          className={"update-form"} onSubmit={this.handleSubmit}>
+          <div className="user-form-inputs">
+            <label htmlFor="user-band-name">Band Name</label>
+            <input
               type="text"
-              id="session-username"
-              onChange={this.update('username')} />
-              <p className="session-errors">
-                {this.props.usernameError}
-              </p>
-
-              <label htmlFor="session-password">Password</label>
-              <input
-              type="password"
-              onChange={this.update('password')} />
-              <p className="session-errors">
-                {this.props.passwordError}
-              </p>
-
-              <p className="session-errors">
-                {this.props.loginError}
-              </p>
-
-              <input
-              type="submit"
-              value={this.props.formType}/>
-            </div>
-            {this.redirectLink()}
-            <p className="session-footer">
-              Can't commit? Explore our site with a &nbsp;
-              <button
-                className="session-footer-button"
-                onClick={this.demoUser}>demo login</button>.
+              id="user-band-name"
+              className="input-field"
+              onChange={this.update('name')} />
+            <p className="session-errors">
+              {this.props.nameError}
             </p>
-          </form>
-        </div>
+
+            <label htmlFor="user-location">Location</label>
+            <input
+              type="text"
+              id="user-location"
+              className="input-field"
+              onChange={this.update('name')} />
+            <p className="session-errors">
+              {this.props.emailError}
+            </p>
+
+            <label htmlFor="user-bio">Bio</label>
+            <input
+              type="text"
+              id="user-bio"
+              className="input-field"
+              onChange={this.update('name')} />
+            <p className="session-errors">
+              {this.props.emailError}
+            </p>
+
+            <label htmlFor="user-website">Website</label>
+            <input
+              type="text"
+              id="user-web site"
+              className="input-field"
+              onChange={this.update('name')} />
+            <p className="session-errors">
+              {this.props.emailError}
+            </p>
+
+            <input
+            type="submit"
+            value="Update"/>
+          </div>
+        </form>
       </div>
     );
   }
