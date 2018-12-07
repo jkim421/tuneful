@@ -3,7 +3,7 @@ import { Link, Route } from 'react-router-dom';
 import UserDiscography from './user_discography';
 import UserCollection from './user_collection';
 import UserFollows from './user_follows';
-import UpdateForm from '../update_form/update_form';
+import UpdateFormContainer from '../update_form/update_form_container';
 
 class UserPage extends React.Component {
   constructor(props) {
@@ -140,6 +140,14 @@ class UserPage extends React.Component {
     }
   }
 
+  updateFormDisplay() {
+    if (this.props.artist) {
+      return <UpdateFormContainer artist={this.props.artist}/>
+    } else {
+      return null;
+    }
+  }
+
   render() {
     return (
       <main className="user-page">
@@ -158,7 +166,7 @@ class UserPage extends React.Component {
               </p>
             </div>
             <div>
-              <UpdateForm/>
+              {this.updateFormDisplay()}
             </div>
           </div>
           {this.linkTabs()}

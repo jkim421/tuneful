@@ -20,7 +20,7 @@ class Api::ArtistsController < ApplicationController
 
   def update
     debugger
-    @artist = Artist.find(artist_params[id])
+    @artist = Artist.find(artist_params[:id])
     render 'api/artists/show.json.jbuilder'
   end
 
@@ -46,7 +46,7 @@ class Api::ArtistsController < ApplicationController
   private
 
   def artist_params
-    params.require(:artist).permit(:user_id, :name, :bio, :location, :picture_url)
+    params.require(:artist).permit(:user_id, :id, :name, :bio, :location, :picture_url)
   end
 
   def user_params

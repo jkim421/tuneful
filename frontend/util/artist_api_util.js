@@ -7,6 +7,7 @@ export const createArtist = (artist) => {
 };
 
 export const updateArtist = (artist) => {
+  debugger
   return $.ajax({
     method: 'PATCH',
     url: `/api/artists/${artist.id}`,

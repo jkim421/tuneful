@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
   const errors = state.errors.session;
   let nameError, bioError, locationError, websiteError;
   const user = state.entities.users[state.session.id] || {};
-
+  const artist = state.entities.artists[user.artist_id] || {};
+  
   errors.forEach( (error) => {
     if (error.includes("Name")) {
       nameError = error;
@@ -19,9 +20,9 @@ const mapStateToProps = (state) => {
       websiteError = error;
     }
   });
-
   return {
     user: user,
+    artist: artist,
     nameError: nameError || '',
     bioError: bioError || '',
     locationError: locationError || '',

@@ -8,7 +8,7 @@ end
 
 if user.artist
   json.artist do
-    json.extract! user.artist, :id, :user_id, :name, :location, :bio
+    json.extract! user.artist, :id, :user_id, :name, :location, :bio, :website
     json.photo_url url_for(user.artist.photo)
     json.album_ids user.artist.album_ids
   end
