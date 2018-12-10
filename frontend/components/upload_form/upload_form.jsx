@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 
-class UpdateForm extends React.Component {
+class UploadForm extends React.Component {
   constructor(props) {
     super(props);
     debugger

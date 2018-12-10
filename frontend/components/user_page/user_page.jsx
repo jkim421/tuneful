@@ -141,8 +141,30 @@ class UserPage extends React.Component {
   }
 
   updateFormDisplay() {
-    if (this.props.artist) {
-      return <UpdateFormContainer artist={this.props.artist}/>
+    if (this.props.currentUser === parseInt(this.props.match.params.userId)) {
+      return <Link
+        to={
+          {pathname: `/users/${this.props.match.params.userId}/edit`,
+          artist: this.props.artist}
+        }
+        className="edit-profile-button">
+        Edit Profile
+      </Link>
+    } else {
+      return null;
+    }
+  }
+
+  uploadAlbumDisplay() {
+    if (this.props.currentUser === parseInt(this.props.match.params.userId)) {
+      return <Link
+        to={
+          {pathname: `/users/${this.props.match.params.userId}/upload`,
+          artist: this.props.artist}
+        }
+        className="edit-profile-button">
+        Upload Album
+      </Link>
     } else {
       return null;
     }
@@ -167,6 +189,7 @@ class UserPage extends React.Component {
             </div>
             <div>
               {this.updateFormDisplay()}
+              {this.uploadAlbumDisplay()}
             </div>
           </div>
           {this.linkTabs()}

@@ -19,9 +19,12 @@ class Api::ArtistsController < ApplicationController
   end
 
   def update
-    debugger
     @artist = Artist.find(artist_params[:id])
-    render 'api/artists/show.json.jbuilder'
+    if @artist.update(artist_params)
+      render 'api/artists/show.json.jbuilder'
+    else
+      render json: @artist.errors.full_messages, status: 422
+    end
   end
 
   def index

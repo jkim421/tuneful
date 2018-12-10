@@ -199,3 +199,42 @@
 .user-header-follow-text:hover {
   text-decoration: underline;
 }
+
+.user-edit-page {
+  background-color: #fff;
+}
+
+.user-edit-container {
+  padding: 44px 0;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.update-form {
+
+}
+
+.update-form label {
+  font-size: 14px;
+  width: 100px;
+}
+
+.update-form input {
+  height: 30px;
+  width: 200px;
+}
+
+.update-form textarea {
+  height: 100px;
+  width: 200px;
+}
+
+.update-form-field {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hidden-form {
+  display: none;
+}

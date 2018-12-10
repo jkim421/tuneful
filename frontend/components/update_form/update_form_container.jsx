@@ -4,11 +4,11 @@ import UpdateForm from './update_form';
 import { updateArtist } from '../../actions/update_form_actions';
 
 const mapStateToProps = (state) => {
-  const errors = state.errors.session;
+  const errors = state.errors.artist;
   let nameError, bioError, locationError, websiteError;
   const user = state.entities.users[state.session.id] || {};
   const artist = state.entities.artists[user.artist_id] || {};
-  
+
   errors.forEach( (error) => {
     if (error.includes("Name")) {
       nameError = error;

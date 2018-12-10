@@ -1,3 +1,11 @@
+export const createAlbum = (filter) => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/albums',
+    data: { filter },
+  });
+};
+
 export const fetchAlbums = (filter) => {
   return $.ajax({
     method: 'GET',
