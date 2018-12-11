@@ -17,6 +17,8 @@ class SongPlayer extends React.Component {
     this.handleForward = this.handleForward.bind(this);
     this.handleBackward = this.handleBackward.bind(this);
     this.progInt = () => setInterval(this.updatePos, 200);
+
+    this.audioLoaded = this.audioLoaded.bind(this);
   }
 
   componentDidMount () {
@@ -38,6 +40,9 @@ class SongPlayer extends React.Component {
       this.audio.current.play();
     } else {
       this.audio.current.pause();
+    }
+    if (this.props.currentSong !== oldProps.currentSong) {
+      this.setState({audioLoaded: false});
     }
   }
   componentWillUnmount() {
@@ -78,11 +83,17 @@ class SongPlayer extends React.Component {
     }
   }
 
+  audioLoaded() {
+    this.setState({audioLoaded: true})
+  }
+
   renderPlaytime() {
     let duration, durationMin, durationSec;
     let currentTime, currentMin, currentSec;
     let renderCurrent, renderDuration;
-    if (this.audio.current) {
+    let testing = _.isEmpty(this.props.currentSong);
+    // if (this.audio.current && !_.isEmpty(this.props.currentSong)) {
+    if (this.audio.current.src) {
       currentTime = Math.round(this.audio.current.currentTime);
       currentSec = (currentTime % 60);
       currentMin = Math.floor(currentTime/60);
@@ -146,7 +157,9 @@ class SongPlayer extends React.Component {
         <audio
           id="audio-player"
           ref={this.audio}
-          src={this.props.currentSong.audio_url} type="audio/ogg"/>
+          src={this.props.currentSong.audio_url}
+          onLoadedMetadata={this.audioLoaded}
+          type="audio/ogg"/>
         <div className="song-player-controls">
           <button
             className="playpause-btn"
@@ -159,7 +172,7 @@ class SongPlayer extends React.Component {
                 {this.props.currentSong.title || ""}
               </span>
               <span className="song-player-time">
-                {this.renderPlaytime()}
+                {this.state.audioLoaded ? this.renderPlaytime() : "00:00 / 00:00"}
               </span>
             </div>
             <div className="progress-bar-bottom">
