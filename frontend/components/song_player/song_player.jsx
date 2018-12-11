@@ -172,7 +172,7 @@ class SongPlayer extends React.Component {
                 {this.props.currentSong.title || ""}
               </span>
               <span className="song-player-time">
-                {this.state.audioLoaded ? this.renderPlaytime() : "00:00 / 00:00"}
+                {this.state.audioLoaded ? this.renderPlaytime() : "Loading"}
               </span>
             </div>
             <div className="progress-bar-bottom">
