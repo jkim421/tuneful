@@ -91,8 +91,6 @@ class SongPlayer extends React.Component {
     let duration, durationMin, durationSec;
     let currentTime, currentMin, currentSec;
     let renderCurrent, renderDuration;
-    let testing = _.isEmpty(this.props.currentSong);
-    // if (this.audio.current && !_.isEmpty(this.props.currentSong)) {
     if (this.audio.current.src) {
       currentTime = Math.round(this.audio.current.currentTime);
       currentSec = (currentTime % 60);

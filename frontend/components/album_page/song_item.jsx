@@ -24,7 +24,6 @@ class SongItem extends React.Component {
   }
 
   changeSong() {
-    debugger
     this.props.setCurrentSong(this.props.song);
   }
 

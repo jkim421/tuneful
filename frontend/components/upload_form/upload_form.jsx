@@ -4,7 +4,6 @@ import { Redirect, Link } from 'react-router-dom';
 class UploadForm extends React.Component {
   constructor(props) {
     super(props);
-    debugger
     this.state = {
       id: this.props.artist.id,
       name: this.props.artist.name,

@@ -221,86 +221,376 @@ hificitytales2 = Song.create!(album_id: hificitytales.id, title: "Vacuum", track
 hificitytales3 = Song.create!(album_id: hificitytales.id, title: "Bodies", track_num: 3)
 hificitytales4 = Song.create!(album_id: hificitytales.id, title: "Hideaway", track_num: 4)
 hificitytales5 = Song.create!(album_id: hificitytales.id, title: "Botanic Gardens", track_num: 5)
+
+hificitytales1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/HiFi_City_Tales/1_Take_a_Walk.mp3")
+hificitytales2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/HiFi_City_Tales/2_Vacuum.mp3")
+hificitytales3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/HiFi_City_Tales/3_Bodies.mp3")
+hificitytales4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/HiFi_City_Tales/4_Hideaway.mp3")
+hificitytales5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/HiFi_City_Tales/5_Botanic_Garden.mp3")
+hificitytales1.audio_file.attach(io: hificitytales1_song, filename: "1_Take_a_Walk.mp3")
+hificitytales2.audio_file.attach(io: hificitytales2_song, filename: "2_Vacuum.mp3")
+hificitytales3.audio_file.attach(io: hificitytales3_song, filename: "3_Bodies.mp3")
+hificitytales4.audio_file.attach(io: hificitytales4_song, filename: "4_Hideaway.mp3")
+hificitytales5.audio_file.attach(io: hificitytales5_song, filename: "5_Botanic_Garden.mp3")
+hificitytales1.save!
+hificitytales2.save!
+hificitytales3.save!
+hificitytales4.save!
+hificitytales5.save!
+
 kuddelmuddel1 = Song.create!(album_id: kuddelmuddel.id, title: "2014", track_num: 1)
 kuddelmuddel2 = Song.create!(album_id: kuddelmuddel.id, title: "Forgiven Not Forgotten", track_num: 2)
 kuddelmuddel3 = Song.create!(album_id: kuddelmuddel.id, title: "Invisible", track_num: 3)
 kuddelmuddel4 = Song.create!(album_id: kuddelmuddel.id, title: "LH", track_num: 4)
 kuddelmuddel5 = Song.create!(album_id: kuddelmuddel.id, title: "Missing You", track_num: 5)
+
+kuddelmuddel1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/kuddelmuddel/1_2014.mp3")
+kuddelmuddel2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/kuddelmuddel/2_Forgiven_Not_Forgotten.mp3")
+kuddelmuddel3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/kuddelmuddel/3_Invisible.mp3")
+kuddelmuddel4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/kuddelmuddel/4_LH.mp3")
+kuddelmuddel5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/kuddelmuddel/5_Missing_You.mp3")
+kuddelmuddel1.audio_file.attach(io: kuddelmuddel1_song, filename: "1_2014.mp3")
+kuddelmuddel2.audio_file.attach(io: kuddelmuddel2_song, filename: "2_Forgiven_Not_Forgotten.mp3")
+kuddelmuddel3.audio_file.attach(io: kuddelmuddel3_song, filename: "3_Invisible.mp3")
+kuddelmuddel4.audio_file.attach(io: kuddelmuddel4_song, filename: "4_LH.mp3")
+kuddelmuddel5.audio_file.attach(io: kuddelmuddel5_song, filename: "5_Missing_You.mp3")
+kuddelmuddel1.save!
+kuddelmuddel2.save!
+kuddelmuddel3.save!
+kuddelmuddel4.save!
+kuddelmuddel5.save!
+
 supers1 = Song.create!(album_id: supers.id, title: "Shake It", track_num: 1)
 supers2 = Song.create!(album_id: supers.id, title: "Chiefs", track_num: 2)
 supers3 = Song.create!(album_id: supers.id, title: "No Control", track_num: 3)
 supers4 = Song.create!(album_id: supers.id, title: "Word Up", track_num: 4)
 supers5 = Song.create!(album_id: supers.id, title: "Comedie", track_num: 5)
+
+supers1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/super/1_Shake_It.mp3")
+supers2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/super/2_Chiefs.mp3")
+supers3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/super/3_No_Control.mp3")
+supers4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/super/4_Word_Up.mp3")
+supers5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/jahzzar/super/5_Comedie.mp3")
+supers1.audio_file.attach(io: supers1_song, filename: "1_Shake_It.mp3")
+supers2.audio_file.attach(io: supers2_song, filename: "2_Chiefs.mp3")
+supers3.audio_file.attach(io: supers3_song, filename: "3_No_Control.mp3")
+supers4.audio_file.attach(io: supers4_song, filename: "4_Word_Up.mp3")
+supers5.audio_file.attach(io: supers5_song, filename: "5_Comedie.mp3")
+supers1.save!
+supers2.save!
+supers3.save!
+supers4.save!
+supers5.save!
+
 littlecaesar1 = Song.create!(album_id: littlecaesar.id, title: "Little Caesar Bandello", track_num: 1)
 littlecaesar2 = Song.create!(album_id: littlecaesar.id, title: "Madame Ragadance", track_num: 2)
 littlecaesar3 = Song.create!(album_id: littlecaesar.id, title: "Cave Jogging", track_num: 3)
 littlecaesar4 = Song.create!(album_id: littlecaesar.id, title: "Grandpas Racing Duel", track_num: 4)
 littlecaesar5 = Song.create!(album_id: littlecaesar.id, title: "Lotterie Numbers", track_num: 5)
+
+littlecaesar1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/little_caesar/1_Little_Caesar_Bandello.mp3")
+littlecaesar2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/little_caesar/2_Madame_Ragadance.mp3")
+littlecaesar3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/little_caesar/3_Cave_Jogging.mp3")
+littlecaesar4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/little_caesar/4_Grandpas_Racing_Duel.mp3")
+littlecaesar5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/little_caesar/5_Lotterie_Numbers.mp3")
+littlecaesar1.audio_file.attach(io: littlecaesar1_song, filename: "1_Little_Caesar_Bandello.mp3")
+littlecaesar2.audio_file.attach(io: littlecaesar2_song, filename: "2_Madame_Ragadance.mp3")
+littlecaesar3.audio_file.attach(io: littlecaesar3_song, filename: "3_Cave_Jogging.mp3")
+littlecaesar4.audio_file.attach(io: littlecaesar4_song, filename: "4_Grandpas_Racing_Duel.mp3")
+littlecaesar5.audio_file.attach(io: littlecaesar5_song, filename: "5_Lotterie_Numbers.mp3")
+littlecaesar1.save!
+littlecaesar2.save!
+littlecaesar3.save!
+littlecaesar4.save!
+littlecaesar5.save!
+
 retro1 = Song.create!(album_id: retro.id, title: "After war", track_num: 1)
 retro2 = Song.create!(album_id: retro.id, title: "Malte Junior", track_num: 2)
 retro3 = Song.create!(album_id: retro.id, title: "History Jingle", track_num: 3)
 retro4 = Song.create!(album_id: retro.id, title: "Malte Senior", track_num: 4)
 retro5 = Song.create!(album_id: retro.id, title: "Sunday Picnic", track_num: 5)
+
+retro1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/retro/1_After_war.mp3")
+retro2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/retro/2_Malte_Junior.mp3")
+retro3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/retro/3_History_Jingle.mp3")
+retro4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/retro/4_Malte_Senior.mp3")
+retro5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/retro/5_Sunday_Picnic.mp3")
+retro1.audio_file.attach(io: retro1_song, filename: "1_After_war.mp3")
+retro2.audio_file.attach(io: retro2_song, filename: "2_Malte_Junior.mp3")
+retro3.audio_file.attach(io: retro3_song, filename: "3_History_Jingle.mp3")
+retro4.audio_file.attach(io: retro4_song, filename: "4_Malte_Senior.mp3")
+retro5.audio_file.attach(io: retro5_song, filename: "5_Sunday_Picnic.mp3")
+retro1.save!
+retro2.save!
+retro3.save!
+retro4.save!
+retro5.save!
+
 vagabond1 = Song.create!(album_id: vagabond.id, title: "Just a Moment", track_num: 1)
 vagabond2 = Song.create!(album_id: vagabond.id, title: "Hey Go", track_num: 2)
 vagabond3 = Song.create!(album_id: vagabond.id, title: "Psychedelic Blues", track_num: 3)
 vagabond4 = Song.create!(album_id: vagabond.id, title: "Double Decker", track_num: 4)
 vagabond5 = Song.create!(album_id: vagabond.id, title: "The First Moment", track_num: 5)
+
+vagabond1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/vagabond/1_Just_a_Moment.mp3")
+vagabond2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/vagabond/2_Hey_Go.mp3")
+vagabond3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/vagabond/3_Psychedelic_Blues.mp3")
+vagabond4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/vagabond/4_Double_Decker.mp3")
+vagabond5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/lobo_loco/vagabond/5_The_First_Moment.mp3")
+vagabond1.audio_file.attach(io: vagabond1_song, filename: "1_Just_a_Moment.mp3")
+vagabond2.audio_file.attach(io: vagabond2_song, filename: "2_Hey_Go.mp3")
+vagabond3.audio_file.attach(io: vagabond3_song, filename: "3_Psychedelic_Blues.mp3")
+vagabond4.audio_file.attach(io: vagabond4_song, filename: "4_Double_Decker.mp3")
+vagabond5.audio_file.attach(io: vagabond5_song, filename: "5_The_First_Moment.mp3")
+vagabond1.save!
+vagabond2.save!
+vagabond3.save!
+vagabond4.save!
+vagabond5.save!
+
 acuerdo1 = Song.create!(album_id: acuerdo.id, title: "Friction", track_num: 1)
 acuerdo2 = Song.create!(album_id: acuerdo.id, title: "Bubble", track_num: 2)
 acuerdo3 = Song.create!(album_id: acuerdo.id, title: "Rider", track_num: 3)
+
+acuerdo1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/acuerdo/1_Friction.mp3")
+acuerdo2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/acuerdo/2_Bubble.mp3")
+acuerdo3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/acuerdo/3_Rider.mp3")
+acuerdo1.audio_file.attach(io: acuerdo1_song, filename: "1_Friction.mp3")
+acuerdo2.audio_file.attach(io: acuerdo2_song, filename: "2_Bubble.mp3")
+acuerdo3.audio_file.attach(io: acuerdo3_song, filename: "3_Rider.mp3")
+acuerdo1.save!
+acuerdo2.save!
+acuerdo3.save!
+
 equinox1 = Song.create!(album_id: equinox.id, title: "Recess", track_num: 1)
 equinox2 = Song.create!(album_id: equinox.id, title: "Stride", track_num: 2)
 equinox3 = Song.create!(album_id: equinox.id, title: "Flight", track_num: 3)
 equinox4 = Song.create!(album_id: equinox.id, title: "Unit", track_num: 4)
 equinox5 = Song.create!(album_id: equinox.id, title: "Phantom", track_num: 5)
+
+equinox1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/equinox/1_Recess.mp3")
+equinox2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/equinox/2_Stride.mp3")
+equinox3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/equinox/3_Flight.mp3")
+equinox4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/equinox/4_Unit.mp3")
+equinox5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/equinox/5_Phantom.mp3")
+equinox1.audio_file.attach(io: equinox1_song, filename: "1_Recess.mp3")
+equinox2.audio_file.attach(io: equinox2_song, filename: "2_Stride.mp3")
+equinox3.audio_file.attach(io: equinox3_song, filename: "3_Flight.mp3")
+equinox4.audio_file.attach(io: equinox4_song, filename: "4_Unit.mp3")
+equinox5.audio_file.attach(io: equinox5_song, filename: "5_Phantom.mp3")
+equinox1.save!
+equinox2.save!
+equinox3.save!
+equinox4.save!
+equinox5.save!
+
 founded1 = Song.create!(album_id: founded.id, title: "Concern", track_num: 1)
 founded2 = Song.create!(album_id: founded.id, title: "Dealer", track_num: 2)
 founded3 = Song.create!(album_id: founded.id, title: "Found", track_num: 3)
 founded4 = Song.create!(album_id: founded.id, title: "La Femme", track_num: 4)
-founded5 = Song.create!(album_id: founded.id, title: "Truee", track_num: 5)
+founded5 = Song.create!(album_id: founded.id, title: "True", track_num: 5)
+
+founded1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/founded/1_Concern.mp3")
+founded2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/founded/2_Dealer.mp3")
+founded3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/founded/3_Found.mp3")
+founded4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/founded/4_La_Femme.mp3")
+founded5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/nctrnm/founded/5_True.mp3")
+founded1.audio_file.attach(io: founded1_song, filename: "1_Concern.mp3")
+founded2.audio_file.attach(io: founded2_song, filename: "2_Dealer.mp3")
+founded3.audio_file.attach(io: founded3_song, filename: "3_Found.mp3")
+founded4.audio_file.attach(io: founded4_song, filename: "4_La_Femme.mp3")
+founded5.audio_file.attach(io: founded5_song, filename: "5_True.mp3")
+founded1.save!
+founded2.save!
+founded3.save!
+founded4.save!
+founded5.save!
+
 death1 = Song.create!(album_id: death.id, title: "THey All Float", track_num: 1)
 death2 = Song.create!(album_id: death.id, title: "13", track_num: 2)
 death3 = Song.create!(album_id: death.id, title: "Hymen", track_num: 3)
 death4 = Song.create!(album_id: death.id, title: "Medusa", track_num: 4)
 death5 = Song.create!(album_id: death.id, title: "Slow Death", track_num: 5)
+
+death1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/death/1_They_All_Float.mp3")
+death2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/death/2_13.mp3")
+death3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/death/3_Hymen.mp3")
+death4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/death/4_Medusa.mp3")
+death5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/death/5_Slow_Death.mp3")
+death1.audio_file.attach(io: death1_song, filename: "1_They_All_Float.mp3")
+death2.audio_file.attach(io: death2_song, filename: "2_13.mp3")
+death3.audio_file.attach(io: death3_song, filename: "3_Hymen.mp3")
+death4.audio_file.attach(io: death4_song, filename: "4_Medusa.mp3")
+death5.audio_file.attach(io: death5_song, filename: "5_Slow_Death.mp3")
+death1.save!
+death2.save!
+death3.save!
+death4.save!
+death5.save!
+
 oedipussy1 = Song.create!(album_id: oedipussy.id, title: "Summit WishRelic", track_num: 1)
 oedipussy2 = Song.create!(album_id: oedipussy.id, title: "Luke", track_num: 2)
 oedipussy3 = Song.create!(album_id: oedipussy.id, title: "tablehopzip", track_num: 3)
 oedipussy4 = Song.create!(album_id: oedipussy.id, title: "redemption", track_num: 4)
+
+oedipussy1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/oedipussy/1_Summit_WishRelic.mp3")
+oedipussy2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/oedipussy/2_Luke.mp3")
+oedipussy3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/oedipussy/3_tablehopzip.mp3")
+oedipussy4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/oedipussy/oedipussy/4_redemption.mp3")
+oedipussy1.audio_file.attach(io: oedipussy1_song, filename: "1_Summit_WishRelic.mp3")
+oedipussy2.audio_file.attach(io: oedipussy2_song, filename: "2_Luke.mp3")
+oedipussy3.audio_file.attach(io: oedipussy3_song, filename: "3_tablehopzip.mp3")
+oedipussy4.audio_file.attach(io: oedipussy4_song, filename: "4_redemption.mp3")
+oedipussy1.save!
+oedipussy2.save!
+oedipussy3.save!
+oedipussy4.save!
+
 nighthawksep1 = Song.create!(album_id: nighthawksep.id, title: "Orfeo", track_num: 1)
 nighthawksep2 = Song.create!(album_id: nighthawksep.id, title: "Nighthawks", track_num: 2)
 nighthawksep3 = Song.create!(album_id: nighthawksep.id, title: "Versailles", track_num: 3)
 nighthawksep4 = Song.create!(album_id: nighthawksep.id, title: "Mad About You", track_num: 4)
+
+nighthawksep1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/nighthawks_ep/1_Orfeo.mp3")
+nighthawksep2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/nighthawks_ep/2_Nighthawks.mp3")
+nighthawksep3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/nighthawks_ep/3_Versailles.mp3")
+nighthawksep4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/nighthawks_ep/4_Mad_About_You.mp3")
+nighthawksep1.audio_file.attach(io: nighthawksep1_song, filename: "1_Orfeo.mp3")
+nighthawksep2.audio_file.attach(io: nighthawksep2_song, filename: "2_Nighthawks.mp3")
+nighthawksep3.audio_file.attach(io: nighthawksep3_song, filename: "3_Versailles.mp3")
+nighthawksep4.audio_file.attach(io: nighthawksep4_song, filename: "4_Mad_About_You.mp3")
+nighthawksep1.save!
+nighthawksep2.save!
+nighthawksep3.save!
+nighthawksep4.save!
+
 thisisntmagic1 = Song.create!(album_id: thisisntmagic.id, title: "If You Won't Choose Me", track_num: 1)
 thisisntmagic2 = Song.create!(album_id: thisisntmagic.id, title: "Just Give It Time", track_num: 2)
 thisisntmagic3 = Song.create!(album_id: thisisntmagic.id, title: "Try To Be Nice", track_num: 3)
 thisisntmagic4 = Song.create!(album_id: thisisntmagic.id, title: "Rondo", track_num: 4)
 thisisntmagic5 = Song.create!(album_id: thisisntmagic.id, title: "Hey Mercy", track_num: 5)
+
+thisisntmagic1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/this_isnt_magic/1_If_You_Wont_Choose_Me.mp3")
+thisisntmagic2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/this_isnt_magic/2_Just_Give_It_Time.mp3")
+thisisntmagic3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/this_isnt_magic/3_Try_To_Be_Nice.mp3")
+thisisntmagic4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/this_isnt_magic/4_Rondo.mp3")
+thisisntmagic5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/pierce_murphy/this_isnt_magic/5_Hey_Mercy.mp3")
+thisisntmagic1.audio_file.attach(io: thisisntmagic1_song, filename: "1_If_You_Wont_Choose_Me.mp3")
+thisisntmagic2.audio_file.attach(io: thisisntmagic2_song, filename: "2_Just_Give_It_Time.mp3")
+thisisntmagic3.audio_file.attach(io: thisisntmagic3_song, filename: "3_Try_To_Be_Nice.mp3")
+thisisntmagic4.audio_file.attach(io: thisisntmagic4_song, filename: "4_Rondo.mp3")
+thisisntmagic5.audio_file.attach(io: thisisntmagic5_song, filename: "5_Hey_Mercy.mp3")
+thisisntmagic1.save!
+thisisntmagic2.save!
+thisisntmagic3.save!
+thisisntmagic4.save!
+thisisntmagic5.save!
+
 bonvoyage1 = Song.create!(album_id: bonvoyage.id, title: "Caravan", track_num: 1)
 bonvoyage2 = Song.create!(album_id: bonvoyage.id, title: "Jettisoned", track_num: 2)
 bonvoyage3 = Song.create!(album_id: bonvoyage.id, title: "Pop Brasilia", track_num: 3)
 bonvoyage4 = Song.create!(album_id: bonvoyage.id, title: "60s Quiz Show", track_num: 4)
 bonvoyage5 = Song.create!(album_id: bonvoyage.id, title: "Trder Ho Hey", track_num: 5)
+
+bonvoyage1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/bon_voyage/1_Caravan.mp3")
+bonvoyage2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/bon_voyage/2_Jettisoned.mp3")
+bonvoyage3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/bon_voyage/3_Pop_Brasilia.mp3")
+bonvoyage4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/bon_voyage/4_60s_Quiz_Show.mp3")
+bonvoyage5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/bon_voyage/5_Trader_Ho_Hey.mp3")
+bonvoyage1.audio_file.attach(io: bonvoyage1_song, filename: "1_Caravan.mp3")
+bonvoyage2.audio_file.attach(io: bonvoyage2_song, filename: "2_Jettisoned.mp3")
+bonvoyage3.audio_file.attach(io: bonvoyage3_song, filename: "3_Pop_Brasilia.mp3")
+bonvoyage4.audio_file.attach(io: bonvoyage4_song, filename: "4_60s_Quiz_Show.mp3")
+bonvoyage5.audio_file.attach(io: bonvoyage5_song, filename: "5_Trader_Ho_Hey.mp3")
+bonvoyage1.save!
+bonvoyage2.save!
+bonvoyage3.save!
+bonvoyage4.save!
+bonvoyage5.save!
+
 nocturnes1 = Song.create!(album_id: nocturnes.id, title: "Nocturne Op 9 No 1", track_num: 1)
 nocturnes2 = Song.create!(album_id: nocturnes.id, title: "Nocturne Op 9 No 2", track_num: 2)
 nocturnes3 = Song.create!(album_id: nocturnes.id, title: "Nocturne Op 15 No 1", track_num: 3)
 nocturnes4 = Song.create!(album_id: nocturnes.id, title: "Nocturne Op 27 No 1", track_num: 4)
 nocturnes5 = Song.create!(album_id: nocturnes.id, title: "Nocturne Op 48 No 1", track_num: 5)
+
+nocturnes1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/nocturnes/1_Nocturne_Op_9_No_1.mp3")
+nocturnes2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/nocturnes/2_Nocturne_Op_9_No_2.mp3")
+nocturnes3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/nocturnes/3_Nocturne_Op_15_No_1.mp3")
+nocturnes4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/nocturnes/4_Nocturne_Op_27_No_1.mp3")
+nocturnes5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/nocturnes/5_Nocturne_Op_48_No_1.mp3")
+nocturnes1.audio_file.attach(io: nocturnes1_song, filename: "1_Nocturne_Op_9_No_1.mp3")
+nocturnes2.audio_file.attach(io: nocturnes2_song, filename: "2_Nocturne_Op_9_No_2.mp3")
+nocturnes3.audio_file.attach(io: nocturnes3_song, filename: "3_Nocturne_Op_15_No_1.mp3")
+nocturnes4.audio_file.attach(io: nocturnes4_song, filename: "4_Nocturne_Op_27_No_1.mp3")
+nocturnes5.audio_file.attach(io: nocturnes5_song, filename: "5_Nocturne_Op_48_No_1.mp3")
+nocturnes1.save!
+nocturnes2.save!
+nocturnes3.save!
+nocturnes4.save!
+nocturnes5.save!
+
 rainy1 = Song.create!(album_id: rainy.id, title: "Alphabet Soup", track_num: 1)
 rainy2 = Song.create!(album_id: rainy.id, title: "Warbled Reflection", track_num: 2)
 rainy3 = Song.create!(album_id: rainy.id, title: "Toil", track_num: 3)
 rainy4 = Song.create!(album_id: rainy.id, title: "Den", track_num: 4)
 rainy5 = Song.create!(album_id: rainy.id, title: "Swing Lo", track_num: 5)
+
+rainy1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/rainy/1_Alphabet_Soup.mp3")
+rainy2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/rainy/2_Warbled_Reflection.mp3")
+rainy3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/rainy/3_Toil.mp3")
+rainy4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/rainy/4_Den.mp3")
+rainy5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/podington_bear/rainy/5_Swing_Lo.mp3")
+rainy1.audio_file.attach(io: rainy1_song, filename: "1_Alphabet_Soup.mp3")
+rainy2.audio_file.attach(io: rainy2_song, filename: "2_Warbled_Reflection.mp3")
+rainy3.audio_file.attach(io: rainy3_song, filename: "3_Toil.mp3")
+rainy4.audio_file.attach(io: rainy4_song, filename: "4_Den.mp3")
+rainy5.audio_file.attach(io: rainy5_song, filename: "5_Swing_Lo.mp3")
+rainy1.save!
+rainy2.save!
+rainy3.save!
+rainy4.save!
+rainy5.save!
+
 thepoliticsofdesire1 = Song.create!(album_id: thepoliticsofdesire.id, title: "Time Flux", track_num: 1)
 thepoliticsofdesire2 = Song.create!(album_id: thepoliticsofdesire.id, title: "Someone Elses Memories", track_num: 2)
 thepoliticsofdesire3 = Song.create!(album_id: thepoliticsofdesire.id, title: "The Narrative Changes", track_num: 3)
 thepoliticsofdesire4 = Song.create!(album_id: thepoliticsofdesire.id, title: "Scattered Knowledge", track_num: 4)
+
+thepoliticsofdesire1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/revolution_void/politics_of_desire/1_Time_Flux.mp3")
+thepoliticsofdesire2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/revolution_void/politics_of_desire/2_Someone_Elses_Memories.mp3")
+thepoliticsofdesire3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/revolution_void/politics_of_desire/3_The_Narrative_Changes.mp3")
+thepoliticsofdesire4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/revolution_void/politics_of_desire/4_Scattered_Knowledge.mp3")
+thepoliticsofdesire1.audio_file.attach(io: thepoliticsofdesire1_song, filename: "1_Time_Flux.mp3")
+thepoliticsofdesire2.audio_file.attach(io: thepoliticsofdesire2_song, filename: "2_Someone_Elses_Memories.mp3")
+thepoliticsofdesire3.audio_file.attach(io: thepoliticsofdesire3_song, filename: "3_The_Narrative_Changes.mp3")
+thepoliticsofdesire4.audio_file.attach(io: thepoliticsofdesire4_song, filename: "4_Scattered_Knowledge.mp3")
+thepoliticsofdesire1.save!
+thepoliticsofdesire2.save!
+thepoliticsofdesire3.save!
+thepoliticsofdesire4.save!
+
 lastjoplinblues1 = Song.create!(album_id: lastjoplinblues.id, title: "Our Reasons No Vanguard", track_num: 1)
 lastjoplinblues2 = Song.create!(album_id: lastjoplinblues.id, title: "The Calculated Truths", track_num: 2)
 lastjoplinblues3 = Song.create!(album_id: lastjoplinblues.id, title: "The Mirage of Social Mess", track_num: 3)
 lastjoplinblues4 = Song.create!(album_id: lastjoplinblues.id, title: "Natures Hideous Corset", track_num: 4)
 lastjoplinblues5 = Song.create!(album_id: lastjoplinblues.id, title: "Terrible Control", track_num: 5)
+
+lastjoplinblues1_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/last_joplin_blues/1_Our_Reasons_No_Vanguard.mp3")
+lastjoplinblues2_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/last_joplin_blues/2_The_Calculated_Truths.mp3")
+lastjoplinblues3_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/last_joplin_blues/3_The_Mirage_of_Social_Mess.mp3")
+lastjoplinblues4_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/last_joplin_blues/4_Natures_Hideous_Corset.mp3")
+lastjoplinblues5_song = EzDownload.open("https://s3.amazonaws.com/tunesmith-prod/the_agrarians/last_joplin_blues/5_Terrible_Control.mp3")
+lastjoplinblues1.audio_file.attach(io: lastjoplinblues1_song, filename: "1_Our_Reasons_No_Vanguard.mp3")
+lastjoplinblues2.audio_file.attach(io: lastjoplinblues2_song, filename: "2_The_Calculated_Truths.mp3")
+lastjoplinblues3.audio_file.attach(io: lastjoplinblues3_song, filename: "3_The_Mirage_of_Social_Mess.mp3")
+lastjoplinblues4.audio_file.attach(io: lastjoplinblues4_song, filename: "4_Natures_Hideous_Corset.mp3")
+lastjoplinblues5.audio_file.attach(io: lastjoplinblues5_song, filename: "5_Terrible_Control.mp3")
+lastjoplinblues1.save!
+lastjoplinblues2.save!
+lastjoplinblues3.save!
+lastjoplinblues4.save!
+lastjoplinblues5.save!
 
 familyband1 = Song.new(album_id: familyband.id, title: "We Thee Children", track_num: 1)
 familyband2 = Song.new(album_id: familyband.id, title: "You're the One", track_num: 2)
