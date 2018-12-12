@@ -9,11 +9,11 @@
 
 tunesmith's music player is custom made with audio functionality enabled by the HTML audio tag. Users can play, pause and advance songs using set buttons on the player, and can also skip to different times on the current song by clicking on the progress bar. Users can also play and pause songs from the song list for the album below the music player. Since all music distributed on tunesmith is free to use, user's can also download any songs they enjoy directly from its album page.
 
-![music_player](https://i.imgur.com/pNiiQTo.png)
+![music_player](https://i.imgur.com/psqbayI.png)
 
 ### Collections
 
-If user's are enjoying the music that's playing, they can save albums to their collection and follow artists they enjoy, with all of their favorited albums and artists available to view on their user profile for easy access. If the user is an artist that has hosted their music on tunesmith, they can also view all the albums they have added.
+If users are enjoying the music that's playing, they can save albums to their collection and follow artists they enjoy, with all of their favorited albums and artists available to view on their user profile for easy access. If the user is an artist that has hosted their music on tunesmith, they can also view all the albums they have added.
 
 ![collections](https://i.imgur.com/eaavDUb.png)
 
