@@ -5,10 +5,20 @@ export const RECEIVE_ALBUMS = "RECEIVE_ALBUMS";
 export const RECEIVE_NEW_ALBUMS = "RECEIVE_NEW_ALBUMS";
 export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
 
-export const receiveNewAlbums = (albums) => {
+export const receiveNewAlbums = ({albums, artists}) => {
+  debugger
   return {
     type: RECEIVE_NEW_ALBUMS,
     albums,
+    artists,
+  };
+};
+
+export const receiveAlbums = ({albums, artists}) => {
+  return {
+    type: RECEIVE_ALBUMS,
+    albums,
+    artists,
   };
 };
 
