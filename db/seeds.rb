@@ -406,7 +406,7 @@ founded3.save!
 founded4.save!
 founded5.save!
 
-death1 = Song.create!(album_id: death.id, title: "THey All Float", track_num: 1)
+death1 = Song.create!(album_id: death.id, title: "They All Float", track_num: 1)
 death2 = Song.create!(album_id: death.id, title: "13", track_num: 2)
 death3 = Song.create!(album_id: death.id, title: "Hymen", track_num: 3)
 death4 = Song.create!(album_id: death.id, title: "Medusa", track_num: 4)
