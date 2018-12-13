@@ -6,7 +6,6 @@ export const RECEIVE_NEW_ALBUMS = "RECEIVE_NEW_ALBUMS";
 export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
 
 export const receiveNewAlbums = ({albums, artists}) => {
-  debugger
   return {
     type: RECEIVE_NEW_ALBUMS,
     albums,

@@ -114,6 +114,9 @@ class UserPage extends React.Component {
           <div className="user-header-titles">
             <div className="user-header-artist">
               <p className="user-header-artistname">{this.props.artist.name}</p>
+              <div className="user-header-buttons">
+                {this.updateFormDisplay()}
+              </div>
             </div>
             <p className="user-header-name-sm">{this.props.user.username}</p>
           </div>
@@ -186,10 +189,6 @@ class UserPage extends React.Component {
               <p className="user-header-bio">
                 {this.props.artist ? this.props.artist.bio : ""}
               </p>
-            </div>
-            <div>
-              {this.updateFormDisplay()}
-              {this.uploadAlbumDisplay()}
             </div>
           </div>
           {this.linkTabs()}

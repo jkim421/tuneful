@@ -1,6 +1,7 @@
 import React from 'react';
 import FeaturedAlbumsContainer from './featured_albums_container';
 import NewAlbumsContainer from './new_albums_container';
+import ExploreContainer from './explore_container';
 
 class HomePage extends React.Component {
 
@@ -14,6 +15,7 @@ class HomePage extends React.Component {
         <FeaturedAlbumsContainer />
         <div className="home-page-separator"></div>
         <NewAlbumsContainer />
+        <ExploreContainer />
       </section>
     );
   }

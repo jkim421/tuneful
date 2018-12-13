@@ -133,7 +133,6 @@ class AlbumPage extends React.Component {
                 </div>
                 <div className="download-container">
                   <p className="album-download">
-                    Download Album
                   </p>
                 </div>
                 <div className="album-tracks">

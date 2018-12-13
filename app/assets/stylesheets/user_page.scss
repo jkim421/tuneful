@@ -37,6 +37,8 @@
 .user-header-details {
   display: flex;
   flex-direction: column;
+  width: 800px;
+  word-wrap: break-word;
   padding: 25px 0px 0px 43px;
 }
 
@@ -139,7 +141,9 @@
 
 .user-header-artist {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  width: 800px;
 }
 
 .user-header-follow {
@@ -237,4 +241,32 @@
 
 .hidden-form {
   display: none;
+}
+
+.user-header-buttons {
+  display: flex;
+  width: 220px;
+  justify-content: space-between;
+}
+
+.edit-profile-button {
+  color: #999;
+  text-decoration: none;
+  border: 1px solid #999;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.edit-profile-button:hover {
+  text-decoration: underline;
+}
+
+.update-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.update-btn {
+  font-size: inherit;
+  width: 100px;
 }

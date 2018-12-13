@@ -12,6 +12,7 @@ class UpdateForm extends React.Component {
       website: this.props.artist.website,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
     this.showEditForm = this.showEditForm.bind(this);
   }
 
@@ -20,6 +21,7 @@ class UpdateForm extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger
     e.preventDefault();
     const updatedArtist = {
       name: this.state.name,
@@ -27,7 +29,8 @@ class UpdateForm extends React.Component {
       bio: this.state.bio,
       website: this.state.website,
     }
-    this.props.processForm(this.state);
+    this.props.processForm(this.state)
+      .then(this.props.history.push(`/users/${this.props.match.params.userId}/`));
   }
 
   update(field) {
@@ -48,6 +51,10 @@ class UpdateForm extends React.Component {
         buttonText: "Update Profile"
       })
     }
+  }
+
+  handleCancel() {
+    this.props.history.push(`/users/${this.props.match.params.userId}/`);
   }
 
   render() {
@@ -108,10 +115,16 @@ class UpdateForm extends React.Component {
                 <p className="session-errors">
                   {this.props.emailError}
                 </p>
-
-                <input
-                  type="submit"
-                  value="Update"/>
+                <div className="update-actions">
+                  <button
+                    className="update-btn"
+                    type="submit">
+                    Update</button>
+                  <button
+                    className="update-btn"
+                    onClick={this.handleCancel}>
+                    Cancel</button>
+                </div>
               </div>
             </form>
           </div>

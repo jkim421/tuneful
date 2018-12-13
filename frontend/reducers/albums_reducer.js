@@ -6,7 +6,6 @@ import {
   RECEIVE_NEW_ALBUMS } from '../actions/album_actions';
 
 const albumsReducer = (state = { new: [] }, action) => {
-  debugger
   switch(action.type) {
     case RECEIVE_ALBUMS:
       return merge({}, state, action.albums);
