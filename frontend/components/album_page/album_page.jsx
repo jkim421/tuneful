@@ -125,7 +125,7 @@ class AlbumPage extends React.Component {
                     by&nbsp;
                     <Link to={`/artists/${this.props.album.artist_id}`} className="album-byline-link">{this.props.album.artist || ""}</Link>
                     <br/>
-                    <Link to="/" className="album-byline-link album-byline-genre">{this.props.album.genre || ""}</Link>
+                    <p className="album-byline-genre">{this.props.album.genre || ""}</p>
                   </div>
                 </div>
                 <div className="player-container">
