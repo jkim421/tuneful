@@ -1,7 +1,6 @@
 class Api::AlbumsController < ApplicationController
 
   def index
-    debugger
     if filter == "features"
       @albums = Album.where(featured: true).includes(:artist)
     elsif filter == "new"
