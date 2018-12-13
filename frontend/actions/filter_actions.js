@@ -24,9 +24,9 @@ export const retrieveNewAlbums = (albums) => {
   };
 };
 
-export const setExploreGenre = (genreId) => {
+export const setExploreGenre = (genre) => {
   return {
     type: SET_EXPLORE_GENRE,
-    genreId,
+    genre,
   };
 };

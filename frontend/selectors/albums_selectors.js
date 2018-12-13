@@ -29,8 +29,8 @@ export const selectCollection = (albums = {}, albumIds = []) => {
   return collection;
 };
 
-export const selectGenre = (albums={}, genreId=null) => {
+export const selectGenre = (albums={}, genre=null) => {
   let albumVals = Object.values(albums);
-  const genreAlbums = albumVals.filter( album => album.genre_id === genreId );
+  const genreAlbums = albumVals.filter( album => album.genre === genre );
   return genreAlbums;
 };

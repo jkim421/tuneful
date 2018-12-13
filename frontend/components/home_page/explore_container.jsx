@@ -15,8 +15,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setExploreGenre: (genreId) => dispatch(setExploreGenre(genreId)),
-    getGenreAlbums: (genreId) => dispatch(fetchGenreAlbums({"genre": genreId})),
+    setExploreGenre: (genre) => dispatch(setExploreGenre(genre)),
+    getGenreAlbums: (genre) => dispatch(fetchGenreAlbums({"genre": genre})),
   };
 };
 
