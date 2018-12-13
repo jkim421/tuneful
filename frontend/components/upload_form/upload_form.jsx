@@ -5,7 +5,6 @@ class UploadForm extends React.Component {
   constructor(props) {
     super(props);
 <<<<<<< HEAD
-    debugger
 =======
 >>>>>>> master
     this.state = {

@@ -2,9 +2,13 @@ class Api::AlbumsController < ApplicationController
 
   def index
     if filter == "features"
-      @albums = Album.where(featured: true)
+      @albums = Album.where(featured: true).includes(:artist)
     elsif filter == "new"
-      @albums = Album.limit(5).order('created_at DESC')
+      @albums = Album.limit(5).order('created_at DESC').includes(:artist)
+    elsif filter[:genre]
+      @albums = Album.where(genre_id: filter[:genre].to_i)
+        .order('created_at DESC')
+        .includes(:artist)
     elsif !!params[:artistId]
       @albums = Album.where(artist_id: params[:artistId].to_i)
         .order('created_at DESC')

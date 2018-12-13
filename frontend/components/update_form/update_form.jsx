@@ -21,7 +21,6 @@ class UpdateForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger
     e.preventDefault();
     const updatedArtist = {
       name: this.state.name,

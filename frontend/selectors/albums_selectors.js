@@ -27,4 +27,10 @@ export const selectCollection = (albums = {}, albumIds = []) => {
   let albumVals = Object.values(albums);
   const collection = albumVals.filter( album => albumIds.includes(album.id) );
   return collection;
-}
+};
+
+export const selectGenre = (albums={}, genreId=null) => {
+  let albumVals = Object.values(albums);
+  const genreAlbums = albumVals.filter( album => album.genre_id === genreId );
+  return genreAlbums;
+};

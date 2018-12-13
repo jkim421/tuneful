@@ -15,6 +15,7 @@ class HomePage extends React.Component {
         <FeaturedAlbumsContainer />
         <div className="home-page-separator"></div>
         <NewAlbumsContainer />
+        <div className="home-page-separator"></div>
         <ExploreContainer />
       </section>
     );

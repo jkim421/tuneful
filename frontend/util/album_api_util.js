@@ -14,6 +14,14 @@ export const fetchAlbums = (filter) => {
   });
 };
 
+export const fetchGenreAlbums = (filter) => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/albums',
+    data: { filter },
+  });
+};
+
 export const fetchArtistAlbums = (artistId) => {
   return $.ajax({
     method: 'GET',
