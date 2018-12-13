@@ -25,8 +25,8 @@ export const receiveArtists = (artists) => {
   return {
     type: RECEIVE_ARTISTS,
     artists
-  }
-}
+  };
+};
 
 export const receiveArtistErrors = (errors) => {
   return {
