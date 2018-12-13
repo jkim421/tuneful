@@ -48,6 +48,7 @@ class SongItem extends React.Component {
           <a
             className="album-track-dl"
             href={this.props.song.audio_url}
+            target="_blank"
             download="test">
             download song</a>
         </div>
