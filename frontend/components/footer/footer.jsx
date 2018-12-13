@@ -3,7 +3,15 @@ import React from 'react';
 const Footer = () => {
   return (
     <div className="footer-body">
-      <p className="footer-text">created by john kim</p>
+      <p className="footer-text">created by
+        <a
+          className="footer-link"
+          href="https://jkim421.github.io/"
+          target="_blank"> john kim</a> &bull;
+        <a
+          className="footer-link"
+          href="https://github.com/jkim421/tunesmith"
+          target="_blank"> github</a></p>
       <a
         href="https://bandcamp.com/"
         target="_blank"
