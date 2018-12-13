@@ -7,6 +7,7 @@ import {
   RECEIVE_GENRE_ALBUMS } from '../actions/album_actions';
 
 const albumsReducer = (state = { new: [] }, action) => {
+  debugger
   switch(action.type) {
     case RECEIVE_ALBUMS:
     case RECEIVE_GENRE_ALBUMS:
