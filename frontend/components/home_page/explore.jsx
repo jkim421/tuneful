@@ -42,6 +42,7 @@ class Explore extends React.Component {
     const genres = Array.from(document.getElementsByClassName("explore-genre"));
     genres.forEach( genre => genre.classList.remove("selected-genre"));
     selected.classList.add("selected-genre");
+    this.setState({currentPage: 1});
     this.props.setExploreGenre(genre);
     this.props.getGenreAlbums(genre).then( res => this.setPageAlbums());
   }
