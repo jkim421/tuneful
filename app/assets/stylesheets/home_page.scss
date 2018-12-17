@@ -267,9 +267,8 @@
 
 .explore-results {
   margin-top: 10px;
-  height: 500px;
   height: 100%;
-  min-height: 670px;
+  // min-height: 670px;
   border-radius: 5px;
 }
 
@@ -326,5 +325,24 @@
 }
 
 .genre-album-details:hover {
+  text-decoration: underline;
+}
+
+.explore-pages {
+  padding-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.explore-page-num {
+  margin: 0 3px;
+}
+
+.explore-page-num:hover {
+  cursor: pointer;
+}
+
+.current-page-num {
+  font-weight: 700;
   text-decoration: underline;
 }

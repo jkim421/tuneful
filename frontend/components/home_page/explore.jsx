@@ -1,35 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import GenreAlbum from './genre_album';
+import ExploreResults from './explore_results.jsx';
+import PageNum from './page_nums';
 
 class Explore extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      pageNum: 1,
+      currentPage: 1,
+      pageAlbums: [],
     }
+    this.switchPage = this.switchPage.bind(this);
+    this.setPageAlbums = this.setPageAlbums.bind(this);
   }
 
   componentDidMount() {
-    // const genres = [
-    //   ["rock", 196],
-    //   ["pop", 197],
-    //   ["jazz", 198],
-    //   ["electronic", 199],
-    //   ["classical", 200],
-    //   ["blues", 201],
-    //   ["funk", 202]
-    // ]
     const genres = ["Rock","Pop","Jazz","Electronic","Classical","Blues","Funk"]
 
     const randGenre = genres[Math.floor(Math.random() * genres.length)]
-    // const genreId = randGenre[1];
     const genreEle = document.getElementById(randGenre);
 
     genreEle.classList.add("selected-genre");
     this.props.setExploreGenre(randGenre);
-    this.props.getGenreAlbums(randGenre);
+    this.props.getGenreAlbums(randGenre).then( res => this.setPageAlbums());
+  }
+
+  setPageAlbums() {
+    debugger
+    const currentPage = this.state.currentPage;
+    const pageAlbums = this.props.genreAlbums.slice(
+      ((currentPage-1) * 4), ((currentPage) * 4)
+    )
+    debugger
+    this.setState({pageAlbums: pageAlbums});
   }
 
   selectGenre(genre, e) {
@@ -38,12 +43,33 @@ class Explore extends React.Component {
     genres.forEach( genre => genre.classList.remove("selected-genre"));
     selected.classList.add("selected-genre");
     this.props.setExploreGenre(genre);
-    this.props.getGenreAlbums(genre);
-
+    this.props.getGenreAlbums(genre).then( res => this.setPageAlbums());
   }
 
-  toggleSelection() {
 
+  switchPage(e) {
+    const pageNums = Array.from(document.getElementsByClassName("explore-page-num"));
+    pageNums.forEach( num => num.classList.remove("current-page-num"));
+    e.target.classList.add("current-page-num");
+    debugger
+    this.setState(
+      {currentPage: parseInt(e.target.innerHTML)}, this.setPageAlbums);
+  }
+
+  pageDisplay() {
+    const numPages = Math.ceil(this.props.genreAlbums.length / 4);
+    const pageEles = [];
+    const pageList = document.getElementById("page-list");
+    for (let i = 1; i <= numPages; i++) {
+      pageEles.push(
+        <PageNum
+          onClick={this.switchPage}
+          currentPage={this.state.currentPage}
+          key={i}
+          num={i}/>
+      );
+    }
+    return pageEles;
   }
 
   renderGenre() {
@@ -56,6 +82,7 @@ class Explore extends React.Component {
   }
 
   render() {
+    debugger
     return (
       <section id="explore" className="explore-container">
         <div className="home-separator-text">EXPLORE</div>
@@ -90,9 +117,13 @@ class Explore extends React.Component {
             className="explore-genre">funk</div>
         </div>
         <div className="explore-results">
-          <ul className="user-page-discog">
-            {this.renderGenre()}
-          </ul>
+          <ExploreResults albums={this.state.pageAlbums}/>
+        </div>
+        <div className="explore-pages">
+          <div id="page-list" className="page-list">
+            <span>Page</span>
+            {this.pageDisplay()}
+          </div>
         </div>
       </section>
     );
