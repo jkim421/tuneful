@@ -6,6 +6,9 @@ class Explore extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      pageNum: 1,
+    }
   }
 
   componentDidMount() {

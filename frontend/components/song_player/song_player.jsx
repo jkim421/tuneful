@@ -37,8 +37,10 @@ class SongPlayer extends React.Component {
       this.props.setCurrentSong({});
     }
     if (this.props.isPlaying) {
+      debugger
       this.audio.current.play();
     } else {
+      debugger
       this.audio.current.pause();
     }
     if (this.props.currentSong !== oldProps.currentSong) {
@@ -63,8 +65,9 @@ class SongPlayer extends React.Component {
   }
 
   updatePos() {
-    if (this.audio.current.ended) {
-      clearInterval(this.intervalId)
+    if (this.audio.current.currentTime === this.audio.current.duration) {
+      debugger
+      clearInterval(this.intervalId);
       this.setState({isPlaying: false});
     }
     const calcWidth =
