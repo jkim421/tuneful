@@ -204,7 +204,7 @@
   text-decoration: underline;
 }
 
-.user-edit-page, .upload-page {
+.user-edit-page {
   background-color: #fff;
 }
 
@@ -269,4 +269,75 @@
 .update-btn {
   font-size: inherit;
   width: 100px;
+}
+
+.album-upload-container {
+  padding: 44px 0;
+  margin: 0 auto;
+  width: 70%;
+}
+
+.upload-album-field {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-album-songs label:first-of-type {
+  margin-left: 0;
+}
+
+.new-album-songs label {
+  font-size: 14px;
+  width: 100px;
+  margin: 0 20px;
+}
+
+.new-album-songs input {
+  height: 20px;
+  width: 200px;
+}
+
+.new-album-songs .song-title-input {
+  padding-left: 8px;
+}
+
+.new-album-songs .tracknum-input {
+  width: 40px;
+  text-align: center;
+}
+
+.new-album-songs .album-file-input {
+  width: 180px;
+}
+
+.album-upload-btn {
+  font-size: 14px;
+  color: #999;
+  text-decoration: none;
+  border: 1px solid #999;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.add-song-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-song-btn:focus {
+  outline: none;
+}
+
+.add-song-btn:hover {
+  background: #ddd;
+}
+
+.add-song-btn {
+  font-size: 12px;
+  color: #999;
+  text-decoration: none;
+  border: 1px solid #999;
+  border-radius: 5px;
+  padding: 5px 15px;
 }

@@ -8,6 +8,8 @@ class UploadForm extends React.Component {
       artistId: this.props.artist.id,
       albumName: this.props.artist.name,
       albumDescription: this.props.artist.location,
+      songs: {},
+      songCount: 1,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showEditForm = this.showEditForm.bind(this);
@@ -51,12 +53,12 @@ class UploadForm extends React.Component {
   render() {
     return (
       <div className="show-page">
-        <div className="show-body upload-page">
-          <div className="user-edit-container">
+        <div className="show-body user-edit-page">
+          <div className="album-upload-container">
             <form
               className={`update-form`} onSubmit={this.handleSubmit}>
-              <div className="new-album-inputs">
-                <p className="update-form-field">
+              <div className="user-form-inputs">
+                <p className="upload-album-field">
                   <label htmlFor="new-album-name">Album Name</label>
                   <input
                     type="text"
@@ -65,8 +67,8 @@ class UploadForm extends React.Component {
                     onChange={this.update('albumName')}
                     value={this.state.name} />
                 </p>
-                <p className="update-form-field">
-                  <label htmlFor="new-album-description">Album Description</label>
+                <p className="upload-album-field">
+                  <label htmlFor="new-album-description">Description</label>
                   <input
                     type="text"
                     id="new-album-description"
@@ -74,11 +76,40 @@ class UploadForm extends React.Component {
                     onChange={this.update('albumDescription')}
                     value={this.state.name} />
                 </p>
-                
-                <input
-                  type="submit"
-                  value="Update"/>
               </div>
+              <p>Songs</p>
+              <div className="new-album-songs">
+                <div className="new-album-song">
+                  <label htmlFor="song-title-1">Title</label>
+                  <input
+                    type="text"
+                    id="song-title-1"
+                    className="input-field song-title-input"
+                    onChange={this.update('')}
+                    value={this.state.name} />
+                  <label htmlFor="new-song-tracknum">Track #</label>
+                  <input
+                    type="text"
+                    id="new-song-tracknum"
+                    className="input-field tracknum-input"
+                    onChange={this.update()}
+                    value="1" />
+                  <label htmlFor="new-song-file">File</label>
+                  <input
+                    type="file"
+                    accept="audio/*"
+                    id="new-song-file"
+                    className="input-field album-file-input"
+                    onChange={this.update('')}/>
+                </div>
+              </div>
+              <div className="add-song-container">
+                <button className="add-song-btn">Add Song</button>
+              </div>
+              <input
+                type="submit"
+                className="album-upload-btn"
+                value="Upload"/>
             </form>
           </div>
         </div>
