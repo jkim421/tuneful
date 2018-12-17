@@ -4,15 +4,10 @@ import { Redirect, Link } from 'react-router-dom';
 class UploadForm extends React.Component {
   constructor(props) {
     super(props);
-<<<<<<< HEAD
-=======
->>>>>>> master
     this.state = {
-      id: this.props.artist.id,
-      name: this.props.artist.name,
-      location: this.props.artist.location,
-      bio: this.props.artist.bio,
-      website: this.props.artist.website,
+      artistId: this.props.artist.id,
+      albumName: this.props.artist.name,
+      albumDescription: this.props.artist.location,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showEditForm = this.showEditForm.bind(this);
@@ -56,62 +51,30 @@ class UploadForm extends React.Component {
   render() {
     return (
       <div className="show-page">
-        <div className="show-body user-edit-page">
+        <div className="show-body upload-page">
           <div className="user-edit-container">
             <form
               className={`update-form`} onSubmit={this.handleSubmit}>
-              <div className="user-form-inputs">
+              <div className="new-album-inputs">
                 <p className="update-form-field">
-                  <label htmlFor="user-band-name">Band Name</label>
+                  <label htmlFor="new-album-name">Album Name</label>
                   <input
                     type="text"
-                    id="user-band-name"
+                    id="new-album-name"
                     className="input-field"
-                    onChange={this.update('name')}
+                    onChange={this.update('albumName')}
                     value={this.state.name} />
                 </p>
-                <p className="session-errors">
-                  {this.props.nameError}
-                </p>
-
                 <p className="update-form-field">
-                  <label htmlFor="user-location">Location</label>
+                  <label htmlFor="new-album-description">Album Description</label>
                   <input
                     type="text"
-                    id="user-location"
+                    id="new-album-description"
                     className="input-field"
-                    onChange={this.update('location')}
-                    value={this.state.location} />
+                    onChange={this.update('albumDescription')}
+                    value={this.state.name} />
                 </p>
-                <p className="session-errors">
-                  {this.props.emailError}
-                </p>
-
-                <p className="update-form-field">
-                  <label htmlFor="user-bio">Bio</label>
-                  <textarea
-                    id="user-bio"
-                    className="input-field"
-                    onChange={this.update('bio')}
-                    value={this.state.bio} />
-                </p>
-                <p className="session-errors">
-                  {this.props.emailError}
-                </p>
-
-                <p className="update-form-field">
-                  <label htmlFor="user-website">Website</label>
-                  <input
-                    type="text"
-                    id="user-web site"
-                    className="input-field"
-                    onChange={this.update('website')}
-                    value={this.state.website} />
-                </p>
-                <p className="session-errors">
-                  {this.props.emailError}
-                </p>
-
+                
                 <input
                   type="submit"
                   value="Update"/>
@@ -125,4 +88,4 @@ class UploadForm extends React.Component {
 
 }
 
-export default UpdateForm;
+export default UploadForm;

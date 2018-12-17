@@ -4,6 +4,7 @@ import UserDiscography from './user_discography';
 import UserCollection from './user_collection';
 import UserFollows from './user_follows';
 import UpdateFormContainer from '../update_form/update_form_container';
+import UploadFormContainer from '../upload_form/upload_form_container';
 
 class UserPage extends React.Component {
   constructor(props) {
@@ -116,6 +117,7 @@ class UserPage extends React.Component {
               <p className="user-header-artistname">{this.props.artist.name}</p>
               <div className="user-header-buttons">
                 {this.updateFormDisplay()}
+                {this.uploadAlbumDisplay()}
               </div>
             </div>
             <p className="user-header-name-sm">{this.props.user.username}</p>

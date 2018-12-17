@@ -8,6 +8,7 @@ import ArtistPageContainer from './artist_page/artist_page_container';
 import AlbumPageContainer from './album_page/album_page_container';
 import UserPageContainer from './user_page/user_page_container';
 import UpdateFormContainer from './update_form/update_form_container';
+import UploadFormContainer from './upload_form/upload_form_container';
 import Footer from './footer/footer';
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/albums/:albumId" component={AlbumPageContainer} />
           <Route path="/artists/:artistId" component={ArtistPageContainer} />
           <Route path="/users/:userId/edit" component={UpdateFormContainer} />
+          <Route path="/users/:userId/upload" component={UploadFormContainer} />
           <Route path="/users/:userId" component={UserPageContainer} />
         </Switch>
       </section>
