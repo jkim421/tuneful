@@ -17,6 +17,7 @@ class UploadForm extends React.Component {
     this.showEditForm = this.showEditForm.bind(this);
     this.songItem = this.songItem.bind(this);
     this.addSong = this.addSong.bind(this);
+    this.removeSong = this.removeSong.bind(this);
   }
 
   componentWillUnmount(e) {
@@ -56,7 +57,7 @@ class UploadForm extends React.Component {
 
   songItem(num) {
     return (
-      <div className="new-album-song">
+      <div className="new-album-song" key={num}>
         <label htmlFor={`song-title-${num}`}>Title</label>
         <input
           type="text"
@@ -78,18 +79,31 @@ class UploadForm extends React.Component {
           id="new-song-file"
           className="input-field album-file-input"
           onChange={this.update('')}/>
+        <div
+          className="remove-song-btn"
+          onClick={this.removeSong}>x</div>
       </div>
     )
   }
 
   addSong() {
-    const songList = document.getElementById("new-album-songlist");
     const newSongItem = this.songItem(this.state.songCount + 1);
     debugger
     this.setState( prevState => (
       {
         songInputs: [...prevState.songInputs, newSongItem],
         songCount: this.state.songCount + 1,
+      })
+    );
+  }
+
+  removeSong() {
+    const count = this.state.songCount;
+    debugger
+    this.setState( prevState => (
+      {
+        songInputs: [...prevState.songInputs.slice(0, -1)],
+        songCount: count - 1,
       })
     );
   }
@@ -102,8 +116,10 @@ class UploadForm extends React.Component {
             <form
               className={`update-form`} onSubmit={this.handleSubmit}>
               <div className="user-form-inputs">
+                <p className="new-album-header">Album Info</p>
+                <div className="new-album-divider"></div>
                 <p className="upload-album-field">
-                  <label htmlFor="new-album-name">Album Name</label>
+                  <label htmlFor="new-album-name">Name</label>
                   <input
                     type="text"
                     id="new-album-name"
@@ -121,9 +137,10 @@ class UploadForm extends React.Component {
                     value={this.state.name} />
                 </p>
               </div>
-              <p>Songs</p>
+              <p className="new-album-header">Songs</p>
+              <div className="new-album-divider"></div>
               <div id="new-album-songlist" className="new-album-songs">
-                <div className="new-album-song">
+                <div className="new-album-song" key="1">
                   <label htmlFor="song-title-1">Title</label>
                   <input
                     type="text"
