@@ -29,10 +29,10 @@ export const fetchAlbum = (albumId) => {
   });
 };
 
-export const createAlbum = (album) => {
+export const createAlbum = ({album, songs}) => {
   return $.ajax({
     method: 'POST',
     url: '/api/albums',
-    data: { album },
+    data: { album, songs },
   });
 };

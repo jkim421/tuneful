@@ -62,3 +62,9 @@ export const fetchGenreAlbums = genre => dispatch => {
   return AlbumApiUtil.fetchGenreAlbums(genre).then(albums =>
     dispatch(receiveGenreAlbums(albums)));
 };
+
+export const createAlbum = album => dispatch => {
+  return AlbumApiUtil.createAlbum(album).then(returnedAlbum =>
+    dispatch(receiveAlbum(returnedAlbum))
+  );
+};

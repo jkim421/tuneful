@@ -8,17 +8,18 @@ class UploadForm extends React.Component {
     super(props);
     this.state = {
       artistId: this.props.artist.id,
-      albumName: this.props.artist.name,
-      albumDescription: this.props.artist.location,
-      songs: {1: {title: "", trackNum: 1, file: ""}},
-      songCount: 1,
+      albumName: "",
+      albumDescription: "",
+      songCount: 0,
+      songs: {},
+      songFiles: {},
     };
-    this.songInputs = [];
+    this.trackOrder=[];
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showEditForm = this.showEditForm.bind(this);
-    this.songItem = this.songItem.bind(this);
     this.addSong = this.addSong.bind(this);
-    this.addSongEle = this.addSongEle.bind(this);
+    this.updateSong = this.updateSong.bind(this);
+    this.handleFile = this.handleFile.bind(this);
     this.removeSong = this.removeSong.bind(this);
   }
 
@@ -28,34 +29,27 @@ class UploadForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const updatedArtist = {
-      name: this.state.name,
-      location: this.state.location,
-      bio: this.state.bio,
-      website: this.state.website,
-    }
-    this.props.processForm(this.state);
-  }
-
-  update(field) {
-    return (
-      (e) => this.setState({[field]: e.target.value})
-    );
-  }
-
-  updateSong(num, field) {
     debugger
-    return (
-      (e) => {
-        debugger
-        this.setState({
-          songs:
-          { [num]:
-            { [field]: e.target.value }
-          }
-        })
-      }
-    );
+    const songObjs = this.trackOrder.map((track, idx) => {
+      return (
+        {
+          title: this.state.songs[idx + 1].title,
+          trackNum: this.state.songs[idx + 1].trackNum,
+          file: this.state.songs[idx + 1].file,
+        }
+      )
+    });
+    debugger
+    const data = {
+      album: {
+        artistId: this.state.artistId,
+        name: this.state.albumName,
+        description: this.state.albumDescription,
+      },
+      songs: songObjs
+    }
+    debugger
+    this.props.processForm(data);
   }
 
   showEditForm() {
@@ -72,71 +66,89 @@ class UploadForm extends React.Component {
     }
   }
 
-  songItem(num) {
-    debugger
+  update(field) {
     return (
-      <div className="new-album-song" key={num}>
-        <label htmlFor={`song-title-${num}`}>Title</label>
-        <input
-          type="text"
-          id={`song-title-${num}`}
-          className="input-field song-title-input"
-          onChange={this.update(num, "title")}
-          value={this.state.songs[num].title} />
-        <label htmlFor={`song-tracknum-${num}`}>Track #</label>
-        <input
-          type="text"
-          id={`song-tracknum-${num}`}
-          className="input-field tracknum-input"
-          onChange={this.update(num, "trackNum")}
-          value={num} />
-        <label htmlFor={`song-file-${num}`}>File</label>
-        <input
-          type="file"
-          accept="audio/*"
-          id={`song-file-${num}`}
-          className="input-field album-file-input"
-          onChange={this.update(num, "file")}
-          value={this.state.songs[num].file} />
-        <div
-          className="remove-song-btn"
-          onClick={this.removeSong}>x</div>
-      </div>
-    )
+      (e) => this.setState({[field]: e.target.value})
+    );
+  }
+
+  updateSong(num, field) {
+    const trackOrder = this.trackOrder;
+    return (e) => {
+      this.setState(merge(this.state, {
+      songs:
+        { [num]:
+          { [field]: e.target.value }
+        }
+      }));
+      if (field === "trackNum") {
+        this.trackOrder[num - 1] = (e.target.value)
+      }
+    };
+  }
+
+  handleFile(num) {
+    return (e) => {
+      if (e.currentTarget.files[0]) {
+        const updatedSong = merge({}, this.state.songs[num], {file: e.currentTarget.files[0]});
+        const updatedSongs = merge({}, this.state.songs, {[num]: updatedSong})
+        this.setState(
+          {
+            songs: updatedSongs
+          }
+        );
+      }
+    };
   }
 
   addSong() {
-    const songNum = this.state.songCount + 1;
+    const newCount = this.state.songCount + 1
+    this.trackOrder.push(`${newCount}`);
     const newSongObj = {
-      [songNum]: {title: "", trackNum: songNum, file: ""}
+      [newCount]: {
+        title: "",
+        trackNum: `${newCount}`,
+      }
     };
-    debugger
-    this.setState( prevState => (
+    this.setState(
       {
-        songs: merge(this.state.songs, newSongObj),
-      }), () => this.addSongEle(songNum)
+        songCount: newCount,
+        songs: merge(this.state.songs, newSongObj)
+      }
     );
-  }
-
-  addSongEle(num) {
-    debugger
-    const newSongItem = this.songItem(this.state.songCount);
-    debugger
-    this.songInputs.push(newSongItem);
-    this.setState({songCount: num})
   }
 
   removeSong() {
+    this.trackOrder = this.trackOrder.slice(0, -1);
     const count = this.state.songCount;
     const updatedSongs = merge({}, this.state.songs);
+    const updatedFiles = merge({}, this.state.songFiles);
     delete updatedSongs[count];
-    this.songInputs = this.songInputs.slice(0, -1);
-    this.setState( prevState => (
+    delete updatedFiles[count];
+    this.setState(
       {
-        songs: updatedSongs,
         songCount: count - 1,
-      })
+        songs: updatedSongs,
+        songsFiles: updatedFiles,
+      }
     );
+  }
+
+  renderSongInputs() {
+    const songs = [];
+    for (let i = 1; i <= this.state.songCount; i++) {
+      songs.push(
+        <SongItem
+          key={i}
+          num={i}
+          last={i === this.trackOrder.length}
+          trackNum = {`${this.trackOrder[i - 1]}`}
+          updateSong={(num, field) => this.updateSong(num, field)}
+          handleFile={(num) => this.handleFile(num)}
+          removeSong={this.removeSong} />
+      )
+    }
+    return songs;
   }
 
   render() {
@@ -156,8 +168,7 @@ class UploadForm extends React.Component {
                     type="text"
                     id="new-album-name"
                     className="input-field"
-                    onChange={this.update('albumName')}
-                    value={this.state.albumName} />
+                    onChange={this.update('albumName')} />
                 </p>
                 <p className="upload-album-field">
                   <label htmlFor="new-album-description">Description</label>
@@ -165,39 +176,14 @@ class UploadForm extends React.Component {
                     type="text"
                     id="new-album-description"
                     className="input-field"
-                    onChange={this.update('albumDescription')}
-                    value={this.state.albumDescription} />
+                    onChange={this.update('albumDescription')} />
                 </p>
               </div>
               <p className="new-album-header">Songs</p>
               <div className="new-album-divider"></div>
               <div id="new-album-songlist" className="new-album-songs">
-                <div className="new-album-song" key="1">
-                  <label htmlFor="song-title-1">Title</label>
-                  <input
-                    type="text"
-                    id="song-title-1"
-                    className="input-field song-title-input"
-                    onChange={this.updateSong(1, "title")}
-                    value={this.state.songs[1].title} />
-                  <label htmlFor="song-tracknum-1">Track #</label>
-                  <input
-                    type="text"
-                    id="song-tracknum-1"
-                    className="input-field tracknum-input"
-                    onChange={this.update(1, "trackNum")}
-                    value="1" />
-                  <label htmlFor="song-file-1">File</label>
-                  <input
-                    type="file"
-                    accept="audio/*"
-                    id="song-file-1"
-                    className="input-field album-file-input"
-                    onChange={this.update(1, "file")}
-                    value={this.state.songs[1].file} />
-                </div>
                 <div>
-                  {this.songInputs}
+                  {this.renderSongInputs()}
                 </div>
               </div>
               <div className="add-song-container">
