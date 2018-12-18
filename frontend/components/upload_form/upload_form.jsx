@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
+import SongItem from './song_item';
 
 class UploadForm extends React.Component {
   constructor(props) {
@@ -10,9 +11,12 @@ class UploadForm extends React.Component {
       albumDescription: this.props.artist.location,
       songs: {},
       songCount: 1,
+      songInputs: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showEditForm = this.showEditForm.bind(this);
+    this.songItem = this.songItem.bind(this);
+    this.addSong = this.addSong.bind(this);
   }
 
   componentWillUnmount(e) {
@@ -50,6 +54,46 @@ class UploadForm extends React.Component {
     }
   }
 
+  songItem(num) {
+    return (
+      <div className="new-album-song">
+        <label htmlFor={`song-title-${num}`}>Title</label>
+        <input
+          type="text"
+          id={`song-title-${num}`}
+          className="input-field song-title-input"
+          onChange={this.update('')}
+          value={this.state.name} />
+        <label htmlFor="new-song-tracknum">Track #</label>
+        <input
+          type="text"
+          id="new-song-tracknum"
+          className="input-field tracknum-input"
+          onChange={this.update()}
+          value={num} />
+        <label htmlFor="new-song-file">File</label>
+        <input
+          type="file"
+          accept="audio/*"
+          id="new-song-file"
+          className="input-field album-file-input"
+          onChange={this.update('')}/>
+      </div>
+    )
+  }
+
+  addSong() {
+    const songList = document.getElementById("new-album-songlist");
+    const newSongItem = this.songItem(this.state.songCount + 1);
+    debugger
+    this.setState( prevState => (
+      {
+        songInputs: [...prevState.songInputs, newSongItem],
+        songCount: this.state.songCount + 1,
+      })
+    );
+  }
+
   render() {
     return (
       <div className="show-page">
@@ -78,7 +122,7 @@ class UploadForm extends React.Component {
                 </p>
               </div>
               <p>Songs</p>
-              <div className="new-album-songs">
+              <div id="new-album-songlist" className="new-album-songs">
                 <div className="new-album-song">
                   <label htmlFor="song-title-1">Title</label>
                   <input
@@ -102,9 +146,13 @@ class UploadForm extends React.Component {
                     className="input-field album-file-input"
                     onChange={this.update('')}/>
                 </div>
+                {this.state.songInputs}
               </div>
               <div className="add-song-container">
-                <button className="add-song-btn">Add Song</button>
+                <div
+                  className="add-song-btn"
+                  onClick={this.addSong}
+                  >Add Song</div>
               </div>
               <input
                 type="submit"
