@@ -44,9 +44,8 @@ class Api::AlbumsController < ApplicationController
     cover = params["album"]["photo"]
 
     @album = Album.new(album_params)
-    debugger
+
     unless @album.valid?
-      debugger
       render json: @album.errors.full_messages, status: 422
     end
     @album.photo.attach(io: cover.tempfile, filename: cover.original_filename)
@@ -57,16 +56,15 @@ class Api::AlbumsController < ApplicationController
     song_errors = []
 
     songs = create_songs(songHash, files, album_id)
-    debugger
+
     songs.each do |song|
       unless song.valid?
         song_errors << song.errors.full_messages
         valid = false
       end
     end
-    debugger
+
     if valid
-      debugger
       songs.each { |song| song.save! }
       render "api/albums/show.json.jbuilder"
     else

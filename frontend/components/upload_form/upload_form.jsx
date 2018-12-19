@@ -25,11 +25,17 @@ class UploadForm extends React.Component {
     this.handleFile = this.handleFile.bind(this);
     this.handlePhoto = this.handlePhoto.bind(this);
     this.removeSong = this.removeSong.bind(this);
+    this.redirectPage = this.redirectPage.bind(this);
     this.renderGenreOptions = this.renderGenreOptions.bind(this);
   }
 
   componentDidMount() {
     this.props.getGenres();
+  }
+
+  redirectPage(res) {
+    const albumId = Object.keys(res.albums)[0]
+    this.props.history.push(`/albums/${albumId}`);
   }
 
   handleSubmit(e) {
@@ -45,7 +51,7 @@ class UploadForm extends React.Component {
     albumData.append("album[photo]", photo);
     songFiles.forEach( file => albumData.append("album[song_files][]", file))
     debugger
-    this.props.sendAlbum(albumData);
+    this.props.sendAlbum(albumData).then(res => this.redirectPage(res));
   }
 
   showEditForm() {
