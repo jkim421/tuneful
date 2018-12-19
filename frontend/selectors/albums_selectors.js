@@ -20,7 +20,7 @@ export const selectNew = (albums = {}, keys = []) => {
 export const selectDiscog = (albums = {}, albumIds = []) => {
   let albumVals = Object.values(albums);
   const discog = albumVals.filter( album => albumIds.includes(album.id) );
-  return discog;
+  return discog.reverse();
 };
 
 export const selectCollection = (albums = {}, albumIds = []) => {
@@ -32,5 +32,5 @@ export const selectCollection = (albums = {}, albumIds = []) => {
 export const selectGenre = (albums={}, genre=null) => {
   let albumVals = Object.values(albums);
   const genreAlbums = albumVals.filter( album => album.genre === genre );
-  return genreAlbums;
+  return genreAlbums.reverse();
 };

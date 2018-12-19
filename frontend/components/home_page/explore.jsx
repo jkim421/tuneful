@@ -28,6 +28,7 @@ class Explore extends React.Component {
   }
 
   setPageAlbums() {
+    debugger
     const currentPage = this.state.currentPage;
     const pageAlbums = this.props.genreAlbums.slice(
       ((currentPage-1) * 4), ((currentPage) * 4)

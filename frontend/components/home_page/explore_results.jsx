@@ -3,7 +3,7 @@ import GenreAlbum from './genre_album';
 import { Link } from 'react-router-dom';
 
 const ExploreResults = ({ albums }) => {
-  const genreAlbums = albums.map( album => {
+  let genreAlbums = albums.map( album => {
     return (
       <GenreAlbum album={album} key={album.id}/>
     )

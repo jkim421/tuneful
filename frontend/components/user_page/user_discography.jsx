@@ -7,7 +7,7 @@ const UserDiscography = ({ discog }) => {
     return (
       <UserPageAlbum album={album} key={album.id}/>
     )
-  })
+  });
   return (
     <ul className="user-page-discog">
       {discogItems}
