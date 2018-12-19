@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SongItem = ({ num, last, trackNum, updateSong, handleFile, removeSong }) => {
-  debugger
   return (
     <div className="new-album-song" key={num}>
       <label htmlFor={`song-title-${num}`}>Title</label>

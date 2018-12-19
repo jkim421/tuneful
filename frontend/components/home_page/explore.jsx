@@ -28,12 +28,10 @@ class Explore extends React.Component {
   }
 
   setPageAlbums() {
-    debugger
     const currentPage = this.state.currentPage;
     const pageAlbums = this.props.genreAlbums.slice(
       ((currentPage-1) * 4), ((currentPage) * 4)
     )
-    debugger
     this.setState({pageAlbums: pageAlbums});
   }
 
@@ -52,7 +50,6 @@ class Explore extends React.Component {
     const pageNums = Array.from(document.getElementsByClassName("explore-page-num"));
     pageNums.forEach( num => num.classList.remove("current-page-num"));
     e.target.classList.add("current-page-num");
-    debugger
     this.setState(
       {currentPage: parseInt(e.target.innerHTML)}, this.setPageAlbums);
   }
@@ -83,7 +80,6 @@ class Explore extends React.Component {
   }
 
   render() {
-    debugger
     return (
       <section id="explore" className="explore-container">
         <div className="home-separator-text">EXPLORE</div>

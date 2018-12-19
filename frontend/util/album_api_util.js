@@ -15,6 +15,7 @@ export const fetchGenreAlbums = (filter) => {
 };
 
 export const fetchArtistAlbums = (artistId) => {
+  debugger
   return $.ajax({
     method: 'GET',
     url: '/api/albums',
@@ -29,10 +30,12 @@ export const fetchAlbum = (albumId) => {
   });
 };
 
-export const createAlbum = ({album, songs}) => {
+export const createAlbum = (album) => {
   return $.ajax({
     method: 'POST',
     url: '/api/albums',
-    data: { album, songs },
+    data: album,
+    contentType: false,
+    processData: false,
   });
 };

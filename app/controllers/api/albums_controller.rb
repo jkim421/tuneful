@@ -1,3 +1,5 @@
+require 'json'
+
 class Api::AlbumsController < ApplicationController
 
   def index
@@ -36,15 +38,46 @@ class Api::AlbumsController < ApplicationController
     end
   end
 
+  def create
+    songHash = JSON.parse(params["album"]["songs"])
+    files = params["album"]["songFiles"]
+    debugger
+    @album = Album.new(album_params)
+    if @album.save!
+      @songs = [];
+      songHash.keys.each_with_index do |key, idx|
+        song = Song.new(
+          album_id: @album.id,
+          title: songHash[key]["title"],
+          track_num: songHash[key]["trackNum"].to_i,
+          )
+        debugger
+        song.audio_file.attach(io: files[idx].tempfile, filename: files[idx].original_filename)
+        @songs.push(song)
+      end
+      debugger
+      @songs.each do |song|
+        unless song.save!
+          album = Album.last
+          album.destroy!
+          render json: ["Errors"], status: 422
+        end
+      end
+      debugger
+    else
+      return "bee"
+    end
+  end
+
   private
 
   def album_params
     params.require(:album).permit(
       :artist_id,
       :title,
+      :description,
       :genre_id,
       :release_date,
-      :descrpition,
       :cover_url,
       :downloadable,
       :featured)

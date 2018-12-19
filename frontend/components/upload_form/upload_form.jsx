@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import SongItem from './song_item';
+import GenreItem from './genre_item';
 import merge from 'lodash/merge';
 
 class UploadForm extends React.Component {
@@ -10,9 +11,10 @@ class UploadForm extends React.Component {
       artistId: this.props.artist.id,
       albumName: "",
       albumDescription: "",
+      albumGenre: null,
       songCount: 0,
       songs: {},
-      songFiles: {},
+      songFiles: [],
     };
     this.trackOrder=[];
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,35 +23,26 @@ class UploadForm extends React.Component {
     this.updateSong = this.updateSong.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.removeSong = this.removeSong.bind(this);
+    this.renderGenreOptions = this.renderGenreOptions.bind(this);
   }
 
-  componentWillUnmount(e) {
-    // this.props.clearErrors();
+  componentDidMount() {
+    this.props.getGenres();
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    const one = 1;
+    const albumData = new FormData();
+    const {albumName, albumDescription, albumGenre, songs, songFiles} = this.state;
+    albumData.append("album[artist_id]", this.props.artist.id);
+    albumData.append("album[title]", albumName);
+    albumData.append("album[description]", albumDescription);
+    albumData.append("album[genre_id]", albumGenre);
+    albumData.append("album[songs]", JSON.stringify(songs));
+    songFiles.forEach( file => albumData.append("album[songFiles][]", file))
     debugger
-    const songObjs = this.trackOrder.map((track, idx) => {
-      return (
-        {
-          title: this.state.songs[idx + 1].title,
-          trackNum: this.state.songs[idx + 1].trackNum,
-          file: this.state.songs[idx + 1].file,
-        }
-      )
-    });
-    debugger
-    const data = {
-      album: {
-        artistId: this.state.artistId,
-        name: this.state.albumName,
-        description: this.state.albumDescription,
-      },
-      songs: songObjs
-    }
-    debugger
-    this.props.processForm(data);
+    this.props.sendAlbum(albumData);
   }
 
   showEditForm() {
@@ -90,11 +83,11 @@ class UploadForm extends React.Component {
   handleFile(num) {
     return (e) => {
       if (e.currentTarget.files[0]) {
-        const updatedSong = merge({}, this.state.songs[num], {file: e.currentTarget.files[0]});
-        const updatedSongs = merge({}, this.state.songs, {[num]: updatedSong})
+        // const songFile = merge({}, {[num]: e.currentTarget.files[0]});
+        // const updatedFiles = merge({}, this.state.songFiles, songFile)
         this.setState(
           {
-            songs: updatedSongs
+            songFiles: this.state.songFiles.concat([e.currentTarget.files[0]])
           }
         );
       }
@@ -129,7 +122,7 @@ class UploadForm extends React.Component {
       {
         songCount: count - 1,
         songs: updatedSongs,
-        songsFiles: updatedFiles,
+        songFiles: updatedFiles,
       }
     );
   }
@@ -151,6 +144,18 @@ class UploadForm extends React.Component {
     return songs;
   }
 
+  renderGenreOptions() {
+    const genres = Object.keys(this.props.genres);
+    debugger
+    const genreEles = genres.map( id =>
+      <GenreItem
+        key={parseInt(id)}
+        value={parseInt(id)}
+        name={this.props.genres[id]}/>
+    )
+    return genreEles;
+  }
+
   render() {
     debugger
     return (
@@ -158,6 +163,7 @@ class UploadForm extends React.Component {
         <div className="show-body user-edit-page">
           <div className="album-upload-container">
             <form
+              id="song-form"
               className={`update-form`} onSubmit={this.handleSubmit}>
               <div className="user-form-inputs">
                 <p className="new-album-header">Album Info</p>
@@ -177,6 +183,16 @@ class UploadForm extends React.Component {
                     id="new-album-description"
                     className="input-field"
                     onChange={this.update('albumDescription')} />
+                </p>
+                <p className="upload-album-field">
+                  <label htmlFor="new-album-genre">Genre</label>
+                  <select
+                    id="new-album-genre"
+                    className="input-field"
+                    onChange={this.update('albumGenre')}>
+                    <option>Select Genre</option>
+                    {this.renderGenreOptions()}
+                  </select>
                 </p>
               </div>
               <p className="new-album-header">Songs</p>

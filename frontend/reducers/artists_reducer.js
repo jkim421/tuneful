@@ -25,7 +25,11 @@ const artistsReducer = (state = {}, action) => {
       const artist = Object.values(action.artists);
       return merge({}, state, { [artist[0].id]: artist[0] });
     case RECEIVE_ALBUMS:
-      return merge({}, state, action.albums.artists);
+      if (!!action.albums) {
+        return merge({}, state, action.albums.artists);
+      } else {
+        return state;
+    }
     default:
       return state;
   }
