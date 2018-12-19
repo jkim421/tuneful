@@ -15,6 +15,7 @@ class UploadForm extends React.Component {
       songCount: 0,
       songs: {},
       songFiles: [],
+      photo: null,
     };
     this.trackOrder=[];
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,6 +23,7 @@ class UploadForm extends React.Component {
     this.addSong = this.addSong.bind(this);
     this.updateSong = this.updateSong.bind(this);
     this.handleFile = this.handleFile.bind(this);
+    this.handlePhoto = this.handlePhoto.bind(this);
     this.removeSong = this.removeSong.bind(this);
     this.renderGenreOptions = this.renderGenreOptions.bind(this);
   }
@@ -34,13 +36,14 @@ class UploadForm extends React.Component {
     e.preventDefault();
     const one = 1;
     const albumData = new FormData();
-    const {albumName, albumDescription, albumGenre, songs, songFiles} = this.state;
+    const {albumName, albumDescription, albumGenre, songs, songFiles, photo} = this.state;
     albumData.append("album[artist_id]", this.props.artist.id);
     albumData.append("album[title]", albumName);
     albumData.append("album[description]", albumDescription);
     albumData.append("album[genre_id]", albumGenre);
     albumData.append("album[songs]", JSON.stringify(songs));
-    songFiles.forEach( file => albumData.append("album[songFiles][]", file))
+    albumData.append("album[photo]", photo);
+    songFiles.forEach( file => albumData.append("album[song_files][]", file))
     debugger
     this.props.sendAlbum(albumData);
   }
@@ -88,6 +91,22 @@ class UploadForm extends React.Component {
         this.setState(
           {
             songFiles: this.state.songFiles.concat([e.currentTarget.files[0]])
+          }
+        );
+      }
+    };
+  }
+
+  handlePhoto() {
+    debugger
+    return (e) => {
+      debugger
+      if (e.currentTarget.files[0]) {
+        // const songFile = merge({}, {[num]: e.currentTarget.files[0]});
+        // const updatedFiles = merge({}, this.state.songFiles, songFile)
+        this.setState(
+          {
+            photo: e.currentTarget.files[0]
           }
         );
       }
@@ -193,6 +212,14 @@ class UploadForm extends React.Component {
                     <option>Select Genre</option>
                     {this.renderGenreOptions()}
                   </select>
+                </p>
+                <p className="upload-album-field">
+                  <label htmlFor="new-album-cover">Cover Photo</label>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="input-field album-file-input"
+                      onChange={this.handlePhoto()} />
                 </p>
               </div>
               <p className="new-album-header">Songs</p>

@@ -40,32 +40,39 @@ class Api::AlbumsController < ApplicationController
 
   def create
     songHash = JSON.parse(params["album"]["songs"])
-    files = params["album"]["songFiles"]
-    debugger
+    files = params["album"]["song_files"]
+    cover = params["album"]["photo"]
+
     @album = Album.new(album_params)
-    if @album.save!
-      @songs = [];
-      songHash.keys.each_with_index do |key, idx|
-        song = Song.new(
-          album_id: @album.id,
-          title: songHash[key]["title"],
-          track_num: songHash[key]["trackNum"].to_i,
-          )
-        debugger
-        song.audio_file.attach(io: files[idx].tempfile, filename: files[idx].original_filename)
-        @songs.push(song)
-      end
+    debugger
+    unless @album.valid?
       debugger
-      @songs.each do |song|
-        unless song.save!
-          album = Album.last
-          album.destroy!
-          render json: ["Errors"], status: 422
-        end
+      render json: @album.errors.full_messages, status: 422
+    end
+    @album.photo.attach(io: cover.tempfile, filename: cover.original_filename)
+    @album.save!
+    album_id = Album.last.id
+
+    valid = true
+    song_errors = []
+
+    songs = create_songs(songHash, files, album_id)
+    debugger
+    songs.each do |song|
+      unless song.valid?
+        song_errors << song.errors.full_messages
+        valid = false
       end
+    end
+    debugger
+    if valid
       debugger
+      songs.each { |song| song.save! }
+      render "api/albums/show.json.jbuilder"
     else
-      return "bee"
+      album = Album.last
+      album.destroy!
+      render json: song_errors, status: 422
     end
   end
 
@@ -85,6 +92,20 @@ class Api::AlbumsController < ApplicationController
 
   def filter
     return params[:filter]
+  end
+
+  def create_songs(songHash, files, album_id)
+    songs = [];
+    songHash.keys.each_with_index do |key, idx|
+      song = Song.new(
+        album_id: album_id,
+        title: songHash[key]["title"],
+        track_num: songHash[key]["trackNum"].to_i,
+        )
+      song.audio_file.attach(io: files[idx].tempfile, filename: files[idx].original_filename)
+      songs.push(song)
+    end
+    return songs
   end
 
 end
