@@ -39,7 +39,6 @@ class Api::AlbumsController < ApplicationController
   end
 
   def create
-    debugger
     songsHash = JSON.parse(params["album"]["songs"])
     files = params["album"]["song_files"]
     cover = params["album"]["photo"]
@@ -57,7 +56,7 @@ class Api::AlbumsController < ApplicationController
     song_errors = []
 
     songs = create_songs(songsHash, files, album_id)
-    debugger
+    
     songs.each do |song|
       unless song.valid?
         song_errors << song.errors.full_messages

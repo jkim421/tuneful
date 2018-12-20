@@ -57,7 +57,6 @@ class UploadForm extends React.Component {
     albumData.append("album[songs]", JSON.stringify(songsObj));
     albumData.append("album[photo]", photo);
     songFiles.forEach( file => albumData.append("album[song_files][]", file))
-    debugger
     this.props.sendAlbum(albumData).then(res => this.redirectPage(res));
   }
 
@@ -85,14 +84,14 @@ class UploadForm extends React.Component {
     const trackOrder = this.trackOrder;
     return (e, idx, field) => {
       let targetSong = this.state.songs[idx];
-      debugger
+      
       targetSong = merge({}, targetSong, {[field]: e.target.value});
-      debugger
+      
       const newSongs =
         this.state.songs.slice(0, idx)
         .concat(targetSong)
         .concat(this.state.songs.slice(idx + 1))
-      debugger
+      
       this.setState({
         songs: newSongs,
       });
@@ -133,8 +132,6 @@ class UploadForm extends React.Component {
   addSong() {
     const newCount = this.state.songCount + 1
     let newSongNum = newCount;
-
-    debugger
 
     if (this.deletedTracks.length > 0) {
       newSongNum = this.deletedTracks[0];
@@ -224,7 +221,6 @@ class UploadForm extends React.Component {
   }
 
   render() {
-    debugger
     return (
       <div className="show-page">
         <div className="show-body user-edit-page">
