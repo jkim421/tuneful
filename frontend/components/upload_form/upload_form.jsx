@@ -13,14 +13,17 @@ class UploadForm extends React.Component {
       albumDescription: "",
       albumGenre: null,
       songCount: 0,
-      songs: {},
+      songs: [],
       songFiles: [],
       photo: null,
     };
     this.trackOrder=[];
+    this.deletedTracks = [];
+    this.songEles = [];
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showEditForm = this.showEditForm.bind(this);
     this.addSong = this.addSong.bind(this);
+    this.createSong = this.createSong.bind(this);
     this.updateSong = this.updateSong.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.handlePhoto = this.handlePhoto.bind(this);
@@ -43,11 +46,15 @@ class UploadForm extends React.Component {
     const one = 1;
     const albumData = new FormData();
     const {albumName, albumDescription, albumGenre, songs, songFiles, photo} = this.state;
+
+    const songsObj = {};
+    songs.forEach( song => songsObj[song.trackNum] = song);
+
     albumData.append("album[artist_id]", this.props.artist.id);
     albumData.append("album[title]", albumName);
     albumData.append("album[description]", albumDescription);
     albumData.append("album[genre_id]", albumGenre);
-    albumData.append("album[songs]", JSON.stringify(songs));
+    albumData.append("album[songs]", JSON.stringify(songsObj));
     albumData.append("album[photo]", photo);
     songFiles.forEach( file => albumData.append("album[song_files][]", file))
     debugger
@@ -74,29 +81,37 @@ class UploadForm extends React.Component {
     );
   }
 
-  updateSong(num, field) {
+  updateSong() {
     const trackOrder = this.trackOrder;
-    return (e) => {
-      this.setState(merge(this.state, {
-      songs:
-        { [num]:
-          { [field]: e.target.value }
-        }
-      }));
+    return (e, idx, field) => {
+      let targetSong = this.state.songs[idx];
+      debugger
+      targetSong = merge({}, targetSong, {[field]: e.target.value});
+      debugger
+      const newSongs =
+        this.state.songs.slice(0, idx)
+        .concat(targetSong)
+        .concat(this.state.songs.slice(idx + 1))
+      debugger
+      this.setState({
+        songs: newSongs,
+      });
       if (field === "trackNum") {
-        this.trackOrder[num - 1] = (e.target.value)
+        this.trackOrder[idx] = (e.target.value)
       }
     };
   }
 
-  handleFile(num) {
-    return (e) => {
+  handleFile() {
+    return (e, idx) => {
       if (e.currentTarget.files[0]) {
-        // const songFile = merge({}, {[num]: e.currentTarget.files[0]});
-        // const updatedFiles = merge({}, this.state.songFiles, songFile)
+        const newFiles =
+        this.state.songFiles.slice(0, idx)
+          .concat([e.currentTarget.files[0]])
+          .concat(this.state.songFiles.slice(idx + 1))
         this.setState(
           {
-            songFiles: this.state.songFiles.concat([e.currentTarget.files[0]])
+            songFiles: newFiles,
           }
         );
       }
@@ -104,12 +119,8 @@ class UploadForm extends React.Component {
   }
 
   handlePhoto() {
-    debugger
     return (e) => {
-      debugger
       if (e.currentTarget.files[0]) {
-        // const songFile = merge({}, {[num]: e.currentTarget.files[0]});
-        // const updatedFiles = merge({}, this.state.songFiles, songFile)
         this.setState(
           {
             photo: e.currentTarget.files[0]
@@ -121,31 +132,51 @@ class UploadForm extends React.Component {
 
   addSong() {
     const newCount = this.state.songCount + 1
-    this.trackOrder.push(`${newCount}`);
-    const newSongObj = {
-      [newCount]: {
-        title: "",
-        trackNum: `${newCount}`,
-      }
+    let newSongNum = newCount;
+
+    debugger
+
+    if (this.deletedTracks.length > 0) {
+      newSongNum = this.deletedTracks[0];
+      this.deletedTracks.shift(1);
     };
+
+    this.trackOrder.push(`${newSongNum}`);
+
+    const newSongObj = {
+        title: "",
+        trackNum: `${newSongNum}`,
+      };
+
     this.setState(
       {
         songCount: newCount,
-        songs: merge(this.state.songs, newSongObj)
+        songs: this.state.songs.concat([newSongObj]),
       }
     );
+
+    this.songEles.push(this.createSong(newSongNum))
   }
 
-  removeSong() {
-    this.trackOrder = this.trackOrder.slice(0, -1);
-    const count = this.state.songCount;
-    const updatedSongs = merge({}, this.state.songs);
-    const updatedFiles = merge({}, this.state.songFiles);
-    delete updatedSongs[count];
-    delete updatedFiles[count];
+  removeSong(idx, trackNum) {
+    this.deletedTracks.push(trackNum);
+    this.deletedTracks.sort();
+
+    this.trackOrder =
+      this.trackOrder.slice(0, idx)
+      .concat(this.trackOrder.slice(idx + 1));
+
+    const updatedFiles =
+      this.state.songFiles.slice(0, idx)
+      .concat(this.state.songFiles.slice(idx + 1));
+
+    const updatedSongs =
+      this.state.songs.slice(0, idx)
+      .concat(this.state.songs.slice(idx+1));
+
     this.setState(
       {
-        songCount: count - 1,
+        songCount: this.state.songCount - 1,
         songs: updatedSongs,
         songFiles: updatedFiles,
       }
@@ -154,24 +185,35 @@ class UploadForm extends React.Component {
 
   renderSongInputs() {
     const songs = [];
-    for (let i = 1; i <= this.state.songCount; i++) {
+    for (let i = 0; i < this.state.songCount; i++) {
       songs.push(
         <SongItem
           key={i}
-          num={i}
-          last={i === this.trackOrder.length}
-          trackNum = {`${this.trackOrder[i - 1]}`}
-          updateSong={(num, field) => this.updateSong(num, field)}
-          handleFile={(num) => this.handleFile(num)}
+          idx={i}
+          song={this.state.songs[i]}
+          file={this.state.songFiles[i]}
+          updateSong={this.updateSong()}
+          handleFile={this.handleFile()}
           removeSong={this.removeSong} />
       )
     }
     return songs;
   }
 
+  createSong(num) {
+    return (
+        <SongItem
+          key={i}
+          idx={i}
+          song={this.state.songs[i]}
+          updateSong={this.updateSong()}
+          handleFile={this.handleFile()}
+          removeSong={this.removeSong} />
+    )
+  }
+
   renderGenreOptions() {
     const genres = Object.keys(this.props.genres);
-    debugger
     const genreEles = genres.map( id =>
       <GenreItem
         key={parseInt(id)}

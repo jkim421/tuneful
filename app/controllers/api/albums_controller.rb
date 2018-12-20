@@ -39,7 +39,8 @@ class Api::AlbumsController < ApplicationController
   end
 
   def create
-    songHash = JSON.parse(params["album"]["songs"])
+    debugger
+    songsHash = JSON.parse(params["album"]["songs"])
     files = params["album"]["song_files"]
     cover = params["album"]["photo"]
 
@@ -55,8 +56,8 @@ class Api::AlbumsController < ApplicationController
     valid = true
     song_errors = []
 
-    songs = create_songs(songHash, files, album_id)
-
+    songs = create_songs(songsHash, files, album_id)
+    debugger
     songs.each do |song|
       unless song.valid?
         song_errors << song.errors.full_messages
@@ -92,13 +93,13 @@ class Api::AlbumsController < ApplicationController
     return params[:filter]
   end
 
-  def create_songs(songHash, files, album_id)
+  def create_songs(songsHash, files, album_id)
     songs = [];
-    songHash.keys.each_with_index do |key, idx|
+    songsHash.keys.each_with_index do |key, idx|
       song = Song.new(
         album_id: album_id,
-        title: songHash[key]["title"],
-        track_num: songHash[key]["trackNum"].to_i,
+        title: songsHash[key]["title"],
+        track_num: songsHash[key]["trackNum"].to_i,
         )
       song.audio_file.attach(io: files[idx].tempfile, filename: files[idx].original_filename)
       songs.push(song)

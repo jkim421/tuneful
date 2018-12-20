@@ -1,34 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SongItem = ({ num, last, trackNum, updateSong, handleFile, removeSong }) => {
+const SongItem = ({ idx, song, updateSong, handleFile, removeSong }) => {
   return (
-    <div className="new-album-song" key={num}>
-      <label htmlFor={`song-title-${num}`}>Title</label>
+    <div className="new-album-song" key={idx}>
+      <label htmlFor={`song-title-${idx}`}>Title</label>
       <input
         type="text"
-        id={`song-title-${num}`}
-        data-num={num}
+        id={`song-title-${idx}`}
+        value={song.title}
         className="input-field song-title-input"
-        onChange={updateSong(num, "title")} />
-      <label htmlFor={`song-tracknum-${num}`}>Track #</label>
+        onChange={(e) => updateSong(e, idx, "title")} />
+      <label htmlFor={`song-tracknum-${idx}`}>Track #</label>
       <input
         type="text"
-        id={`song-tracknum-${num}`}
+        id={`song-tracknum-${idx}`}
+        value={song.trackNum}
         className="input-field tracknum-input"
-        onChange={updateSong(num, "trackNum")}
-        value={trackNum} />
-      <label htmlFor={`song-file-${num}`}>File
+        onChange={(e) => updateSong(e, idx, "trackNum")} />
+      <label htmlFor={`song-file-${idx}`}>File
       <input
         type="file"
         accept="audio/*"
-        id={`song-file-${num}`}
+        id={`song-file-${idx}`}
         className="input-field album-file-input"
-        onChange={handleFile(num)} />
+        onChange={(e) => handleFile(e, idx)} />
       </label>
-      {last ? <div
+      <div
         className="remove-song-btn"
-        onClick={removeSong}>x</div> : ""}
+        onClick={() => removeSong(idx, song.trackNum)}>x</div>
     </div>
   )
 }
