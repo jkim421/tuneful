@@ -10,6 +10,16 @@ class ThinHeader extends React.Component {
       }
     this.logout = this.logout.bind(this);
     this.toggleGearDisplay = this.toggleGearDisplay.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.gearIcon = React.createRef();
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClick)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClick)
   }
 
   logout(e) {
@@ -21,6 +31,20 @@ class ThinHeader extends React.Component {
   toggleGearDisplay() {
     const gearClass = (this.state.toggleGear === "hidden") ? "show" : "hidden";
     this.setState({ toggleGear: gearClass });
+  }
+
+  handleOutsideClick() {
+    if (this.state.toggleGear === "show") {
+      this.setState({ toggleGear: "hidden" })
+    }
+  }
+
+  handleClick(e) {
+    if (this.gearIcon.current.contains(e.target)) {
+      return;
+    }
+
+    this.handleOutsideClick();
   }
 
   userArtistPage() {
@@ -48,7 +72,8 @@ class ThinHeader extends React.Component {
           <div
             id="gear-dropdown-btn"
             className="thin-header-actions thin-header-session"
-            onClick={this.toggleGearDisplay}>
+            onClick={this.toggleGearDisplay}
+            ref={this.gearIcon}>
             <div className="gear-icons">
               <i className="fas fa-cog header-icon"/>
               <span className="header-icon">&#9662;</span>
