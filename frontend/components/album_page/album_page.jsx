@@ -64,21 +64,25 @@ class AlbumPage extends React.Component {
     if (!!this.props.currentUser) {
       return (
         <>
-        {this.props.userCollection.includes(this.props.album.id)
-          ? <i className="fas fa-heart album-collection-icon"></i>
-          : <i className="far fa-heart album-collection-icon"></i>}
+          {this.props.userCollection.includes(this.props.album.id)
+            ? <i className="fas fa-heart album-collection-icon"></i>
+            : <i className="far fa-heart album-collection-icon"></i>}
           <button
             className="album-collection-btn"
             onClick={ this.handleCollection }>
             { this.props.userCollection.includes(this.props.album.id)
               ? "In Collection" : "Add to Collection" }
-            </button>
-            </>
-        );
-      } else {
-        return null;
-      }
+          </button>
+        </>
+      );
+    } else {
+      return null;
     }
+  }
+
+  updateButton() {
+
+  }
 
   handleFollow(e) {
     const followInfo = {
