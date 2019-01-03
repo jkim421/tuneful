@@ -15,6 +15,7 @@ class SearchBar extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.clearInput = this.clearInput.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   handleInput(e) {
@@ -28,6 +29,12 @@ class SearchBar extends React.Component {
 
   handleBlur(e) {
     this.setState({display: "hidden", opacity: 0});
+  }
+
+  handleFocus(e) {
+    if (this.state.query.length > 1) {
+      this.setState({display: "visible", opacity: .95});
+    }
   }
 
   checkQuery(query) {
@@ -55,6 +62,7 @@ class SearchBar extends React.Component {
           className={this.props.inputType}
           placeholder={this.props.placeholderText}
           onBlur={this.handleBlur}
+          onFocus={this.handleFocus}
           onChange={this.handleInput}
           value={this.state.query}/>
         <ul

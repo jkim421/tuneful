@@ -21,7 +21,9 @@ class AlbumPage extends React.Component {
   componentDidUpdate(prevProps) {
     const albumId = this.props.match.params.albumId;
     if (this.props.match.params.albumId !== prevProps.match.params.albumId) {
-      this.props.fetchSongs(albumId);
+      this.props.fetchAlbum(albumId).then( res =>
+        this.props.fetchSongs(albumId)).then( res =>
+          this.props.fetchArtistAlbums(this.props.album.artist_id));
     }
   }
 
