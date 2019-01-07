@@ -104,7 +104,7 @@ class ThinHeader extends React.Component {
       <div id="thin-header" className="thin-header-row">
         <div className="thin-header-content">
           <div className="thin-header-left">
-            <Link to="/" className="thin-logo">~tunesmith</Link>
+            <Link to="/" className="thin-logo">~tuneful</Link>
             <Link to="/" className="thin-header-home thin-header-actions">discover</Link>
             <ThinSearchBarContainer />
           </div>

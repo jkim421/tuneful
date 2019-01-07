@@ -20,7 +20,7 @@ class RegistrationSelect extends React.Component {
     return (
       <div>
         <div className="session-form">
-          <h1>Sign up for a tunesmith account</h1>
+          <h1>Sign up for a tuneful account</h1>
           <p className="close-form" onClick={this.props.closeModal}>&times;</p>
           <div className="registration-select-form">
             <div className="signup-row">

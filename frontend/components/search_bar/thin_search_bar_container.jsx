@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
   return {
     searchResults: state.ui.searchResults,
     inputType: "thin-search",
-    placeholderText: "search tunesmith",
+    placeholderText: "search tuneful",
     listType: "thin-search-list",
   };
 };

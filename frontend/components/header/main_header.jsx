@@ -55,7 +55,7 @@ class MainHeader extends React.Component {
       <div id="main-header" className="main-header-row">
         <div className="main-header-content">
           <div className="main-header-top">
-            <p className="home-logo">~tunesmith</p>
+            <p className="home-logo">~tuneful</p>
             <MainSearchBarContainer />
           </div>
           <div className="main-header-bottom">

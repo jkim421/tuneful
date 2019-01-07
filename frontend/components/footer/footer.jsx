@@ -10,7 +10,7 @@ const Footer = () => {
           target="_blank">created by john kim</a> &bull;
         <a
           className="footer-link"
-          href="https://github.com/jkim421/tunesmith"
+          href="https://github.com/jkim421/tuneful"
           target="_blank"> github</a></p>
       <a
         href="https://bandcamp.com/"
