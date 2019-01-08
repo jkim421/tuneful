@@ -36,7 +36,11 @@ const SearchItems = ({ albums, artists, clearInput, query }) => {
     });
     return albumResults.concat(artistResults);
   } else {
-    return null;
+    return (
+      <div className="search-result-item">
+        <p className="search-item-name">No results</p>
+      </div>
+    )
   }
 };
 
