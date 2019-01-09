@@ -40,7 +40,7 @@ class ThinHeader extends React.Component {
   }
 
   handleClick(e) {
-    if (this.gearIcon.current.contains(e.target)) {
+    if (this.props.loggedIn && this.gearIcon.current.contains(e.target)) {
       return;
     }
 
