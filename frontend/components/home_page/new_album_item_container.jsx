@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
   const userId = state.session.id;
   return {
     currentUser: userId,
-    userCollection: userId ? state.entities.users[userId].user_collection_ids : [],
+    userCollection: userId ? (state.entities.users[userId].user_collection_ids || []) : [],
   };
 };
 

@@ -2,7 +2,7 @@ import {
   RECEIVE_CURRENT_USER,
   LOGOUT_CURRENT_USER,
   RECEIVE_SESSION_ERRORS } from '../actions/session_actions';
-import { ADD_ARTIST } from '../actions/artist_actions';
+import { CREATE_ARTIST } from '../actions/artist_actions';
 
 const nullUser = Object.freeze( { id: null } );
 
@@ -13,7 +13,7 @@ const sessionReducer = (state = nullUser, action) => {
       return { id: action.user.user.id };
     case LOGOUT_CURRENT_USER:
       return nullUser;
-    case ADD_ARTIST:
+    case CREATE_ARTIST:
       return { id: action.artist.user.id };
     default:
       return state;

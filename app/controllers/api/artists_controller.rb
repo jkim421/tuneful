@@ -6,13 +6,13 @@ class Api::ArtistsController < ApplicationController
       @artist = Artist.new(artist_params)
       @artist.user_id = @user.id
       if @artist.save
+        login(@user)
         render 'api/artists/register'
       else
         to_delete = User.last
         to_delete.destroy
         render json: @artist.errors.full_messages, status: 422
       end
-
     else
       render json: @user.errors.full_messages, status: 422
     end

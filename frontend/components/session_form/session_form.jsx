@@ -98,7 +98,7 @@ class SessionForm extends React.Component {
             <div className="session-form-inputs">
               {this.nameField()}
               <p className="session-errors">
-                {this.props.nameError}
+                {this.props.bandnameError}
               </p>
               {this.emailField()}
               <p className="session-errors">

@@ -27,10 +27,10 @@ const mapStateToProps = (state, ownProps) => {
     user,
     artist,
     discog: artist ? selectDiscog(state.entities.albums, artist.album_ids) : [],
-    userFollows: user ? state.entities.users[userId].user_follow_ids : [],
+    userFollows: user ? (state.entities.users[userId].user_follow_ids || []) : [],
     userFollowedArtists: user ? selectFollows(
       state.entities.artists, state.entities.users[userId].user_follow_ids) : [],
-    userCollection: user ? state.entities.users[userId].user_collection_ids : [],
+    userCollection: user ? (state.entities.users[userId].user_collection_ids || []) : [],
     userCollectionAlbums: user ? selectCollection(
       state.entities.albums, state.entities.users[userId].user_collection_ids) : [],
   };

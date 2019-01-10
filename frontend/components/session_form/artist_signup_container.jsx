@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
-  const errors = state.errors.session;
-  let emailError, usernameError, passwordError, nameError;
+  const errors = state.errors.session.concat(state.errors.artist);
+  let emailError, usernameError, passwordError, bandnameError;
   errors.forEach( (error) => {
     if (error.includes("Username")) {
       usernameError = error;
@@ -17,7 +17,7 @@ const mapStateToProps = (state) => {
     } else if (error.includes("Password")) {
       passwordError = error;
     } else if (error.includes("Name")) {
-      nameError = error;
+      bandnameError = error;
     }
   });
 
@@ -25,13 +25,13 @@ const mapStateToProps = (state) => {
     emailError: emailError || '',
     usernameError: usernameError || '',
     passwordError: passwordError || '',
-    nameError: nameError || '',
+    bandnameError: bandnameError || '',
     formType: 'Sign up as an artist',
     formClass: "signup-form",
   };
 };
 
-const mapDispatchProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     processForm: (artist) => dispatch(createArtist(artist)),
     closeModal: () => dispatch(closeModal()),
@@ -45,4 +45,4 @@ const mapDispatchProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchProps)(SessionForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
