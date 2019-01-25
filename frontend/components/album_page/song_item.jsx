@@ -27,7 +27,7 @@ class SongItem extends React.Component {
     if (this.props.currentSong.id === this.props.song.id) {
       this.props.setPlayPause();
     } else {
-      this.props.setCurrentSong(this.props.song).then(this.props.setPlayPause(true));
+      this.props.setCurrentSong(this.props.song);
     }
   }
 

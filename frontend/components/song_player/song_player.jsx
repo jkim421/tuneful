@@ -28,6 +28,7 @@ class SongPlayer extends React.Component {
   }
 
   componentDidUpdate(oldProps, oldState) {
+    debugger
     if (this.props.songs.length > 0 &&
         _.isEmpty(this.props.currentSong)) {
       const songOne = this.props.songs[0];
@@ -54,7 +55,6 @@ class SongPlayer extends React.Component {
     if (this.props.isPlaying) {
       this.props.setPlayPause();
       this.audio.current.pause();
-      clearInterval(this.intervalId);
     } else {
       this.props.setPlayPause();
       this.audio.current.play();
@@ -63,9 +63,9 @@ class SongPlayer extends React.Component {
   }
 
   updatePos() {
-    if (this.audio.current.currentTime === this.audio.current.duration) {
+    if (this.audio.current.currentTime === this.audio.current.duration - 1) {
       clearInterval(this.intervalId);
-      this.setState({isPlaying: false});
+      this.handleForward();
     }
     const calcWidth =
       this.progbar.current.offsetWidth - (this.slider.current.offsetWidth - 3);
@@ -85,7 +85,9 @@ class SongPlayer extends React.Component {
 
   audioLoaded() {
     this.setState({audioLoaded: true}, () => {
-      this.intervalId = this.progInt();
+      if (this.props.isPlaying) {
+        this.intervalId = this.progInt();
+      }
     })
   }
 
@@ -139,18 +141,22 @@ class SongPlayer extends React.Component {
     }
   }
 
-  handleForward(e) {
-    this.props.setCurrentSong(this.props.songs[
-      this.props.currentSong.track_num]);
+  handleForward() {
+    if (this.props.currentSong.track_num === this.props.songs.length) {
+      debugger
+      this.audio.current.pause();
+    } else {
+      this.props.setCurrentSong(this.props.songs[
+        this.props.currentSong.track_num]);
+    }
   }
 
-  handleBackward(e) {
+  handleBackward() {
     this.props.setCurrentSong(this.props.songs[
       this.props.currentSong.track_num - 2]);
   }
 
   render() {
-    debugger
     const backDisabled = (this.props.currentSong.track_num === 1) ? true : false;
     const frwdDisabled = (this.props.currentSong.track_num === (this.props.songs.length)) ? true : false;
     return (
@@ -184,7 +190,7 @@ class SongPlayer extends React.Component {
               <div
                 className="progress-bar-slider"
                 ref={this.slider}
-                style={{left: this.state.sliderPos}}/>
+                style={{left: this.state.sliderPos || 0}}/>
               <button
                 className="prev-btn"
                 onClick={this.handleBackward}
