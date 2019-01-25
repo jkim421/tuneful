@@ -16,7 +16,7 @@ class SongPlayer extends React.Component {
     this.handleProgClick = this.handleProgClick.bind(this);
     this.handleForward = this.handleForward.bind(this);
     this.handleBackward = this.handleBackward.bind(this);
-    this.progInt = () => setInterval(this.updatePos, 200);
+    this.progInt = this.progInt.bind(this);
 
     this.audioLoaded = this.audioLoaded.bind(this);
   }
@@ -28,7 +28,6 @@ class SongPlayer extends React.Component {
   }
 
   componentDidUpdate(oldProps, oldState) {
-    debugger
     if (this.props.songs.length > 0 &&
         _.isEmpty(this.props.currentSong)) {
       const songOne = this.props.songs[0];
@@ -46,6 +45,7 @@ class SongPlayer extends React.Component {
       this.setState({audioLoaded: false});
     }
   }
+
   componentWillUnmount() {
     clearInterval(this.intervalId);
     this.props.setCurrentSong({});
@@ -63,7 +63,10 @@ class SongPlayer extends React.Component {
   }
 
   updatePos() {
-    if (this.audio.current.currentTime === this.audio.current.duration - 1) {
+    const current = parseFloat(this.audio.current.currentTime.toFixed(1));
+    const duration = parseFloat(this.audio.current.duration.toFixed(1));
+
+    if (current === duration) {
       clearInterval(this.intervalId);
       this.handleForward();
     }
@@ -73,6 +76,10 @@ class SongPlayer extends React.Component {
       calcWidth * (this.audio.current.currentTime / this.audio.current.duration);
     const roundedProg = Math.round(progress);
     this.setState({sliderPos: roundedProg})
+  }
+
+  progInt() {
+    setInterval(this.updatePos, 200);
   }
 
   renderIcon() {
@@ -143,8 +150,9 @@ class SongPlayer extends React.Component {
 
   handleForward() {
     if (this.props.currentSong.track_num === this.props.songs.length) {
-      debugger
-      this.audio.current.pause();
+      if (this.props.isPlaying) {
+        this.props.setPlayPause();
+      }
     } else {
       this.props.setCurrentSong(this.props.songs[
         this.props.currentSong.track_num]);
