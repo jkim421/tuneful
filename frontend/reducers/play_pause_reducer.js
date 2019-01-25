@@ -5,7 +5,11 @@ import { SET_PLAY_PAUSE } from '../actions/play_pause_actions';
 const playPauseReducer = (state = false, action) => {
   switch(action.type) {
     case SET_PLAY_PAUSE:
-      return !state
+      if (action.play) {
+        return action.play;
+      } else {
+        return !state;
+      }
     default:
       return state;
   }

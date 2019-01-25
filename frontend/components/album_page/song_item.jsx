@@ -23,8 +23,12 @@ class SongItem extends React.Component {
     }
   }
 
-  changeSong() {
-    this.props.setCurrentSong(this.props.song);
+  changeSong(e) {
+    if (this.props.currentSong.id === this.props.song.id) {
+      this.props.setPlayPause();
+    } else {
+      this.props.setCurrentSong(this.props.song).then(this.props.setPlayPause(true));
+    }
   }
 
   render() {
