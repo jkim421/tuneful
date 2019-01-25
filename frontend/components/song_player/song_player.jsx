@@ -22,19 +22,23 @@ class SongPlayer extends React.Component {
   }
 
   componentDidMount () {
-    if (this.props.isPlaying) {
+     if (this.props.isPlaying) {
       this.props.setPlayPause();
     }
   }
 
   componentDidUpdate(oldProps, oldState) {
+    debugger
     if (this.props.songs.length > 0 &&
         _.isEmpty(this.props.currentSong)) {
       const songOne = this.props.songs[0];
       this.props.setCurrentSong(songOne)
     }
     if (this.props.location.pathname !== oldProps.location.pathname) {
+      clearInterval(this.intervalId);
+      this.props.setPlayPause(false);
       this.props.setCurrentSong({});
+      this.setState({audioLoaded: false});
     }
     if (this.props.isPlaying) {
       this.audio.current.play();
@@ -53,12 +57,13 @@ class SongPlayer extends React.Component {
 
   handlePlay() {
     if (this.props.isPlaying) {
-      this.props.setPlayPause();
+      clearInterval(this.intervalId);
+      this.props.setPlayPause(false);
       this.audio.current.pause();
     } else {
-      this.props.setPlayPause();
-      this.audio.current.play();
       this.intervalId = this.progInt();
+      this.props.setPlayPause(true);
+      this.audio.current.play();
     }
   }
 
@@ -70,16 +75,20 @@ class SongPlayer extends React.Component {
       clearInterval(this.intervalId);
       this.handleForward();
     }
+
     const calcWidth =
-      this.progbar.current.offsetWidth - (this.slider.current.offsetWidth - 3);
+    this.progbar.current.offsetWidth - (this.slider.current.offsetWidth - 3);
+
     const progress =
-      calcWidth * (this.audio.current.currentTime / this.audio.current.duration);
+    calcWidth * (this.audio.current.currentTime / this.audio.current.duration);
+
     const roundedProg = Math.round(progress);
+
     this.setState({sliderPos: roundedProg})
   }
 
   progInt() {
-    setInterval(this.updatePos, 200);
+    return setInterval(this.updatePos, 200);
   }
 
   renderIcon() {
@@ -151,7 +160,7 @@ class SongPlayer extends React.Component {
   handleForward() {
     if (this.props.currentSong.track_num === this.props.songs.length) {
       if (this.props.isPlaying) {
-        this.props.setPlayPause();
+        this.props.setPlayPause(false);
       }
     } else {
       this.props.setCurrentSong(this.props.songs[
