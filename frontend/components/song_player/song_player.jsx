@@ -84,7 +84,9 @@ class SongPlayer extends React.Component {
   }
 
   audioLoaded() {
-    this.setState({audioLoaded: true})
+    this.setState({audioLoaded: true}, () => {
+      this.intervalId = this.progInt();
+    })
   }
 
   renderPlaytime() {
@@ -148,6 +150,7 @@ class SongPlayer extends React.Component {
   }
 
   render() {
+    debugger
     const backDisabled = (this.props.currentSong.track_num === 1) ? true : false;
     const frwdDisabled = (this.props.currentSong.track_num === (this.props.songs.length)) ? true : false;
     return (
