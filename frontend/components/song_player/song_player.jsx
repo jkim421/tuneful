@@ -28,7 +28,6 @@ class SongPlayer extends React.Component {
   }
 
   componentDidUpdate(oldProps, oldState) {
-    debugger
     if (this.props.songs.length > 0 &&
         _.isEmpty(this.props.currentSong)) {
       const songOne = this.props.songs[0];
@@ -38,7 +37,7 @@ class SongPlayer extends React.Component {
       clearInterval(this.intervalId);
       this.props.setPlayPause(false);
       this.props.setCurrentSong({});
-      this.setState({audioLoaded: false});
+      this.setState({audioLoaded: false, sliderPos: 0});
     }
     if (this.props.isPlaying) {
       this.audio.current.play();

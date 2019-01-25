@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentSong: (song) => dispatch(setCurrentSong(song)),
-    setPlayPause: () => dispatch(setPlayPause()),
+    setPlayPause: (play) => dispatch(setPlayPause(play)),
   };
 };
 

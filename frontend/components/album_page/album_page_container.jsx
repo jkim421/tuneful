@@ -11,8 +11,6 @@ import { fetchAlbum, fetchArtistAlbums } from '../../actions/album_actions';
 import { fetchArtist } from '../../actions/artist_actions';
 import { fetchSongs, setCurrentSong } from '../../actions/song_actions';
 import { selectDiscog } from '../../selectors/albums_selectors';
-import { setPlayPause } from '../../actions/play_pause_actions';
-
 
 const mapStateToProps = (state, ownProps) => {
   const userId = state.session.id;
@@ -42,7 +40,6 @@ const mapDispatchToProps = (dispatch) => {
     removeCollection: (data) => dispatch(deleteCollectionAlbum(data)),
     addFollow: (data) => dispatch(createFollow(data)),
     removeFollow: (data) => dispatch(deleteFollow(data)),
-    setPlayPause: (song) => dispatch(setPlayPause(song)),
   };
 };
 
