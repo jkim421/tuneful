@@ -17,6 +17,7 @@ class SongPlayer extends React.Component {
     this.handleForward = this.handleForward.bind(this);
     this.handleBackward = this.handleBackward.bind(this);
     this.progInt = this.progInt.bind(this);
+    this.intervalId = null;
 
     this.audioLoaded = this.audioLoaded.bind(this);
   }
@@ -45,12 +46,17 @@ class SongPlayer extends React.Component {
       this.audio.current.pause();
     }
     if (this.props.currentSong !== oldProps.currentSong) {
+      clearInterval(this.intervalId);
       this.setState({audioLoaded: false});
     }
   }
 
   componentWillUnmount() {
-    clearInterval(this.intervalId);
+    if (this.props.isPlaying) {
+      clearInterval(this.intervalId);
+      this.props.setPlayPause(false);
+      this.audio.current.pause();
+    }
     this.props.setCurrentSong({});
   }
 
