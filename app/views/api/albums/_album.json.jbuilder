@@ -5,6 +5,7 @@ json.albums do
     json.genre album.genre.name
     json.photo_url url_for(album.photo) if album.photo.attached?
     json.song_ids album.songs.map{ |song| song.id }
+    json.album_comments album.album_comments.ids
   end
 end
 
@@ -15,4 +16,8 @@ json.artists do
     json.cover_photo_url url_for(album.artist.cover_photo) if album.artist.cover_photo.attached?
     json.album_ids album.artist.album_ids
   end
+end
+
+json.album_comments do
+  json.set! album.id, album.album_comments
 end

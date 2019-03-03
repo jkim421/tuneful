@@ -30,11 +30,12 @@ export const receiveGenreAlbums = ({albums, artists}) => {
   };
 };
 
-export const receiveAlbum = ({albums, artists}) => {
+export const receiveAlbum = ({albums, artists, album_comments}) => {
   return {
     type: RECEIVE_ALBUM,
     albums,
     artists,
+    album_comments,
   };
 };
 

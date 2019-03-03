@@ -20,7 +20,9 @@ class Album < ApplicationRecord
 
   belongs_to :genre
   belongs_to :artist
+
   has_many :songs
+  has_many :album_comments
 
   has_one_attached :photo
 

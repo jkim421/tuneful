@@ -28,6 +28,7 @@ class User < ApplicationRecord
   # has_many :album_comments
   #
   has_many :user_follows
+  has_many :album_comments
 
   has_many :followed_artists,
     through: :user_follows,
@@ -37,6 +38,7 @@ class User < ApplicationRecord
   has_many :collected_albums,
     through: :user_collection_albums,
     source: :album
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

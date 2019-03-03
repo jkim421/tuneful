@@ -17,7 +17,7 @@ class AlbumPage extends React.Component {
       this.props.fetchSongs(albumId)).then( res =>
         this.props.fetchArtistAlbums(this.props.album.artist_id));
   }
-  
+
   componentDidUpdate(prevProps) {
     const albumId = this.props.match.params.albumId;
     if (this.props.match.params.albumId !== prevProps.match.params.albumId) {
@@ -155,6 +155,9 @@ class AlbumPage extends React.Component {
                 <img className="album-cover-img" src={this.props.album.photo_url}/>
                 <div className="album-collection">
                   { this.collectionButton() }
+                </div>
+                <div className="album-comments">
+                  Comments
                 </div>
               </div>
             </div>
