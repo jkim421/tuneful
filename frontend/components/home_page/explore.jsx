@@ -32,7 +32,7 @@ class Explore extends React.Component {
     const pageAlbums = this.props.genreAlbums.slice(
       ((currentPage-1) * 4), ((currentPage) * 4)
     )
-    this.setState({pageAlbums: pageAlbums});
+    this.setState({pageAlbums});
   }
 
   selectGenre(genre, e) {
