@@ -1,12 +1,15 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_ALBUM } from '../actions/album_actions';
+import { RECEIVE_ALBUM, RECEIVE_COMMENT } from '../actions/album_actions';
 
 const albumCommentsReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_ALBUM:
-      const album = Object.values(action.albums)[0];
-      return merge ({}, state, { [album.id]: action.album_comments[album.id] });
+      const albumId = Object.keys(action.albums)[0];
+      const updatedState = {[albumId]: action.album_comments[albumId]};
+      return merge({}, state, updatedState);
+    case RECEIVE_COMMENT:
+      return merge ({}, state, action.comments);
     default:
       return state;
   }

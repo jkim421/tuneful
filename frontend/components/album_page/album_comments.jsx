@@ -11,6 +11,7 @@ class AlbumComments extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.startComment = this.startComment.bind(this);
     this.cancelComment = this.cancelComment.bind(this);
+    this.submitComment = this.submitComment.bind(this);
   }
 
   handleInput(e) {
@@ -57,6 +58,16 @@ class AlbumComments extends React.Component {
     })
   }
 
+  submitComment() {
+    const comment = {
+      user_id: this.props.currentUser,
+      album_id: parseInt(this.props.albumId),
+      body: this.state.body,
+    };
+  
+    this.props.createComment(comment);
+  }
+
   render() {
     const { comment, user } = this.props;
     return (
@@ -76,7 +87,10 @@ class AlbumComments extends React.Component {
             >
               cancel
             </button>
-            <button className={`album-comments-submit ${this.displayCommentBtns()}`}>
+            <button
+              className={`album-comments-submit ${this.displayCommentBtns()}`}
+              onClick={this.submitComment}
+            >
               submit
             </button>
           </div>

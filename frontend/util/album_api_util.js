@@ -38,3 +38,11 @@ export const createAlbum = (album) => {
     processData: false,
   });
 };
+
+export const createComment = (comment) => {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/album_comments',
+    data: {comment},
+  });
+};

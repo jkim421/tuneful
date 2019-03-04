@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :artists, only: [:create, :update, :index, :show]
     resources :albums, only: [:index, :show, :create, :update]
     resources :songs, only: [:create, :update, :index, :show]
+    resources :album_comments, only: [:show, :create, :destroy, :update]
     resources :user_collection_albums, only: [:create, :destroy, :index]
     resources :user_follows, only: [:create, :destroy, :index]
     resources :search_results, only: [:index]

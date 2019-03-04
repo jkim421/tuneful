@@ -6,6 +6,7 @@ export const RECEIVE_GENRE_ALBUMS = "RECEIVE_GENRE_ALBUMS";
 export const RECEIVE_NEW_ALBUMS = "RECEIVE_NEW_ALBUMS";
 export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
 
+export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const CREATE_COMMENT = "CREATE_COMMENT";
 export const UPDATE_COMMENT = "UPDATE_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
@@ -44,24 +45,10 @@ export const receiveAlbum = ({albums, artists, album_comments, users}) => {
   };
 };
 
-export const createComment = (comment) => {
+export const receiveComment = (comments) => {
   return {
-    type: CREATE_COMMENT,
-    comment,
-  };
-};
-
-export const updateComment = (comment) => {
-  return {
-    type: UPDATE_COMMENT,
-    comment,
-  };
-};
-
-export const deleteComment = (commentId) => {
-  return {
-    type: DELETE_COMMENT,
-    commentId,
+    type: RECEIVE_COMMENT,
+    comments,
   };
 };
 
@@ -77,7 +64,6 @@ export const fetchArtistAlbums = artistId => dispatch => {
 
 export const fetchAlbum = albumId => dispatch => {
   return AlbumApiUtil.fetchAlbum(albumId).then(album => {
-    debugger
     dispatch(receiveAlbum(album));
   });
 };
@@ -96,4 +82,10 @@ export const createAlbum = albumData => dispatch => {
   return AlbumApiUtil.createAlbum(albumData).then(returnedAlbum =>
     dispatch(receiveAlbum(returnedAlbum))
   );
+};
+
+export const createComment = commentData => dispatch => {
+  return AlbumApiUtil.createComment(commentData).then(returnedComments => {
+    dispatch(receiveComment(returnedComments));
+  });
 };
