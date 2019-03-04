@@ -7,15 +7,6 @@
   margin-bottom: 10px;
 }
 
-.album-comments-post {
-  margin-bottom: 10px;
-  border: 1px solid #363636;
-  border-radius: 3px;
-  width: 90px;
-  text-align: center;
-  font-size: 11px;
-}
-
 .album-comments-text {
   resize: none;
   width: 100%;
@@ -80,6 +71,12 @@
 .comment-username {
   margin-right: 12px;
   font-weight: 700;
+  color: #363636;
+  text-decoration: none;
+}
+
+.comment-username:hover {
+  text-decoration: underline;
 }
 
 .comment-body {
@@ -90,15 +87,18 @@
 .comment-item {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .comment-item-delete {
   font-size: 10px;
   font-weight: 600;
+  margin-left: 12px;
 }
 
 .comment-item-delete:hover {
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .album-comments-hidden {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class CommentItem extends React.Component {
   constructor(props) {
@@ -25,9 +26,12 @@ class CommentItem extends React.Component {
     return (
       <div className="comment-item">
         <div className="comment-content">
-          <span className="comment-username">
+          <Link
+            to={`/users/${user.id}/`}
+            className="comment-username"
+          >
             { user.username }
-          </span>
+          </Link>
           <span className="comment-body">
             { comment.body }
           </span>
