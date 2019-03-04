@@ -18,11 +18,13 @@ const mapStateToProps = (state, ownProps) => {
   const artist = state.entities.artists[album.artist_id] || {};
   const songs = state.entities.songs[ownProps.match.params.albumId] || [];
   const albumComments = state.entities.album_comments[ownProps.match.params.albumId] || [];
+  const users = state.entities.users || {};
   return {
     album,
     artist,
     songs,
     albumComments,
+    users,
     discog: selectDiscog(state.entities.albums, artist.album_ids),
     currentUser: userId,
     userCollection: userId ? state.entities.users[userId].user_collection_ids : [],

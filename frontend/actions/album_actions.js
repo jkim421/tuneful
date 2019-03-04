@@ -6,6 +6,10 @@ export const RECEIVE_GENRE_ALBUMS = "RECEIVE_GENRE_ALBUMS";
 export const RECEIVE_NEW_ALBUMS = "RECEIVE_NEW_ALBUMS";
 export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
 
+export const CREATE_COMMENT = "CREATE_COMMENT";
+export const UPDATE_COMMENT = "UPDATE_COMMENT";
+export const DELETE_COMMENT = "DELETE_COMMENT";
+
 export const receiveNewAlbums = ({albums, artists}) => {
   return {
     type: RECEIVE_NEW_ALBUMS,
@@ -40,6 +44,27 @@ export const receiveAlbum = ({albums, artists, album_comments, users}) => {
   };
 };
 
+export const createComment = (comment) => {
+  return {
+    type: CREATE_COMMENT,
+    comment,
+  };
+};
+
+export const updateComment = (comment) => {
+  return {
+    type: UPDATE_COMMENT,
+    comment,
+  };
+};
+
+export const deleteComment = (commentId) => {
+  return {
+    type: DELETE_COMMENT,
+    commentId,
+  };
+};
+
 export const fetchAlbums = filter => dispatch => {
   return AlbumApiUtil.fetchAlbums(filter).then(albums =>
     dispatch(receiveAlbums(albums)));
@@ -52,7 +77,6 @@ export const fetchArtistAlbums = artistId => dispatch => {
 
 export const fetchAlbum = albumId => dispatch => {
   return AlbumApiUtil.fetchAlbum(albumId).then(album => {
-    debugger
     dispatch(receiveAlbum(album));
   });
 };
