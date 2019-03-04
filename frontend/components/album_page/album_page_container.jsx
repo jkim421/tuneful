@@ -17,10 +17,12 @@ const mapStateToProps = (state, ownProps) => {
   const album = state.entities.albums[ownProps.match.params.albumId] || {};
   const artist = state.entities.artists[album.artist_id] || {};
   const songs = state.entities.songs[ownProps.match.params.albumId] || [];
+  const albumComments = state.entities.album_comments[ownProps.match.params.albumId] || [];
   return {
     album,
     artist,
     songs,
+    albumComments,
     discog: selectDiscog(state.entities.albums, artist.album_ids),
     currentUser: userId,
     userCollection: userId ? state.entities.users[userId].user_collection_ids : [],

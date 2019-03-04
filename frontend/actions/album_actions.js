@@ -30,12 +30,13 @@ export const receiveGenreAlbums = ({albums, artists}) => {
   };
 };
 
-export const receiveAlbum = ({albums, artists, album_comments}) => {
+export const receiveAlbum = ({albums, artists, album_comments, users}) => {
   return {
     type: RECEIVE_ALBUM,
     albums,
     artists,
     album_comments,
+    users,
   };
 };
 
@@ -50,8 +51,10 @@ export const fetchArtistAlbums = artistId => dispatch => {
 };
 
 export const fetchAlbum = albumId => dispatch => {
-  return AlbumApiUtil.fetchAlbum(albumId).then(album =>
-    dispatch(receiveAlbum(album)));
+  return AlbumApiUtil.fetchAlbum(albumId).then(album => {
+    debugger
+    dispatch(receiveAlbum(album));
+  });
 };
 
 export const fetchNewAlbums = filter => dispatch => {

@@ -21,3 +21,9 @@ end
 json.album_comments do
   json.set! album.id, album.album_comments
 end
+
+json.users do
+  album.album_comments.each do |comment|
+    json.set! comment.user_id, comment.user
+  end
+end

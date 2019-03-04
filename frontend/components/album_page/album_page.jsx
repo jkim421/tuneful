@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SongItemContainer from './song_item_container';
 import SideDiscography from '../discography/side_discography';
 import SongPlayerContainer from '../song_player/song_player_container';
+import AlbumComment from './album_comment';
 
 class AlbumPage extends React.Component {
   constructor(props) {
@@ -115,6 +116,13 @@ class AlbumPage extends React.Component {
       }
     }
 
+    renderComments() {
+      const comments = this.props.albumComments;
+      return comments.map( comment =>
+        <AlbumComment comment={comment} />
+      )
+    }
+
   render() {
     return (
       <main className="show-page">
@@ -157,7 +165,7 @@ class AlbumPage extends React.Component {
                   { this.collectionButton() }
                 </div>
                 <div className="album-comments">
-                  Comments
+                  { this.renderComments() }
                 </div>
               </div>
             </div>
