@@ -46,3 +46,18 @@ export const createComment = (comment) => {
     data: {comment},
   });
 };
+
+export const updateComment = (comment) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: '/api/album_comments',
+    data: {comment},
+  });
+};
+
+export const deleteComment = (commentId) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/album_comments/${commentId}`,
+  });
+};

@@ -7,9 +7,6 @@ export const RECEIVE_NEW_ALBUMS = "RECEIVE_NEW_ALBUMS";
 export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
 
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
-export const CREATE_COMMENT = "CREATE_COMMENT";
-export const UPDATE_COMMENT = "UPDATE_COMMENT";
-export const DELETE_COMMENT = "DELETE_COMMENT";
 
 export const receiveNewAlbums = ({albums, artists}) => {
   return {
@@ -86,6 +83,18 @@ export const createAlbum = albumData => dispatch => {
 
 export const createComment = commentData => dispatch => {
   return AlbumApiUtil.createComment(commentData).then(returnedComments => {
+    dispatch(receiveComment(returnedComments));
+  });
+};
+
+export const updateComment = commentData => dispatch => {
+  return AlbumApiUtil.updateComment(commentData).then(returnedComments => {
+    dispatch(receiveComment(returnedComments));
+  });
+};
+
+export const deleteComment = commentId => dispatch => {
+  return AlbumApiUtil.deleteComment(commentId).then(returnedComments => {
     dispatch(receiveComment(returnedComments));
   });
 };

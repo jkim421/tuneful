@@ -1,8 +1,8 @@
 class Api::AlbumCommentsController < ApplicationController
 
   def show
-    @comment = AlbumComment.find(params[:id])
-    @album = Album.find(@comment.album_id)
+    comment = AlbumComment.find(params[:id])
+    @album = Album.find(comment.album_id)
     if @album
       render 'api/album_comments/show.json.jbuilder'
     else
@@ -21,18 +21,19 @@ class Api::AlbumCommentsController < ApplicationController
   end
 
   def update
-    @album_comment = AlbumComment.find(comment_params[:id])
-    if @album_comment.update(comment_params)
-      render 'api/albums/show.json.jbuilder'
+    album_comment = AlbumComment.find(comment_params[:id])
+    if album_comment.update(comment_params)
+      @album = Album.find(comment_params[:album_id])
+      render 'api/album_comments/show.json.jbuilder'
     else
-      render json: @album_comment.errors.full_messages, status: 422
+      render json: album_comment.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    album_comment = AlbumComment.find(comment_params[:id])
-    @user = User.find(album_comment.user_id)
+    album_comment = AlbumComment.find(params[:id])
     if album_comment
+      @album = Album.find(album_comment.album_id)
       album_comment.destroy!
       render 'api/album_comments/show'
     else
@@ -43,7 +44,7 @@ class Api::AlbumCommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:user_id, :album_id, :body)
+    params.require(:comment).permit(:id, :user_id, :album_id, :body)
   end
 
 end
