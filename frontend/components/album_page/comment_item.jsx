@@ -6,7 +6,9 @@ class CommentItem extends React.Component {
     super(props);
     this.state = {
       body: "",
+      edit: false,
     }
+    this.deleteComment = this.deleteComment.bind(this);
   }
 
   handleInput(e) {
@@ -19,6 +21,10 @@ class CommentItem extends React.Component {
     } else {
       return "comment-item-delete album-comments-hidden"
     }
+  }
+
+  deleteComment() {
+    this.props.deleteComment(this.props.comment.id);
   }
 
   render() {
@@ -36,13 +42,11 @@ class CommentItem extends React.Component {
             { comment.body }
           </span>
         </div>
-        <div>
-          <div
-            className={this.displayDelete()}
-            onClick={() => this.props.deleteComment(comment.id)}
-          >
-            delete
-          </div>
+        <div
+          className={ this.displayDelete() }
+          onClick={ this.deleteComment }
+        >
+          delete
         </div>
       </div>
     );
