@@ -120,7 +120,10 @@ class AlbumPage extends React.Component {
     const comments = this.props.albumComments;
     const users = this.props.users;
     return comments.map( comment =>
-      <AlbumCommentContainer comment={comment} user={users[comment.user_id]} />
+      <AlbumCommentContainer
+        key={comment.id}
+        comment={comment}
+        user={users[comment.user_id]} />
     )
   }
 
@@ -166,6 +169,11 @@ class AlbumPage extends React.Component {
                   { this.collectionButton() }
                 </div>
                 <div className="album-comments">
+                  <div className="album-comments-header">
+                    comments
+                  </div>
+                  <div className="album-comments-list">
+                  </div>
                   { this.renderComments() }
                 </div>
               </div>

@@ -13,6 +13,7 @@ class AlbumComment extends React.Component {
   }
 
   render() {
+    const { comment, user } = this.props;
     return (
       <div className="comment-container">
         <div className="comment-username">

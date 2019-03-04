@@ -8,7 +8,7 @@ import {
   deleteComment } from '../../actions/album_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  const currentUser = this.props.session ? this.props.session === ownProps.user.id : false;
+  const currentUser = state.session ? state.session.id === ownProps.user.id : false;
   return {
     currentUser,
   };
