@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AlbumComment from './album_comment';
+import { withRouter } from 'react-router';
+import AlbumComments from './album_comments';
 
 import {
   createComment,
@@ -8,9 +9,13 @@ import {
   deleteComment } from '../../actions/album_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  const currentUser = state.session ? state.session.id === ownProps.user.id : false;
+  const albumComments = state.entities.album_comments[ownProps.match.params.albumId] || [];
+  const users = state.entities.users || {};
+  const loggedIn = Boolean(state.session.id);
   return {
-    currentUser,
+    albumComments,
+    users,
+    loggedIn,
   };
 };
 
@@ -22,4 +27,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AlbumComment);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AlbumComments));

@@ -1,13 +1,14 @@
 .album-comments {
   margin-top: 20px;
+  color: #363636;
 }
 
 .album-comments-header {
   margin-bottom: 10px;
 }
 
-.comment-container {
-  margin-bottom: 15px;
+.comment-item {
+  margin-bottom: 10px;
 }
 
 .comment-username {
@@ -17,4 +18,82 @@
 
 .comment-body {
   font-style: italic;
+}
+
+.album-comments-post {
+  margin-bottom: 10px;
+  border: 1px solid #363636;
+  border-radius: 3px;
+  width: 90px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.album-comments-text {
+  resize: none;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #363636;
+  padding: 5px;
+  height: 26px;
+  transition: height 0.5s ease-out;
+}
+
+.album-comments-text:focus {
+  outline: none;
+}
+
+.album-comments-active {
+  height: 80px;
+  border: 1px solid #363636;
+  border-radius: 3px;
+}
+
+.album-comments-btns {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.album-comments-btn {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s ease-out;
+}
+
+.album-comments-submit {
+  margin-bottom: 10px;
+  border: 1px solid #363636;
+  border-radius: 3px;
+  width: 50px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.album-comments-btn:focus {
+  outline: none;
+}
+
+.album-comments-submit:active {
+  background: #dddddd;
+}
+
+.album-comments-btn:hover {
+  cursor: pointer;
+}
+
+.album-comments-cancel {
+  margin-bottom: 10px;
+  border: none;
+  width: 50px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.album-comments-hidden {
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0;
+  transition: max-height 1s ease-out;
 }

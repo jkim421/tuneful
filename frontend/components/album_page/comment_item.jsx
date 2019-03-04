@@ -1,6 +1,6 @@
 import React from 'react';
 
-class AlbumComment extends React.Component {
+class CommentItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +15,7 @@ class AlbumComment extends React.Component {
   render() {
     const { comment, user } = this.props;
     return (
-      <div className="comment-container">
+      <div className="comment-item">
         <div className="comment-content">
           <span className="comment-username">
             { user.username }
@@ -29,4 +29,4 @@ class AlbumComment extends React.Component {
   }
 }
 
-export default AlbumComment;
+export default CommentItem;
