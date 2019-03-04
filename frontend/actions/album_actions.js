@@ -77,6 +77,7 @@ export const fetchArtistAlbums = artistId => dispatch => {
 
 export const fetchAlbum = albumId => dispatch => {
   return AlbumApiUtil.fetchAlbum(albumId).then(album => {
+    debugger
     dispatch(receiveAlbum(album));
   });
 };
