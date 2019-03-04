@@ -97,6 +97,10 @@
   font-weight: 600;
 }
 
+.comment-item-delete:hover {
+  cursor: pointer;
+}
+
 .album-comments-hidden {
   visibility: hidden;
   opacity: 0;
