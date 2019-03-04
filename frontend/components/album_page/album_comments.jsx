@@ -29,6 +29,14 @@ class AlbumComments extends React.Component {
     )
   }
 
+  displayCommentSection() {
+    if (this.props.loggedIn) {
+      return "album-comments-input";
+    } else {
+      return "album-comments-input album-comments-hidden"
+    }
+  }
+
   displayCommentBtns() {
     if (this.props.loggedIn && this.state.commenting) {
       return "album-comments-btn";
@@ -64,15 +72,15 @@ class AlbumComments extends React.Component {
       album_id: parseInt(this.props.albumId),
       body: this.state.body,
     };
-  
-    this.props.createComment(comment);
+
+    this.props.createComment(comment).then(this.cancelComment());
   }
 
   render() {
     const { comment, user } = this.props;
     return (
       <>
-        <div className="album-comments-input">
+        <div className={this.displayCommentSection()}>
           <textarea
             className={this.displayCommentField()}
             placeholder="post comment"

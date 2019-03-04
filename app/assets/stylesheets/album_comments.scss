@@ -7,19 +7,6 @@
   margin-bottom: 10px;
 }
 
-.comment-item {
-  margin-bottom: 10px;
-}
-
-.comment-username {
-  font-weight: 600;
-  margin-right: 4px;
-}
-
-.comment-body {
-  font-style: italic;
-}
-
 .album-comments-post {
   margin-bottom: 10px;
   border: 1px solid #363636;
@@ -88,6 +75,26 @@
   width: 50px;
   text-align: center;
   font-size: 11px;
+}
+
+.comment-username {
+  margin-right: 12px;
+  font-weight: 700;
+}
+
+.comment-body {
+  font-size: 11px;
+  font-style: italic;
+}
+
+.comment-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-item-delete {
+  font-size: 10px;
+  font-weight: 600;
 }
 
 .album-comments-hidden {

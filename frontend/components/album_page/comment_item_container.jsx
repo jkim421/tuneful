@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import CommentItem from './comment_item';
 
 import {
-  createComment, } from '../../actions/album_actions';
+  deleteComment, } from '../../actions/album_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const currentUser = state.session ? state.session.id === ownProps.user.id : false;
@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createComment: (comment) => dispatch(createComment(comment)),
+    deleteComment: (commentId) => dispatch(deleteComment(commentId)),
   };
 };
 

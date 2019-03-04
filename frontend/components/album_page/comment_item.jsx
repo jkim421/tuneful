@@ -12,6 +12,14 @@ class CommentItem extends React.Component {
     this.setState({body: e.target.value});
   }
 
+  displayDelete() {
+    if (this.props.currentUser) {
+      return "comment-item-delete"
+    } else {
+      return "comment-item-delete album-comments-hidden"
+    }
+  }
+
   render() {
     const { comment, user } = this.props;
     return (
@@ -23,6 +31,14 @@ class CommentItem extends React.Component {
           <span className="comment-body">
             { comment.body }
           </span>
+        </div>
+        <div>
+          <div
+            className={this.displayDelete()}
+            onClick={() => this.props.deleteComment(comment.id)}
+          >
+            delete
+          </div>
         </div>
       </div>
     );
