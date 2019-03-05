@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import AlbumComments from './album_comments';
 import { commentSort } from '../../util/sort.js';
+import { openModal } from '../../actions/modal_actions';
 
 import {
   createComment, } from '../../actions/album_actions';
@@ -23,6 +24,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createComment: (comment) => dispatch(createComment(comment)),
+    openModal: () => dispatch(openModal('login')),
   };
 };
 

@@ -84,9 +84,13 @@ class AlbumComments extends React.Component {
   }
 
   startComment() {
-    this.setState({
-      commenting: true,
-    });
+    if (!this.props.loggedIn) {
+      this.props.openModal();
+    } else {
+      this.setState({
+        commenting: true,
+      });
+    }
   }
 
   cancelComment() {
@@ -133,7 +137,7 @@ class AlbumComments extends React.Component {
   render() {
     return (
       <>
-        <div className={this.displayCommentSection()}>
+        <div className="album-comments-input">
           <textarea
             className={this.displayCommentField()}
             placeholder="post comment"
