@@ -20,7 +20,6 @@ export const selectNew = (albums = {}, keys = []) => {
 export const selectDiscog = (albums = {}, albumIds = []) => {
   let discIds = albumIds.filter( id => albums[id]);
   const discog = discIds.map( id => albums[id]);
-  debugger
   return discog;
 };
 
