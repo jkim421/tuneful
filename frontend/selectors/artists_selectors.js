@@ -1,5 +1,5 @@
 export const selectFollows = (artists = {}, artistIds = []) => {
-  let artistVals = Object.values(artists);
-  const follows = artistVals.filter( artist => artistIds.includes(artist.id) );
+  let followIds = artistIds.filter( id => artists[id]);
+  const follows = followIds.map( id => artists[id]);
   return follows;
 };

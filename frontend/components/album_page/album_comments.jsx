@@ -141,7 +141,7 @@ class AlbumComments extends React.Component {
           <textarea
             className={this.displayCommentField()}
             placeholder="post comment"
-            maxlength={this.state.maxLength}
+            maxLength={this.state.maxLength}
             onChange={this.handleInput}
             onClick={this.startComment}
             value={this.state.body}

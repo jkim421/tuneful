@@ -18,14 +18,15 @@ export const selectNew = (albums = {}, keys = []) => {
 };
 
 export const selectDiscog = (albums = {}, albumIds = []) => {
-  let albumVals = Object.values(albums);
-  const discog = albumVals.filter( album => albumIds.includes(album.id) );
-  return discog.reverse();
+  let discIds = albumIds.filter( id => albums[id]);
+  const discog = discIds.map( id => albums[id]);
+  debugger
+  return discog;
 };
 
 export const selectCollection = (albums = {}, albumIds = []) => {
-  let albumVals = Object.values(albums);
-  const collection = albumVals.filter( album => albumIds.includes(album.id) );
+  let collIds = albumIds.filter( id => albums[id]);
+  const collection = collIds.map( id => albums[id]);
   return collection;
 };
 
