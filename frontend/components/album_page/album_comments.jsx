@@ -114,9 +114,11 @@ class AlbumComments extends React.Component {
     const count = this.props.albumComments.length;
     const { currentPage, perPage } = this.state;
     const maxPage = Math.ceil(count / perPage);
-    if (limit === "min" && currentPage === 1) {
-      return "album-comments-pagebtn album-comments-page-disable";
-    } else if (limit === "max" && currentPage === maxPage) {
+    if (
+      count === 0 ||
+      limit === "min" && currentPage === 1 ||
+      limit === "max" && currentPage === maxPage
+    ) {
       return "album-comments-pagebtn album-comments-page-disable";
     } else {
       return "album-comments-pagebtn";
