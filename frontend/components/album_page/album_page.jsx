@@ -138,9 +138,10 @@ class AlbumPage extends React.Component {
                 <div className="player-container">
                   <SongPlayerContainer songs={this.props.songs}/>
                 </div>
-                <div className="download-container">
-                  <p className="album-download">
-                  </p>
+                <div
+                  className="donate-button"
+                  onClick={this.props.openModal}>
+                  Tip Artist
                 </div>
                 <div className="album-tracks">
                   <ul className="album-song-list">

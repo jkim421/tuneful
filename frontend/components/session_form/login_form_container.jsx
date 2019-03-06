@@ -29,7 +29,6 @@ const mapDispatchProps = (dispatch) => {
         Sign up
       </button>
       ),
-    closeModal: () => dispatch(closeModal()),
   };
 };
 

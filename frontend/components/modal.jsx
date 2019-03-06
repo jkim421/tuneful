@@ -5,6 +5,7 @@ import RegistrationSelectContainer from './session_form/registration_select_cont
 import SignupFormContainer from './session_form/signup_form_container';
 import ArtistSignupContainer from './session_form/artist_signup_container';
 import LoginFormContainer from './session_form/login_form_container';
+import DonateFormContainer from './album_page/donate_form_container';
 
 function Modal({modal, closeModal}) {
   if (!modal) {
@@ -25,6 +26,9 @@ function Modal({modal, closeModal}) {
     case 'signup/artist':
       component = <ArtistSignupContainer />;
       break;
+    case 'donate':
+      component = <DonateFormContainer />
+      break
     default:
       return null;
   }
