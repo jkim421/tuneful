@@ -46,7 +46,7 @@ class FeaturedAlbums extends React.Component {
             <Link
               className="small-feature-link"
               to={`/albums/${album.id}`}
-              style={ this.backgroundImage(album) }>>
+              style={ this.backgroundImage(album) }>
               <div className="small-feature-details">
                 <p className="small-feature-title">{album.title}</p>
                 <p className="small-feature-band">{album.artist}</p>
