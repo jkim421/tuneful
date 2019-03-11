@@ -14,6 +14,7 @@
 
 .album-comments-text {
   font-family: 'Open Sans', sans-serif;
+  font-size: 11px;
   resize: none;
   width: 100%;
   box-sizing: border-box;
@@ -45,12 +46,12 @@
 }
 
 .album-comments-btns {
-  background: none;
 }
 
 .album-comments-btn {
   visibility: visible;
   opacity: 1;
+  background: none;
 }
 
 .album-comments-submit {
