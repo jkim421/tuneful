@@ -12,7 +12,6 @@ class SongPlayer extends React.Component {
     this.slider = React.createRef();
     this.handlePlay = this.handlePlay.bind(this);
     this.updatePos = this.updatePos.bind(this);
-    this.renderPlaytime = this.renderPlaytime.bind(this);
     this.handleProgClick = this.handleProgClick.bind(this);
     this.handleForward = this.handleForward.bind(this);
     this.handleBackward = this.handleBackward.bind(this);
