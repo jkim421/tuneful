@@ -40,11 +40,11 @@ class FeaturedAlbums extends React.Component {
 
   showSide(albums) {
     if (this.props.albums.length > 0) {
-      const albumDetails = albums.map( (album) => {
+      const albumDetails = albums.map( (album, idx) => {
         return (
           <li className="small-feature-wrapper" key={album.id}>
             <Link
-              className="small-feature-link"
+              className={`small-feature-link ${"small-feature-" + (idx+1)}`}
               to={`/albums/${album.id}`}
               style={ this.backgroundImage(album) }>
               <div className="small-feature-details">
