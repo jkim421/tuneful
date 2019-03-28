@@ -14,6 +14,14 @@ class ArtistPage extends React.Component {
     this.props.fetchArtistAlbums(artistId);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.artistId !== prevProps.match.params.artistId) {
+      const artistId = this.props.match.params.artistId;
+      this.props.fetchArtist(artistId);
+      this.props.fetchArtistAlbums(artistId);
+    }
+  }
+
   handleFollow(e) {
     const followInfo = {
       artist_id: this.props.artist.id,
