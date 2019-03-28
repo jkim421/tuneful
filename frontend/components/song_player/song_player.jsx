@@ -28,15 +28,13 @@ class SongPlayer extends React.Component {
   }
 
   componentDidUpdate(oldProps, oldState) {
-    this.slider.current.style.left = '0px';
     if (this.props.songs.length > 0 &&
         _.isEmpty(this.props.currentSong)) {
       const songOne = this.props.songs[0];
       this.props.setCurrentSong(songOne)
     }
     if (this.props.location.pathname !== oldProps.location.pathname) {
-      // clearInterval(this.intervalId);
-      cancelAnimationFrame(this.intervalId);
+      clearInterval(this.intervalId);
       this.props.setPlayPause(false);
       this.props.setCurrentSong({});
       this.setState({audioLoaded: false, sliderPos: 0});
@@ -47,8 +45,7 @@ class SongPlayer extends React.Component {
       this.audio.current.pause();
     }
     if (this.props.currentSong !== oldProps.currentSong) {
-      // clearInterval(this.intervalId);
-      cancelAnimationFrame(this.intervalId);
+      clearInterval(this.intervalId);
       this.setState({audioLoaded: false});
     }
   }
@@ -56,8 +53,7 @@ class SongPlayer extends React.Component {
   componentWillUnmount() {
     this.slider.current.style.left = '0px';
     if (this.props.isPlaying) {
-      // clearInterval(this.intervalId);
-      cancelAnimationFrame(this.intervalId);
+      clearInterval(this.intervalId);
       this.props.setPlayPause(false);
       this.audio.current.pause();
     }
@@ -66,8 +62,7 @@ class SongPlayer extends React.Component {
 
   handlePlay() {
     if (this.props.isPlaying) {
-      // clearInterval(this.intervalId);
-      cancelAnimationFrame(this.intervalId);
+      clearInterval(this.intervalId);
       this.props.setPlayPause(false);
       this.audio.current.pause();
     } else {
@@ -80,10 +75,12 @@ class SongPlayer extends React.Component {
   updatePos() {
     const current = parseFloat(this.audio.current.currentTime.toFixed(1));
     const duration = parseFloat(this.audio.current.duration.toFixed(1));
+    // const current = this.audio.current.currentTime;
+    // const duration = this.audio.current.duration;
 
     if (current === duration) {
-      // clearInterval(this.intervalId);
-      cancelAnimationFrame(this.intervalId);
+      debugger
+      clearInterval(this.intervalId);
       this.handleForward();
     }
 
@@ -95,14 +92,11 @@ class SongPlayer extends React.Component {
 
     const roundedProg = Math.round(progress);
 
-    // this.setState({sliderPos: roundedProg})
-    this.slider.current.style.left = `${roundedProg}px`;
-    requestAnimationFrame(this.updatePos);
+    this.setState({sliderPos: roundedProg})
   }
 
   progInt() {
-    // return setInterval(this.updatePos, 200);
-    return requestAnimationFrame(this.updatePos);
+    return setInterval(this.updatePos, 200);
   }
 
   renderIcon() {
@@ -221,7 +215,7 @@ class SongPlayer extends React.Component {
               <div
                 className="progress-bar-slider"
                 ref={this.slider}
-                style={{left:0}}/>
+                style={{left: this.state.sliderPos || 0}}/>
               <button
                 className="prev-btn"
                 onClick={this.handleBackward}
